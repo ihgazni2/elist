@@ -4098,6 +4098,7 @@ class ListTree():
         def arrow(ele):
             return(str(ele)+' ->')
         arr = array_map(arr,arrow)
+        self.showlog = arr
         forEach(arr,print)
     def dig(self,howmanysteps=None):
         if(howmanysteps):
