@@ -3960,11 +3960,12 @@ class ListTree():
         self.someSibs = self.some_sibs
         self.whichSibPath = self.which_sib_path
         self.whichSib = self.which_sib
-        self.show = None
+        self.showlog = None
     def __repr__(self):
-        return(table(self.list,self.depth,no_return=0))
-    def show(self):
-        table(self.list,self.depth)
+        s = table(self.list,self.depth,no_return=0)
+        showl = s.split('\n')
+        self.showlog = showl
+        return(s)
     def tree(self,**kwargs):
         if('leaf_only' in kwargs):
             leaf_only = kwargs['leaf_only']
@@ -4007,8 +4008,8 @@ class ListTree():
         showl = array_map(nrslt,pathlist_to_getStr)
         nrslt,showl = batsorted(nrslt,nrslt,showl)
         forEach(showl,print)
-        self.show = ['tree -'+prompt+' :']
-        self.show.extend(showl)
+        self.showlog = ['tree -'+prompt+' :']
+        self.showlog.extend(showl)
         return(nrslt)
     def level(self,lvnum,**kwargs):
         if('leaf_only' in kwargs):
@@ -4042,8 +4043,8 @@ class ListTree():
         showl = array_map(rslt,pathlist_to_getStr)
         rslt,showl = batsorted(rslt,rslt,showl)
         forEach(showl,print)
-        self.show = ['level -' +prompt+' ' +str(lvnum)+' :']
-        self.show.extend(showl)
+        self.showlog = ['level -' +prompt+' ' +str(lvnum)+' :']
+        self.showlog.extend(showl)
     def flatten(self):
         lpls = self.tree(leaf_only=True)
         flat = array_map(lpls,getitem_via_pathlist2,self.list)
@@ -4667,8 +4668,8 @@ class ListTree():
             vstr = '"' + str(value) + '"'
         else:
             vstr = str(value)
-        self.show = ['search '+ vstr + ' -'+prompt+' :']
-        self.show.extend(showl)
+        self.showlog = ['search '+ vstr + ' -'+prompt+' :']
+        self.showlog.extend(showl)
         forEach(showl,print)
         return(nrslt)
 
