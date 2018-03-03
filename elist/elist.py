@@ -3619,11 +3619,13 @@ class DescMatrix():
 
 def fullfill_descendants_info(desc_matrix):
     '''
-        flat_offset : from right edge
+       flat_offset
     '''
-    path_mapping = {}
-    def leaf_handler(desc,pdesc,offset):
-        desc['flat_offset'] = (offset,offset+1)
+    pathloc_mapping = {}
+    locpath_mapping = {}
+    #def leaf_handler(desc,pdesc,offset):
+    def leaf_handler(desc,pdesc):
+        #desc['flat_offset'] = (offset,offset+1)
         desc['non_leaf_son_paths'] = []
         desc['leaf_son_paths'] = []
         desc['non_leaf_descendant_paths'] = []
@@ -3633,8 +3635,9 @@ def fullfill_descendants_info(desc_matrix):
             pdesc['flat_len'] = pdesc['flat_len'] + 1
         else:
             pdesc['flat_len'] = 1
-    def non_leaf_handler(desc,pdesc,offset):
-        desc['flat_offset'] = (offset,offset+desc['flat_len'])
+    #def non_leaf_handler(desc,pdesc,offset):
+    def non_leaf_handler(desc,pdesc):
+        #desc['flat_offset'] = (offset,offset+desc['flat_len'])
         pdesc['non_leaf_descendant_paths'].extend(copy.deepcopy(desc['non_leaf_descendant_paths']))
         pdesc['leaf_descendant_paths'].extend(copy.deepcopy(desc['leaf_descendant_paths']))
         if(pdesc['flat_len']):
@@ -3644,22 +3647,23 @@ def fullfill_descendants_info(desc_matrix):
     def fill_path_mapping(desc):
         pmk = tuple(desc['path'])
         pmv = tuple(DescMatrix.loc(desc))
-        path_mapping[pmk] = pmv
-        path_mapping[pmv] = pmk
+        pathloc_mapping[pmk] = pmv
+        locpath_mapping[pmv] = pmk
     dm = DescMatrix(desc_matrix)
     depth = desc_matrix.__len__()
     desc_level = desc_matrix[depth - 1]
     length = desc_level.__len__()
     #the last level
-    offset = 0
+    #offset = 0
     for j in range(length - 1,-1,-1):
         desc = desc_level[j]
         fill_path_mapping(desc)
         pdesc = dm.pdesc(desc)
-        leaf_handler(desc,pdesc,offset)
-        offset = offset + 1
+        leaf_handler(desc,pdesc)
+        #leaf_handler(desc,pdesc,offset)
+        #offset = offset + 1
     for i in range(depth-2,0,-1):
-        offset = 0
+        #offset = 0
         desc_level = desc_matrix[i]
         length = desc_level.__len__()
         for j in range(length-1,-1,-1):
@@ -3667,13 +3671,29 @@ def fullfill_descendants_info(desc_matrix):
             fill_path_mapping(desc)
             pdesc = dm.pdesc(desc)
             if(desc['leaf']):
-                leaf_handler(desc,pdesc,offset)
-                offset = offset + 1
+                leaf_handler(desc,pdesc)
+                #leaf_handler(desc,pdesc,offset)
+                #offset = offset + 1
             else:
-                non_leaf_handler(desc,pdesc,offset)
-                offset = offset + desc['flat_len']
+                non_leaf_handler(desc,pdesc)
+                #non_leaf_handler(desc,pdesc,offset)
+                #offset = offset + desc['flat_len']
     desc_matrix[0][0]['flat_offset'] = (0,desc_matrix[0][0]['flat_len'])
-    return(desc_matrix,path_mapping)
+    for i in range(0,depth-1):
+        pdesc_level = desc_matrix[i]
+        length = pdesc_level.__len__()
+        for j in range(0,length):
+            pdesc = pdesc_level[j]
+            si = pdesc['flat_offset'][0]
+            for i in range(0,pdesc['sons_count']):
+                spl = append(pdesc['path'],i,mode='new')
+                pk = tuple(spl)
+                locx,locy = pathloc_mapping[pk]
+                son = desc_matrix[locx][locy]
+                ei = si + son['flat_len']
+                son['flat_offset'] = (si,ei)
+                si = ei
+    return(desc_matrix,pathloc_mapping,locpath_mapping)
 
 def pathlist_to_getStr(path_list):
     '''
@@ -3694,24 +3714,30 @@ class ListTree():
     '''
         l = [1, [4], 2, [3, [5, 6]]]
         ltree = ListTree(l)
+        
         pathlists = ltree.tree()
         pathlists = ltree.tree(leaf_only=True)
         pathlists = ltree.tree(leaf_only=True,from_lv=1,to_lv=2)
         pathlists = ltree.tree(non_leaf_only=True)
         
         
-        ltree.depth()
+        flat = ltree.flatten()
+        flat
+        ltree.flatWidth
+        ltree.depth
+        
+        
+        
+        
+        ltree.include(3,1,0)
+        ltree.include(pathlist = [3,1,2])
+        
         
         level = ltree.level(1)
         level = ltree.level(1,leaf_only=True)
         level = ltree.level(1,non_leaf_only=True)
         level = ltree.level(2)
         level = ltree.level(3)
-        
-        ltree.flatten()
-        
-        ltree.include(3,1,0)
-        ltree.include(pathlist = [3,1,2])
         
         ltree[1,0]
         l[1][0]
@@ -3750,7 +3776,7 @@ class ListTree():
     def __init__(self,l):
         self.list = l
         self.desc = scan(l)
-        self.desc,self.path_mapping= fullfill_descendants_info(self.desc)
+        self.desc,self.pathloc_mapping,self.locpath_mapping= fullfill_descendants_info(self.desc)
         self.depth = self.desc.__len__()
         self.maxLevelWidth = max(array_map(self.desc,len))
         self.flatWidth = self.desc[0][0]['flat_len']
@@ -3870,21 +3896,21 @@ class ListTree():
     def loc(self,*sibseqs):
         pl = list(sibseqs)
         pk = tuple(pl)
-        loc = ltree.path_mapping[pk]
+        loc = ltree.pathloc_mapping[pk]
         return(list(loc))
     def path(self,locx,locy):
         loc = (locx,locy)
-        pl = ltree.path_mapping[loc]
+        pl = ltree.locpath_mapping[loc]
         pl = list(pl)
         return(pl)
     def path2loc(self,pathlist):
         pl = pathlist
         pk = tuple(pl)
-        loc = ltree.path_mapping[pk]
+        loc = ltree.pathloc_mapping[pk]
         return(list(loc))
     def loc2path(self,loc):
         loc = tuple(loc)
-        pl = ltree.path_mapping[loc]
+        pl = ltree.locpath_mapping[loc]
         pl = list(pl)
         return(pl)
     @classmethod
@@ -4471,7 +4497,7 @@ class ListTree():
             vstr = '"' + str(value) + '"'
         else:
             vstr = str(value)
-        self.show = ['search '+ vstr +' -'+prompt+' :']
+        self.show = ['search '+ vstr + ' -'+prompt+' :']
         self.show.extend(showl)
         forEach(showl,print)
         return(nrslt)
