@@ -4,7 +4,7 @@
 # install
 >__pip3 install elist__
 
-## <font color=yellow>class</font> ListTree
+## _class_ ListTree
 
 __1. init(alist)__
 ------------------
