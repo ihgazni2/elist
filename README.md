@@ -1,4 +1,4 @@
-# elist
+        # elist
 >__handle list ,nested list tree__
 
 # install
@@ -18,3 +18,12 @@ __1. init(alist)__
 ![](elist/Images/ListTree.__init__.0.png)
     
 
+__2. tree(**kwargs)__
+---------------------
+
+        pathlists = ltree.tree()
+        pathlists = ltree.tree(leaf_only=True)
+        pathlists = ltree.tree(leaf_only=True,from_lv=1,to_lv=2)
+        pathlists = ltree.tree(non_leaf_only=True)
+
+![](elist/Images/ListTree.tree.0.png)
