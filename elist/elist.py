@@ -3881,6 +3881,8 @@ class ListTree():
         l = [1, [4], 2, [3, [5, 6]]]
         ltree = ListTree(l)
         
+        ltree
+        
         pathlists = ltree.tree()
         pathlists = ltree.tree(leaf_only=True)
         pathlists = ltree.tree(leaf_only=True,from_lv=1,to_lv=2)
@@ -3947,7 +3949,7 @@ class ListTree():
         self.maxLevelWidth = max(array_map(self.desc,len))
         self.flatWidth = self.desc[0][0]['flat_len']
         self.total = self.desc[0][0]['leaf_descendant_paths'].__len__() + self.desc[0][0]['non_leaf_descendant_paths'].__len__()
-        self.trace = self.tree()
+        self.trace = self.tree(show=False)
         self.prevSibling = self.lsib
         self.prevSibPath = self.lsib_path
         self.nextSibling = self.rsib
@@ -3987,6 +3989,10 @@ class ListTree():
             to_lv = kwargs['to_lv']
         else:
             to_lv = self.depth
+        if('show' in kwargs):
+            show = kwargs['show']
+        else:
+            show = True
         lpls = copy.deepcopy(self.desc[0][0]['leaf_descendant_paths'])
         nlpls = copy.deepcopy(self.desc[0][0]['non_leaf_descendant_paths'])
         if(leaf_only):
@@ -4007,9 +4013,12 @@ class ListTree():
                 pass
         showl = array_map(nrslt,pathlist_to_getStr)
         nrslt,showl = batsorted(nrslt,nrslt,showl)
-        forEach(showl,print)
-        self.showlog = ['tree -'+prompt+' :']
-        self.showlog.extend(showl)
+        if(show):
+            forEach(showl,print)
+            self.showlog = ['tree -'+prompt+' :']
+            self.showlog.extend(showl)
+        else:
+            pass
         return(nrslt)
     def level(self,lvnum,**kwargs):
         if('leaf_only' in kwargs):
@@ -4046,7 +4055,7 @@ class ListTree():
         self.showlog = ['level -' +prompt+' ' +str(lvnum)+' :']
         self.showlog.extend(showl)
     def flatten(self):
-        lpls = self.tree(leaf_only=True)
+        lpls = self.tree(leaf_only=True,show=False)
         flat = array_map(lpls,getitem_via_pathlist2,self.list)
         return(flat)
     def include(self,*sibseqs,**kwargs):
@@ -7039,6 +7048,129 @@ def help(func_name):
             ncin
             
             parents are neighbors,and on the right
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == "ListTree.__init__"):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            [0]
+            [1]
+            [1][0]
+            [2]
+            [3]
+            [3][0]
+            [3][1]
+            [3][1][0]
+            [3][1][1]
+            >>>
+        '''
+        print(doc)
+    elif(func_name == "ListTree.__repr__"):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            [0]
+            [1]
+            [1][0]
+            [2]
+            [3]
+            [3][0]
+            [3][1]
+            [3][1][0]
+            [3][1][1]
+            >>> l
+            [1, [4], 2, [3, [5, 6]]]
+            >>> ltree
+            [1, [4], 2, [3, [5, 6]]]
+             1, [4], 2, [3, [5, 6]]
+                 4       3, [5, 6]
+                             5, 6
+            >>> pobj(ltree.showlog)
+            [
+             '[1, [4], 2, [3, [5, 6]]]',
+             ' 1, [4], 2, [3, [5, 6]] ',
+             '     4       3, [5, 6]  ',
+             '                 5, 6   '
+            ]
+            >>>
+        '''
+        print(doc)
+    elif(func_name == "ListTree.tree"):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            [0]
+            [1]
+            [1][0]
+            [2]
+            [3]
+            [3][0]
+            [3][1]
+            [3][1][0]
+            [3][1][1]
+            >>> pathlists = ltree.tree()
+            [0]
+            [1]
+            [1][0]
+            [2]
+            [3]
+            [3][0]
+            [3][1]
+            [3][1][0]
+            [3][1][1]
+            >>> pathlists
+            [[0], [1], [1, 0], [2], [3], [3, 0], [3, 1], [3, 1, 0], [3, 1, 1]]
+            >>> pathlists = ltree.tree(leaf_only=True)
+            [0]
+            [1][0]
+            [2]
+            [3][0]
+            [3][1][0]
+            [3][1][1]
+            >>> pathlists
+            [[0], [1, 0], [2], [3, 0], [3, 1, 0], [3, 1, 1]]
+            >>> pathlists = ltree.tree(leaf_only=True,from_lv=1,to_lv=2)
+            [0]
+            [1][0]
+            [2]
+            [3][0]
+            >>> pathlists
+            [[0], [1, 0], [2], [3, 0]]
+            >>> pathlists = ltree.tree(non_leaf_only=True)
+            [1]
+            [3]
+            [3][1]
+            >>> pathlists
+            [[1], [3], [3, 1]]
+            >>>
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
         '''
         print(doc)
     elif(func_name == ""):
