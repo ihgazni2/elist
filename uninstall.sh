@@ -1,10 +1,10 @@
-pip3 uninstall xdict
+pip3 uninstall elist
 git rm -r dist
 git rm -r build
-git rm -r xdict.egg-info
+git rm -r elist.egg-info
 rm -r dist
 rm -r build
-rm -r xdict.egg-info
+rm -r elist.egg-info
 git add .
 git commit -m "remove old build"
 #git push origin master

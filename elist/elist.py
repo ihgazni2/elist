@@ -4471,7 +4471,7 @@ class ListTree():
             vstr = '"' + str(value) + '"'
         else:
             vstr = str(value)
-        self.show = ['search '+ vstr' -'+prompt+' :']
+        self.show = ['search '+ vstr +' -'+prompt+' :']
         self.show.extend(showl)
         forEach(showl,print)
         return(nrslt)
