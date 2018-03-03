@@ -3752,7 +3752,7 @@ class ListTree():
         self.desc = scan(l)
         self.desc,self.path_mapping= fullfill_descendants_info(self.desc)
         self.depth = self.desc.__len__()
-        self.maxLevelWidth = max(array_map(desc_matrix,len))
+        self.maxLevelWidth = max(array_map(self.desc,len))
         self.flatWidth = self.desc[0][0]['flat_len']
         self.total = self.desc[0][0]['leaf_descendant_paths'].__len__() + self.desc[0][0]['non_leaf_descendant_paths'].__len__()
         self.trace = self.tree()
