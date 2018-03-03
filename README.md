@@ -36,3 +36,13 @@ __3. tree(**kwargs)__
         pathlists = ltree.tree(non_leaf_only=True)
 
 ![](elist/Images/ListTree.tree.0.png)
+
+__4. flatten()__
+----------------
+
+        flat = ltree.flatten()
+        flat
+        ltree.flatWidth
+        ltree.depth
+
+![](elist/Images/ListTree.flatten.0.png)
