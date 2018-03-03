@@ -3623,7 +3623,9 @@ def fullfill_descendants_info(desc_matrix):
     '''
     pathloc_mapping = {}
     locpath_mapping = {}
+    #def leaf_handler(desc,pdesc,offset):
     def leaf_handler(desc,pdesc):
+        #desc['flat_offset'] = (offset,offset+1)
         desc['non_leaf_son_paths'] = []
         desc['leaf_son_paths'] = []
         desc['non_leaf_descendant_paths'] = []
@@ -3633,7 +3635,9 @@ def fullfill_descendants_info(desc_matrix):
             pdesc['flat_len'] = pdesc['flat_len'] + 1
         else:
             pdesc['flat_len'] = 1
+    #def non_leaf_handler(desc,pdesc,offset):
     def non_leaf_handler(desc,pdesc):
+        #desc['flat_offset'] = (offset,offset+desc['flat_len'])
         pdesc['non_leaf_descendant_paths'].extend(copy.deepcopy(desc['non_leaf_descendant_paths']))
         pdesc['leaf_descendant_paths'].extend(copy.deepcopy(desc['leaf_descendant_paths']))
         if(pdesc['flat_len']):
@@ -3650,12 +3654,16 @@ def fullfill_descendants_info(desc_matrix):
     desc_level = desc_matrix[depth - 1]
     length = desc_level.__len__()
     #the last level
+    #offset = 0
     for j in range(length - 1,-1,-1):
         desc = desc_level[j]
         fill_path_mapping(desc)
         pdesc = dm.pdesc(desc)
         leaf_handler(desc,pdesc)
+        #leaf_handler(desc,pdesc,offset)
+        #offset = offset + 1
     for i in range(depth-2,0,-1):
+        #offset = 0
         desc_level = desc_matrix[i]
         length = desc_level.__len__()
         for j in range(length-1,-1,-1):
@@ -3664,8 +3672,12 @@ def fullfill_descendants_info(desc_matrix):
             pdesc = dm.pdesc(desc)
             if(desc['leaf']):
                 leaf_handler(desc,pdesc)
+                #leaf_handler(desc,pdesc,offset)
+                #offset = offset + 1
             else:
                 non_leaf_handler(desc,pdesc)
+                #non_leaf_handler(desc,pdesc,offset)
+                #offset = offset + desc['flat_len']
     desc_matrix[0][0]['flat_offset'] = (0,desc_matrix[0][0]['flat_len'])
     for i in range(0,depth-1):
         pdesc_level = desc_matrix[i]
@@ -3697,6 +3709,171 @@ def pathlist_to_getStr(path_list):
     for i in range(0,t2.__len__()):
         s = ''.join((s,'[',t2[i],']'))
     return(s)
+
+
+####from xdict.jprint
+def is_lop(ch,block_op_pairs_dict=get_block_op_pairs('{}[]()')):
+    '''
+    # is_lop('{',block_op_pairs_dict)
+    # is_lop('[',block_op_pairs_dict)
+    # is_lop('}',block_op_pairs_dict)
+    # is_lop(']',block_op_pairs_dict)
+    # is_lop('a',block_op_pairs_dict)
+    '''
+    for i in range(1,block_op_pairs_dict.__len__()+1):
+        if(ch == block_op_pairs_dict[i][0]):
+            return(True)
+        else:
+            pass
+    return(False)
+
+def is_rop(ch,block_op_pairs_dict=get_block_op_pairs('{}[]()')):
+    '''
+        # is_rop('{',block_op_pairs_dict)
+        # is_rop('[',block_op_pairs_dict)
+        # is_rop('}',block_op_pairs_dict)
+        # is_rop(']',block_op_pairs_dict)
+        # is_rop('a',block_op_pairs_dict)
+    '''
+    for i in range(1,block_op_pairs_dict.__len__()+1):
+        if(ch == block_op_pairs_dict[i][1]):
+            return(True)
+        else:
+            pass
+    return(False)
+
+def get_block_op_pairs(pairs_str):
+    '''
+        # >>> get_block_op_pairs("{}[]")  
+        # {1: ('{', '}'), 2: ('[', ']')}
+        # >>> get_block_op_pairs("{}[]()")
+        # {1: ('{', '}'), 2: ('[', ']'), 3: ('(', ')')}
+        # >>> get_block_op_pairs("{}[]()<>")
+        # {1: ('{', '}'), 2: ('[', ']'), 3: ('(', ')'), 4: ('<', '>')}
+    '''
+    pairs_str_len = pairs_str.__len__()
+    pairs_len = pairs_str_len // 2
+    pairs_dict = {}
+    for i in range(1,pairs_len +1):
+        pairs_dict[i] = pairs_str[i*2-2],pairs_str[i*2-1]
+    return(pairs_dict)
+
+def get_next_char_level_in_j_str(curr_lv,curr_seq,j_str,block_op_pairs_dict=get_block_op_pairs("{}[]()")):
+    ''' the first-char is level-1
+        when current is  non-op, next-char-level = curr-level
+        when current is  lop,  non-paired-rop-next-char-level = lop-level+1;
+        when current is  lop,  paired-rop-next-char-level = lop-level
+        when current is  rop,  next-char-level = rop-level - 1
+        # {"key_4_UF0aJJ6v": "value_1", "key_2_Hd0t": ["value_16", "value_8", "value_8", "value_15", "value_14", "value_19", {......
+        # 122222222222222222222222222222222222222222222333333333333333333333333333333333333333333333333333333333333333333333334......
+        # {\n"key_4_UF0aJJ6v": "value_1", \n"key_2_Hd0t": [\n"value_16", \n"value_8", \n"value_8", \n"value_15", \n"value_14", \n"value_19",...... 
+        # 1 222222222222222222222222222222 2222222222222222 3333333333333 333333333333 333333333333 3333333333333 3333333333333 3333333333333...... 
+        '''
+    curr_ch = j_str[curr_seq]
+    next_ch = j_str[curr_seq + 1]
+    cond = 0
+    for i in range(1,block_op_pairs_dict.__len__()+1):
+        if(curr_ch == block_op_pairs_dict[i][0]):
+            if(next_ch == block_op_pairs_dict[i][1]):
+                next_lv = curr_lv               
+            else:
+                next_lv = curr_lv + 1
+            cond = 1
+            break
+        elif(curr_ch == block_op_pairs_dict[i][1]):
+            if(is_rop(next_ch,block_op_pairs_dict)):
+                next_lv = curr_lv - 1
+            else:
+                next_lv = curr_lv
+            cond = 1
+            break
+        else:
+            pass
+    if(cond == 1):
+        pass
+    elif(is_rop(next_ch,block_op_pairs_dict)):
+        next_lv = curr_lv - 1
+    else:    
+        next_lv = curr_lv
+    curr_lv = next_lv
+    curr_seq = curr_seq + 1
+    return(curr_lv,curr_lv,curr_seq)
+
+def get_j_str_lvs_dict(j_str,block_op_pairs_dict=get_block_op_pairs("{}[]()")):
+    j_str_len = j_str.__len__()
+    j_str_lvs_dict = {}
+    if( j_str_len == 0):
+        j_str_lvs_dict = {}
+    elif(j_str_len == 1):
+        j_str_lvs_dict = {0:1}
+    else:
+        curr_lv = 1
+        j_str_lvs_dict = {0:1}
+        seq = 1
+        curr_seq = 0
+        while(curr_seq < j_str_len - 1):
+            level,curr_lv,curr_seq = get_next_char_level_in_j_str(curr_lv,curr_seq,j_str,block_op_pairs_dict)
+            j_str_lvs_dict[seq] =level
+            seq = seq + 1
+    return(j_str_lvs_dict)
+
+####from xdict.utils
+def str_display_width(s):
+    '''
+        from xdict.utils import *
+        str_display_width('a')
+        str_display_width('去')
+    '''
+    s= str(s)
+    width = 0
+    len = s.__len__()
+    for i in range(0,len):
+        sublen = s[i].encode().__len__()
+        sublen = int(sublen/2 + 1/2)
+        width = width + sublen
+    return(width)
+
+####from xdict.ltdict
+def ltdict2list(ltdict):
+    l = []
+    length = ltdict.__len__()
+    for i in range(0,length):
+        l.append(ltdict[i])
+    return(l)
+
+####beautiful display
+def spacize(s,lvnum):
+    lvs = get_j_str_lvs_dict(s)
+    lvs = ltdict2list(lvs)
+    sl=list(l.__str__())
+    length = sl.__len__()
+    rslt =''
+    for i in range(0,length):
+        if(lvs[i]>=lvnum):
+            rslt = rslt + sl[i]
+        else:
+            rslt = rslt + chr(32)*str_display_width(sl[i])
+    return(rslt)
+
+def table(l,depth,**kwargs):
+    if('no_return' in kwargs):
+        no_return = kwargs['no_return']
+    else:
+        no_return = True
+    s = l.__str__()
+    rslt = ''
+    for i in range(1,depth+1):
+        rslt = rslt + spacize(s,i) + '\n'
+    rslt = rslt[:-1]
+    if(no_return):
+        print(rslt)
+    else:
+        return(rslt)
+
+####
+
+
+
 
 class ListTree():
     '''
@@ -3783,6 +3960,10 @@ class ListTree():
         self.whichSibPath = self.which_sib_path
         self.whichSib = self.which_sib
         self.show = None
+    def __repr__(self):
+        return(table(self.list,self.depth,no_return=0))
+    def show(self):
+        table(self.list,self.depth)
     def tree(self,**kwargs):
         if('leaf_only' in kwargs):
             leaf_only = kwargs['leaf_only']
