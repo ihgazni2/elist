@@ -6,8 +6,8 @@
 
 ## _class_ ListTree
 
-__1. init(alist)__
-------------------
+__1. \_\_init\_\_(alist)__
+--------------------------
 
         from elist.elist import *
         from xdict.jprint import pobj
@@ -16,9 +16,18 @@ __1. init(alist)__
         ltree = ListTree(l)
 
 ![](elist/Images/ListTree.__init__.0.png)
-    
 
-__2. tree(**kwargs)__
+__2. \_\_repr\_\___
+-------------------
+
+        l
+        ltree
+        pobj(ltree.showlog)
+
+![](elist/Images/ListTree.__repr__.0.png)
+
+
+__3. tree(**kwargs)__
 ---------------------
 
         pathlists = ltree.tree()
