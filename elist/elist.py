@@ -3712,6 +3712,23 @@ def pathlist_to_getStr(path_list):
 
 
 ####from xdict.jprint
+
+def get_block_op_pairs(pairs_str):
+    '''
+        # >>> get_block_op_pairs("{}[]")  
+        # {1: ('{', '}'), 2: ('[', ']')}
+        # >>> get_block_op_pairs("{}[]()")
+        # {1: ('{', '}'), 2: ('[', ']'), 3: ('(', ')')}
+        # >>> get_block_op_pairs("{}[]()<>")
+        # {1: ('{', '}'), 2: ('[', ']'), 3: ('(', ')'), 4: ('<', '>')}
+    '''
+    pairs_str_len = pairs_str.__len__()
+    pairs_len = pairs_str_len // 2
+    pairs_dict = {}
+    for i in range(1,pairs_len +1):
+        pairs_dict[i] = pairs_str[i*2-2],pairs_str[i*2-1]
+    return(pairs_dict)
+
 def is_lop(ch,block_op_pairs_dict=get_block_op_pairs('{}[]()')):
     '''
     # is_lop('{',block_op_pairs_dict)
@@ -3741,22 +3758,6 @@ def is_rop(ch,block_op_pairs_dict=get_block_op_pairs('{}[]()')):
         else:
             pass
     return(False)
-
-def get_block_op_pairs(pairs_str):
-    '''
-        # >>> get_block_op_pairs("{}[]")  
-        # {1: ('{', '}'), 2: ('[', ']')}
-        # >>> get_block_op_pairs("{}[]()")
-        # {1: ('{', '}'), 2: ('[', ']'), 3: ('(', ')')}
-        # >>> get_block_op_pairs("{}[]()<>")
-        # {1: ('{', '}'), 2: ('[', ']'), 3: ('(', ')'), 4: ('<', '>')}
-    '''
-    pairs_str_len = pairs_str.__len__()
-    pairs_len = pairs_str_len // 2
-    pairs_dict = {}
-    for i in range(1,pairs_len +1):
-        pairs_dict[i] = pairs_str[i*2-2],pairs_str[i*2-1]
-    return(pairs_dict)
 
 def get_next_char_level_in_j_str(curr_lv,curr_seq,j_str,block_op_pairs_dict=get_block_op_pairs("{}[]()")):
     ''' the first-char is level-1
