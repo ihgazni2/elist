@@ -1,10 +1,10 @@
-        # elist
+        # elist
 >__handle list ,nested list tree__
 
 # install
 >__pip3 install elist__
 
-## ListTree
+## class ListTree
 
 __1. init(alist)__
 ------------------
