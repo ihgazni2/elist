@@ -4098,14 +4098,14 @@ class ListTree():
         def arrow(ele):
             return(str(ele)+' ->')
         arr = array_map(arr,arrow)
-        self.showlog = arr
         forEach(arr,print)
+        return(arr)
     def dig(self,howmanysteps=None):
         if(howmanysteps):
             pass
         else:
             howmanysteps = self.total
-        self.showroute(self.trace[:howmanysteps])
+        self.showlog = self.showroute(self.trace[:howmanysteps])
         return(self.trace[:howmanysteps])
     def parent(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
