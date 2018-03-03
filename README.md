@@ -1,5 +1,5 @@
 # elist
->__handle list ,nested list tree
+>__handle list ,nested list tree__
 
 # install
 >__pip3 install elist__
