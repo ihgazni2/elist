@@ -46,3 +46,14 @@ __4. flatten()__
         ltree.depth
 
 ![](elist/Images/ListTree.flatten.0.png)
+
+__5. dig(howmanysteps)__
+------------------------
+
+        depthfirst = ltree.dig()
+        depthfirst = ltree.dig(2)
+        depthfirst = ltree.dig(5)
+
+![](elist/Images/ListTree.dig.0.png)
+
+
