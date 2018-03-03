@@ -3846,7 +3846,7 @@ def ltdict2list(ltdict):
 def spacize(s,lvnum):
     lvs = get_j_str_lvs_dict(s)
     lvs = ltdict2list(lvs)
-    sl=list(l.__str__())
+    sl=list(s)
     length = sl.__len__()
     rslt =''
     for i in range(0,length):
