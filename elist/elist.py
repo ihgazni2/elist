@@ -4457,9 +4457,9 @@ class ListTree():
             non_leaf_only = False
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
-        seq = self.desc[locx][locy]['sib_seq']
-        sibps = self.son_paths(pathlist=ppl[:seq],leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        return(sibps)
+        sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
+        seq = sibps.index(pl)
+        return(sibps[:seq])
     def preceding_sibs(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
             pl = kwargs['pathlist']
@@ -4476,8 +4476,10 @@ class ListTree():
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
-        sibps = self.son_paths(pathlist=ppl[:seq],leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibvs = array_map(sibps,getitem_via_pathlist2,self.list)
+        sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
+        seq = sibps.index(pl)
+        pre = sibps[:seq]
+        sibvs = array_map(pre,getitem_via_pathlist2,self.list)
         return(sibvs)
     def following_sib_paths(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4494,9 +4496,10 @@ class ListTree():
             non_leaf_only = False
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
-        seq = self.desc[locx][locy]['sib_seq']
-        sibps = self.son_paths(pathlist=ppl[(seq+1):],leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        return(sibps)
+        seq = sibps.index(pl)
+        sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
+        follow = sibps[(seq+1):]
+        return(follow)
     def following_sibs(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
             pl = kwargs['pathlist']
@@ -4512,9 +4515,10 @@ class ListTree():
             non_leaf_only = False
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
-        seq = self.desc[locx][locy]['sib_seq']
-        sibps = self.son_paths(pathlist=ppl[(seq+1):],leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibvs = array_map(sibps,getitem_via_pathlist2,self.list)
+        seq = sibps.index(pl)
+        sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
+        follow = sibps[(seq+1):]
+        sibvs = array_map(follow,getitem_via_pathlist2,self.list)
         return(sibvs)
     def some_sib_paths(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -7348,17 +7352,87 @@ def help(func_name):
             >>>
         '''
         print(doc)
-    elif(func_name == ""):
+    elif(func_name == "ListTree.sibs"):
         doc = '''
+            >>>
+            >>> l = [1, [4], 2, [3, [5, 6],7,[8,9]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6], 7, [8, 9]]]
+             1, [4], 2, [3, [5, 6], 7, [8, 9]]
+                 4       3, [5, 6], 7, [8, 9]
+                             5, 6       8, 9
+            >>> ltree.sib_paths(3,1)
+            [[3, 0], [3, 1], [3, 2], [3, 3]]
+            >>> ltree.sibs(3,1)
+            [3, [5, 6], 7, [8, 9]]
+            >>> ltree.sib_paths(3,1,leaf_only=True)
+            [[3, 0], [3, 2]]
+            >>> ltree.sibs(3,1,leaf_only=True)
+            [3, 7]
+            >>> ltree.sib_paths(3,1,non_leaf_only=True)
+            [[3, 1], [3, 3]]
+            >>> ltree.sibs(3,1,non_leaf_only=True)
+            [[5, 6], [8, 9]]
+            >>>
+            >>>
         '''
         print(doc)
-    elif(func_name == ""):
+    elif((func_name == "ListTree.SomeSibPaths")|(func_name == "ListTree.SomeSibs")|(func_name == "ListTree.some_sib_paths")|(func_name == "ListTree.some_sibs")):
         doc = '''
+            >>> #some_sibs
+            ... l = [1, [4], 2, [3, [5, 6],7,[8,9]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6], 7, [8, 9]]]
+             1, [4], 2, [3, [5, 6], 7, [8, 9]]
+                 4       3, [5, 6], 7, [8, 9]
+                             5, 6       8, 9
+            >>> #ltree.some_sib_paths
+            ... ltree.someSibPaths(3,1,some=[0,3])
+            [[3, 0], [3, 3]]
+            >>> #ltree.some_sibs
+            ... ltree.someSibs(3,1,some=[0,3])
+            [3, [8, 9]]
+            >>>
+            >>> ltree.someSibPaths(3,1,some=[0,3],leaf_only=True)
+            [[3, 0]]
+            >>> ltree.someSibs(3,1,some=[0,3],leaf_only=True)
+            [3]
+            >>> ltree.someSibPaths(3,1,some=[0,3],non_leaf_only=True)
+            [[3, 1]]
+            >>> ltree.someSibs(3,1,some=[0,3],non_leaf_only=True)
+            [[5, 6]]
+            >>>
         '''
         print(doc)
-    elif(func_name == ""):
+    elif((func_name == "ListTree.whichSibPath")|(func_name == "ListTree.whichSib")|(func_name == "ListTree.which_sib_path")|(func_name == "ListTree.which_sib")):
         doc = '''
             from xdict.elist import *
+            >>> #whichSib
+            ... l = [1, [4], 2, [3, [5, 6],7,[8,9]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6], 7, [8, 9]]]
+             1, [4], 2, [3, [5, 6], 7, [8, 9]]
+                 4       3, [5, 6], 7, [8, 9]
+                             5, 6       8, 9
+            >>> #ltree.which_sib_path
+            ... ltree.whichSibPath(3,1,which=2)
+            [3, 2]
+            >>> #ltree.which_sib
+            ... ltree.whichSib(3,1,which=2)
+            7
+            >>>
+            >>> ltree.whichSibPath(3,1,which=1,leaf_only=True)
+            [3, 2]
+            >>> ltree.whichSib(3,1,which=1,leaf_only=True)
+            7
+            >>> ltree.whichSibPath(3,1,which=1,non_leaf_only=True)
+            [3, 3]
+            >>> ltree.whichSib(3,1,which=1,non_leaf_only=True)
+            [8, 9]
+            >>>
         '''
         print(doc)
     elif(func_name == ""):
