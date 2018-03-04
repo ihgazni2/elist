@@ -4480,7 +4480,6 @@ class ListTree():
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        seq = sibps.index(pl)
         try:
             seq = sibps.index(pl)
         except:
