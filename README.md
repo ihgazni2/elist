@@ -88,3 +88,16 @@ __8. \_\_getitem\_\_(\*pathlist)__
 
 ![](elist/Images/ListTree.__getitem__.0.png)
 
+__9. search(value,**kwargs)__
+-----------------------------
+
+        from xdict.TestLib.genrand import gen_random_recursive_only_list_data as randlist
+        # lets generate a l for test,l is a big nested-list
+        l = randlist()
+        #the l looks like the below:
+ 
+![](elist/Images/ListTree.search.0.png)
+ 
+
+        
+
