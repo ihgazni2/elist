@@ -4406,7 +4406,7 @@ class ListTree():
         locx,locy = tuple(self.path2loc(pl))
         rcinp = copy.deepcopy(self.desc[locx][locy]['rcin_path'])
         rcinv = getitem_via_pathlist(self.list,rcinp) 
-        return(lcinv)
+        return(rcinv)
     def sib_paths(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
             pl = kwargs['pathlist']
