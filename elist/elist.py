@@ -4105,7 +4105,8 @@ class ListTree():
             pass
         else:
             howmanysteps = self.total
-        self.showlog = self.showroute(self.trace[:howmanysteps])
+        self.showlog = ['dig -steps '+howmanysteps+' :']
+        self.showlog.extend(self.showroute(self.trace[:howmanysteps]))
         return(self.trace[:howmanysteps])
     def parent(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
