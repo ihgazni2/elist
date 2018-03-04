@@ -57,3 +57,16 @@ __5. dig(howmanysteps)__
 ![](elist/Images/ListTree.dig.0.png)
 
 
+__6. level(whichlevel,**kwargs)__
+---------------------------------
+
+        level = ltree.level(1)
+        level = ltree.level(1,leaf_only=True)
+        level = ltree.level(1,non_leaf_only=True)
+        level = ltree.level(2)
+        level = ltree.level(3)
+        
+![](elist/Images/ListTree.level.0.png)
+
+
+
