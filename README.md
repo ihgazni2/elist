@@ -161,9 +161,10 @@ __ListTree lquery APIs:__
 ├──45. [rcin](elist/Images/ListTree.rcin.0.png)  <br>
 ├──46. [son_paths](elist/Images/ListTree.sons.0.png)  <br>
 ├──47. [sons](elist/Images/ListTree.sons.0.png)  <br>
-├──48. [total](elist/Images/ListTree.total.0.png)  <br>
-├──49. [maxLevelWidth](elist/Images/ListTree.maxLevelWidth.0.png)  <br>
-
+├──48. [total](elist/Images/ListTree.PARAMS.0.png)  <br>
+├──49. [maxLevelWidth](elist/Images/ListTree.PARAMS.0.png)  <br>
+├──50. [depth](elist/Images/ListTree.PARAMS.0.png)  <br>
+├──51. [flatWidth](elist/Images/ListTree.PARAMS.0.png)  <br>
 
 
 
