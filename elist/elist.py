@@ -4110,6 +4110,7 @@ class ListTree():
             rslt = nlpls
         else:
             rslt = lpls+nlpls
+        rslt,= batsorted(rslt,rslt)
         return(rslt)
     def sons(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4133,6 +4134,7 @@ class ListTree():
             rslt = nlpls
         else:
             rslt = lpls+nlpls
+        rslt,= batsorted(rslt,rslt)
         rslt = array_map(rslt,getitem_via_pathlist2,self.list)
         return(rslt)
     def descendant_paths(self,*sibseqs,**kwargs):
@@ -4175,6 +4177,7 @@ class ListTree():
                 nrslt.append(pl)
             else:
                 pass
+        nrslt, = batsorted(nrslt,nrslt)
         return(nrslt)
     def descendants(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4216,6 +4219,7 @@ class ListTree():
                 nrslt.append(pl)
             else:
                 pass
+        nrslt, = batsorted(nrslt,nrslt)
         nrslt = array_map(nrslt,getitem_via_pathlist2,self.list)
         return(nrslt)
     @classmethod
@@ -7317,6 +7321,26 @@ def help(func_name):
     elif((func_name == "ListTree.NextSibPath")|(func_name == "ListTree.NextSibling")|(func_name == "ListTree.rsib_path")|(func_name == "ListTree.rsib")):
         doc = '''
             from xdict.elist import *
+            >>>
+            >>> #nextSib
+            ... l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6]]]
+             1, [4], 2, [3, [5, 6]]
+                 4       3, [5, 6]
+                             5, 6
+            >>> # ltree.rsib_path
+            ... ltree.nextSibPath(3,1,0)
+            [3, 1, 1]
+            >>> # ltree.rsib
+            ... ltree.nextSibling(3,1,0)
+            6
+            >>> ltree.nextSibPath(3,1,1) == None
+            True
+            >>> #l[3][1][1] has no right sibling
+            ...
+            >>>
         '''
         print(doc)
     elif(func_name == ""):
