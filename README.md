@@ -100,21 +100,22 @@ __9. search(value,**kwargs)__
 
         #you can see the value "v_4" appears in different levels of the nested-list:
 
-![](elist/Images/ListTree.search.1.png)
+<img src="elist/Images/ListTree.search.1.png" height="400">
 
         ltree = ListTree(l)
         pathlists = ltree.search('v_4')
         pathlists.__len__()
         #we will found 125 match
-![](elist/Images/ListTree.search.2.png)
+
+<img src="elist/Images/ListTree.search.2.png" height="400">
  
         #......
-![](elist/Images/ListTree.search.3.png)
+<img src="elist/Images/ListTree.search.3.png" height="400">
 
         l[0]
         l[4][2][1][0][0][3]
         l[4][2][1][0][0][19][11]
         l[11][3]
 
-<img src="elist/Images/ListTree.search.4.png" width="48">
+<img src="elist/Images/ListTree.search.4.png" width="400">
 
