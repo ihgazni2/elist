@@ -119,3 +119,5 @@ __9. search(value,**kwargs)__
 
 <img src="elist/Images/ListTree.search.4.png" width="400">
 
+
+__10. [parent](elist/Images/ListTree.search.4.png)
