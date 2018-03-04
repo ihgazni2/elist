@@ -116,4 +116,5 @@ __9. search(value,**kwargs)__
         l[4][2][1][0][0][19][11]
         l[11][3]
 
-![](elist/Images/ListTree.search.4.png)
+<img src="elist/Images/ListTree.search.4.png" width="48">
+
