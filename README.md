@@ -97,7 +97,10 @@ __9. search(value,**kwargs)__
         #the l looks like the below:
  
 ![](elist/Images/ListTree.search.0.png)
- 
+
+        #you can see the value "v_4" appears in different levels of the nested-list:
+
+![](elist/Images/ListTree.search.1.png)
 
         
 
