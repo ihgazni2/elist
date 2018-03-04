@@ -68,8 +68,8 @@ __6. level(whichlevel,**kwargs)__
         
 ![](elist/Images/ListTree.level.0.png)
 
-__7. include(\*pathlist)__
---------------------------
+__7. include(\*pathlist,**kwargs)__
+-----------------------------------
 
         l[3][1][0]
         ltree.include(3,1,0)
