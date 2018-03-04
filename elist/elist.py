@@ -4534,7 +4534,7 @@ class ListTree():
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibqs = select_some(sibqs,some)
+        sibps = select_some(sibps,some)
         return(sibps)
     def some_sibs(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4554,7 +4554,7 @@ class ListTree():
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibqs = select_some(sibqs,some)
+        sibps = select_some(sibps,some)
         sibvs = array_map(sibps,getitem_via_pathlist2,self.list)
         return(sibvs)
     def which_sib_path(self,*sibseqs,**kwargs):
@@ -4575,7 +4575,7 @@ class ListTree():
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibq = sibqs[which]
+        sibp = sibps[which]
         return(sibp)
     def which_sib(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4595,9 +4595,9 @@ class ListTree():
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibqs = select_some(sibqs,some)
-        sibq = sibqs[which]
-        sibv = getitem_via_pathlist(self.list,sibq)
+        sibps = select_some(sibps,some)
+        sibp = sibps[which]
+        sibv = getitem_via_pathlist(self.list,sibp)
         return(sibv)
     def search(self,value,**kwargs):
         if('leaf_only' in kwargs):
