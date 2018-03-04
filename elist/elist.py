@@ -3878,44 +3878,7 @@ def table(l,depth,**kwargs):
 
 class ListTree():
     '''
-        l = [1, [4], 2, [3, [5, 6]]]
-        ltree = ListTree(l)
         
-        ltree
-        
-        pathlists = ltree.tree()
-        pathlists = ltree.tree(leaf_only=True)
-        pathlists = ltree.tree(leaf_only=True,from_lv=1,to_lv=2)
-        pathlists = ltree.tree(non_leaf_only=True)
-        
-        
-        flat = ltree.flatten()
-        flat
-        ltree.flatWidth
-        ltree.depth
-        
-        
-        
-        
-        ltree.include(3,1,0)
-        ltree.include(pathlist = [3,1,2])
-        
-        
-        level = ltree.level(1)
-        level = ltree.level(1,leaf_only=True)
-        level = ltree.level(1,non_leaf_only=True)
-        level = ltree.level(2)
-        level = ltree.level(3)
-        
-        ltree[1,0]
-        l[1][0]
-        
-        ltree.loc(3,1)
-        ltree.path(2,2)
-        ltree.loc2path([3,1])
-        ltree.path2loc([2,2])
-        
-        ltree.dig()
         
         ltree.parent_path(3,1,0)
         ltree.parent(3,1,0)
@@ -4076,21 +4039,21 @@ class ListTree():
     def loc(self,*sibseqs):
         pl = list(sibseqs)
         pk = tuple(pl)
-        loc = ltree.pathloc_mapping[pk]
+        loc = self.pathloc_mapping[pk]
         return(list(loc))
     def path(self,locx,locy):
         loc = (locx,locy)
-        pl = ltree.locpath_mapping[loc]
+        pl = self.locpath_mapping[loc]
         pl = list(pl)
         return(pl)
     def path2loc(self,pathlist):
         pl = pathlist
         pk = tuple(pl)
-        loc = ltree.pathloc_mapping[pk]
+        loc = self.pathloc_mapping[pk]
         return(list(loc))
     def loc2path(self,loc):
         loc = tuple(loc)
-        pl = ltree.locpath_mapping[loc]
+        pl = self.locpath_mapping[loc]
         pl = list(pl)
         return(pl)
     @classmethod
@@ -7163,44 +7126,126 @@ def help(func_name):
             >>>
         '''
         print(doc)
-    elif(func_name == ""):
+    elif(func_name == "ListTree.flatten"):
         doc = '''
+            from xdict.elist import *
+            l = [1, [4], 2, [3, [5, 6]]]
+            ltree = ListTree(l)
+            flat = ltree.flatten()
+            flat
+            ltree.flatWidth
+            ltree.depth
+        '''
+        print(doc)
+    elif(func_name == "ListTree.dig"):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> depthfirst = ltree.dig()
+            [0] ->
+            [1] ->
+            [1, 0] ->
+            [2] ->
+            [3] ->
+            [3, 0] ->
+            [3, 1] ->
+            [3, 1, 0] ->
+            [3, 1, 1] ->
+            >>>
+            >>> depthfirst = ltree.dig(2)
+            [0] ->
+            [1] ->
+            >>> depthfirst = ltree.dig(5)
+            [0] ->
+            [1] ->
+            [1, 0] ->
+            [2] ->
+            [3] ->
+            >>>
+        '''
+        print(doc)
+    elif(func_name == "ListTree.level"):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> level = ltree.level(1)
+            [0]
+            [1]
+            [2]
+            [3]
+            >>> level = ltree.level(1,leaf_only=True)
+            [0]
+            [2]
+            >>> level = ltree.level(1,non_leaf_only=True)
+            [1]
+            [3]
+            >>> level = ltree.level(2)
+            [1][0]
+            [3][0]
+            [3][1]
+            >>> level = ltree.level(3)
+            [3][1][0]
+            [3][1][1]
+            >>>
+        '''
+        print(doc)
+    elif(func_name == "ListTree.include"):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> l[3][1][0]
+            5
+            >>> ltree.include(3,1,0)
+            True
+            >>> l[3][1][2]
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+            IndexError: list index out of range
+            >>> ltree.include(pathlist = [3,1,2])
+            False
+            >>>
+        '''
+        print(doc)
+    elif(func_name == "ListTree.search"):
+        doc = '''
+            from xdict.elist import *
+            from xdict.TestLib.genrand import gen_random_recursive_only_list_data as randlist
+            l = randlist()
+            ltree = ListTree(l)
+            pathlists = ltree.search('v_4')
+            pathlists.__len__()
+            l[0]
+            l[4][2][1][0][0][3]
+            l[4][2][1][0][0][19][11]
+            l[11][3]
         '''
         print(doc)
     elif(func_name == ""):
         doc = '''
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
         doc = '''
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
         doc = '''
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
         doc = '''
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
         doc = '''
-        '''
-        print(doc)
-    elif(func_name == ""):
-        doc = '''
-        '''
-        print(doc)
-    elif(func_name == ""):
-        doc = '''
-        '''
-        print(doc)
-    elif(func_name == ""):
-        doc = '''
-        '''
-        print(doc)
-    elif(func_name == ""):
-        doc = '''
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
