@@ -4335,7 +4335,7 @@ class ListTree():
             to_lv = pl.__len__() - 2
         locx,locy = tuple(self.path2loc(pl))
         rsibp = copy.deepcopy(self.desc[locx][locy]['rsib_path'])
-        rsibv = getitem_via_pathlist(self.list,lsibp) 
+        rsibv = getitem_via_pathlist(self.list,rsibp) 
         return(rsibv)
     def lcin_path(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -7223,6 +7223,110 @@ def help(func_name):
             l[11][3]
         '''
         print(doc)
+    elif((func_name == "ListTree.ancestor_paths")|(func_name == "ListTree.ancestors")):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6]]]
+             1, [4], 2, [3, [5, 6]]
+                 4       3, [5, 6]
+                             5, 6
+            >>> ltree.ancestor_paths(3,1,0)
+            [[3], [3, 1]]
+            >>> ltree.ancestors(3,1,0)
+            [[3, [5, 6]], [5, 6]]
+            >>> l[3]
+            [3, [5, 6]]
+            >>> l[3][1]
+            [5, 6]
+            >>>
+        '''
+        print(doc)
+    elif((func_name == "ListTree.parent_paths")|(func_name == "ListTree.parents")):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6]]]
+             1, [4], 2, [3, [5, 6]]
+                 4       3, [5, 6]
+                             5, 6
+            >>> ltree.parent_path(3,1,0)
+            [3, 1]
+            >>> ltree.parent(3,1,0)
+            [5, 6]
+            >>> l[3][1]
+            [5, 6]
+            >>>
+        '''
+        print(doc)
+    elif((func_name == "ListTree.descendant_paths")|(func_name == "ListTree.descendants")):
+        doc = '''
+            from xdict.elist import *
+            >>> l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6]]]
+             1, [4], 2, [3, [5, 6]]
+                 4       3, [5, 6]
+                             5, 6
+            >>> ltree.descendant_paths(3)
+            [[3, 0], [3, 1, 0], [3, 1, 1], [3, 1]]
+            >>> ltree.descendants(3)
+            [3, 5, 6, [5, 6]]
+            >>> ltree.descendant_paths(3,leaf_only=True)
+            [[3, 0], [3, 1, 0], [3, 1, 1]]
+            >>> ltree.descendants(3,leaf_only=True)
+            [3, 5, 6]
+            >>> ltree.descendant_paths(3,non_leaf_only=True)
+            [[3, 1]]
+            >>> ltree.descendants(3,non_leaf_only=True)
+            [[5, 6]]
+            >>> l[3][1]
+            [5, 6]
+            >>>
+        '''
+        print(doc)
+    elif((func_name == "ListTree.PrevSibPath")|(func_name == "ListTree.PrevSibling")|(func_name == "ListTree.lsib_path")|(func_name == "ListTree.lsib")):
+        doc = '''
+            from xdict.elist import *
+            >>> #prevSib
+            ... l = [1, [4], 2, [3, [5, 6]]]
+            >>> ltree = ListTree(l)
+            >>> ltree
+            [1, [4], 2, [3, [5, 6]]]
+             1, [4], 2, [3, [5, 6]]
+                 4       3, [5, 6]
+                             5, 6
+            >>> # ltree.lsib_path
+            ... ltree.prevSibPath(3,1,1)
+            [3, 1, 0]
+            >>> # ltree.lsib
+            ... ltree.prevSibling(3,1,1)
+            5
+            >>> ltree.prevSibPath(3,1,0) == None
+            True
+            >>> #l[3][1][0] has no left sibling
+            ...
+            >>>
+        '''
+        print(doc)
+    elif((func_name == "ListTree.NextSibPath")|(func_name == "ListTree.NextSibling")|(func_name == "ListTree.rsib_path")|(func_name == "ListTree.rsib")):
+        doc = '''
+            from xdict.elist import *
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
     elif(func_name == ""):
         doc = '''
             from xdict.elist import *
@@ -7235,6 +7339,14 @@ def help(func_name):
         print(doc)
     elif(func_name == ""):
         doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
             from xdict.elist import *
         '''
         print(doc)
@@ -7245,6 +7357,19 @@ def help(func_name):
         print(doc)
     elif(func_name == ""):
         doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
+            from xdict.elist import *
+        '''
+        print(doc)
+    elif(func_name == ""):
+        doc = '''
             from xdict.elist import *
         '''
         print(doc)
@@ -7256,4 +7381,3 @@ def help(func_name):
         doc = '''
         '''
         print(doc)
-
