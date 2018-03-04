@@ -4458,8 +4458,12 @@ class ListTree():
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        seq = sibps.index(pl)
-        return(sibps[:seq])
+        try:
+            seq = sibps.index(pl)
+        except:
+            return(sibps)
+        else:
+            return(sibps[:seq])
     def preceding_sibs(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
             pl = kwargs['pathlist']
@@ -4475,10 +4479,14 @@ class ListTree():
             non_leaf_only = False
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
-        seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
         seq = sibps.index(pl)
-        pre = sibps[:seq]
+        try:
+            seq = sibps.index(pl)
+        except:
+            pre = sibps
+        else:
+            pre = sibps[:seq]
         sibvs = array_map(pre,getitem_via_pathlist2,self.list)
         return(sibvs)
     def following_sib_paths(self,*sibseqs,**kwargs):
@@ -4496,9 +4504,13 @@ class ListTree():
             non_leaf_only = False
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
-        seq = sibps.index(pl)
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        follow = sibps[(seq+1):]
+        try:
+            seq = sibps.index(pl)
+        except:
+            follow = sibps
+        else:
+            follow = sibps[(seq+1):]
         return(follow)
     def following_sibs(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4515,9 +4527,13 @@ class ListTree():
             non_leaf_only = False
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
-        seq = sibps.index(pl)
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        follow = sibps[(seq+1):]
+        try:
+            seq = sibps.index(pl)
+        except:
+            follow = sibps
+        else:
+            follow = sibps[(seq+1):]
         sibvs = array_map(follow,getitem_via_pathlist2,self.list)
         return(sibvs)
     def some_sib_paths(self,*sibseqs,**kwargs):
