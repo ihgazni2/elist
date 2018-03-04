@@ -76,7 +76,15 @@ __7. include(\*pathlist,**kwargs)__
         l[3][1][2]
         ltree.include(pathlist = [3,1,2])
         
- ![](elist/Images/ListTree.include.0.png)
+![](elist/Images/ListTree.include.0.png)
 
+__8. \_\_getitem\_\_(\*pathlist)__
+----------------------------------
 
+        ltree[1,0]
+        l[1][0]
+        ltree[3,1,1]
+        l[3][1][1]
+
+![](elist/Images/ListTree.__getitem__.0.png)
 
