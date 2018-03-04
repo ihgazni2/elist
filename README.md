@@ -125,7 +125,7 @@ __ListTree lquery APIs:__
 -------------------------------------------------------
 >├──10. [ancestor_paths](elist/Images/ListTree.ancestors.0.png)  <br>
 ├──11. [ancestors](elist/Images/ListTree.ancestors.0.png)  <br>
-├──12. [parent_path](elist/Images/ListTree.parent_path.0.png)  <br>
+├──12. [parent_path](elist/Images/ListTree.parent.0.png)  <br>
 ├──13. [parent](elist/Images/ListTree.parent.0.png)  <br>
 ├──14. [descendant_paths](elist/Images/ListTree.descendant_paths.0.png)  <br>
 ├──15. [descendants](elist/Images/ListTree.descendants.0.png)  <br>
