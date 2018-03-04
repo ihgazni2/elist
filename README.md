@@ -102,5 +102,18 @@ __9. search(value,**kwargs)__
 
 ![](elist/Images/ListTree.search.1.png)
 
-        
+        ltree = ListTree(l)
+        pathlists = ltree.search('v_4')
+        pathlists.__len__()
+        #we will found 125 match
+![](elist/Images/ListTree.search.2.png)
+ 
+        #......
+![](elist/Images/ListTree.search.3.png)
 
+        l[0]
+        l[4][2][1][0][0][3]
+        l[4][2][1][0][0][19][11]
+        l[11][3]
+
+![](elist/Images/ListTree.search.4.png)
