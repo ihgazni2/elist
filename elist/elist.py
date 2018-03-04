@@ -4595,7 +4595,6 @@ class ListTree():
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibps = select_some(sibps,some)
         sibp = sibps[which]
         sibv = getitem_via_pathlist(self.list,sibp)
         return(sibv)
