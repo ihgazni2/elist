@@ -171,3 +171,20 @@ __ListTree lquery APIs:__
 ## _elist_ functions
 
 -----------------------------------------------------------------------
+>├──0. [select_some](elist/Images/ListTree.select.0.png)  <br>
+├──1. [select_seqs](elist/Images/ListTree.select.0.png)  <br>
+├──2. [append](elist/Images/ListTree.append.0.png)  <br>
+├──3. [append_some](elist/Images/ListTree.append_some.0.png)  <br>
+├──4. [prepend](elist/Images/ListTree.prepend.0.png)  <br>
+├──5. [prepend_some](elist/Images/ListTree.unshift.0.png)  <br>
+├──6. [extend](elist/Images/ListTree.extend.0.png)  <br>
+├──7. [prextend](elist/Images/ListTree.prextend.0.png)  <br>
+├──8. [car](elist/Images/ListTree.carcdr.0.png)  <br>
+├──9. [cdr](elist/Images/ListTree.carcdr.0.png)  <br>
+├──10. [cons](elist/Images/ListTree.cons.0.png)  <br>
+
+
+
+
+
+
