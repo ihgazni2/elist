@@ -206,7 +206,7 @@ __ListTree lquery APIs:__
 ├──31. [index_some](elist/Images/index_some.0.png)  <br>
 ├──32. [index_somenot](elist/Images/index_somenot.0.png)  <br>
 ├──33. [index_seqs](elist/Images/index_seqs.0.png)  <br>
-├──34. [index_seqsnot](elist/Images/index_seqsnot.0.png)  <br>
+├──34. [index_seqsnot](elist/Images/index_seqs.0.png)  <br>
 
 
 
