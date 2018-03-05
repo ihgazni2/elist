@@ -177,14 +177,18 @@ __ListTree lquery APIs:__
 ├──3. [append_some](elist/Images/append_some.0.png)  <br>
 ├──4. [prepend](elist/Images/prepend.0.png)  <br>
 ├──5. [prepend_some](elist/Images/unshift.0.png)  <br>
+├──6. [unshift](elist/Images/unshift.0.png)  <br>
 ├──6. [extend](elist/Images/extend.0.png)  <br>
-├──7. [prextend](elist/Images/prextend.0.png)  <br>
-├──8. [car](elist/Images/carcdr.0.png)  <br>
-├──9. [cdr](elist/Images/carcdr.0.png)  <br>
-├──10. [cons](elist/Images/cons.0.png)  <br>
-├──11. [insert](elist/Images/insert.0.png)  <br>
-├──12. [insert_some](elist/Images/insert_some.0.png)  <br>
-├──13. [insert_many](elist/Images/insert_many.0.png)  <br>
+├──7. [concat](elist/Images/concat.0.png)  <br>
+├──8. [prextend](elist/Images/prextend.0.png)  <br>
+├──9. [car](elist/Images/carcdr.0.png)  <br>
+├──10. [cdr](elist/Images/carcdr.0.png)  <br>
+├──11. [cons](elist/Images/cons.0.png)  <br>
+├──12. [insert](elist/Images/insert.0.png)  <br>
+├──13. [insert_some](elist/Images/insert_some.0.png)  <br>
+├──14. [insert_many](elist/Images/insert_many.0.png)  <br>
+├──14. [sort](elist/Images/sort.0.png)  <br>
+├──15. [batsorted](elist/Images/batsorted.0.png)  <br>
 
 
 
