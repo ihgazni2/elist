@@ -182,6 +182,9 @@ __ListTree lquery APIs:__
 ├──8. [car](elist/Images/carcdr.0.png)  <br>
 ├──9. [cdr](elist/Images/carcdr.0.png)  <br>
 ├──10. [cons](elist/Images/cons.0.png)  <br>
+├──11. [insert](elist/Images/insert.0.png)  <br>
+├──12. [insert_some](elist/Images/insert_some.0.png)  <br>
+├──13. [insert_many](elist/Images/insert_many.0.png)  <br>
 
 
 
