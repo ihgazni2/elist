@@ -1,1 +1,1 @@
-/usr/local/lib/python3.4/site-packages/elist-0.1.6-py3.4.egg
+/usr/local/lib/python3.4/site-packages/elist-0.1.7-py3.4.egg
