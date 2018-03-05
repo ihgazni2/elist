@@ -177,8 +177,9 @@ __ListTree lquery APIs:__
 ├──3. [append_some](elist/Images/append_some.0.png)  <br>
 ├──4. [prepend](elist/Images/prepend.0.png)  <br>
 ├──5. [prepend_some](elist/Images/unshift.0.png)  <br>
-├──6. [unshift](elist/Images/unshift.0.png)  <br>
+├──5. [unshift](elist/Images/unshift.0.png)  <br>
 ├──6. [extend](elist/Images/extend.0.png)  <br>
+├──6. [push](elist/Images/push.0.png)  <br>
 ├──7. [concat](elist/Images/concat.0.png)  <br>
 ├──8. [prextend](elist/Images/prextend.0.png)  <br>
 ├──9. [car](elist/Images/carcdr.0.png)  <br>
@@ -241,11 +242,13 @@ __ListTree lquery APIs:__
 ├──66. [remove_many](elist/Images/.remove_many.0.png)  <br>
 ├──67. [remove_manynot](elist/Images/.remove_manynot.0.png)  <br>
 ├──68. [init](elist/Images/init.0.png)  <br>
-├──69. [intlize](elist/Images/intlize.0.png)  <br>
-├──70. [strlize](elist/Images/strlize.0.png)  <br>
+├──69. [intlize](elist/Images/init.0.png)  <br>
+├──70. [strlize](elist/Images/init.0.png)  <br>
 ├──71. [array_from](elist/Images/array_from.0.png)  <br>
-├──72. [array_of](elist/Images/array_of.0.png)  <br>
-
+├──72. [array_of](elist/Images/init.0.png)  <br>
+├──73. [deepcopy](elist/Images/copy.0.png)  <br>
+├──74. [copy_within](elist/Images/copy.0.png)  <br>
+├──75. [copyWithin](elist/Images/copy.0.png)  <br>
 
 
 
