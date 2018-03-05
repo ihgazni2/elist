@@ -240,6 +240,12 @@ __ListTree lquery APIs:__
 ├──65. [remove_allnot](elist/Images/.remove_allnot.0.png)  <br>
 ├──66. [remove_many](elist/Images/.remove_many.0.png)  <br>
 ├──67. [remove_manynot](elist/Images/.remove_manynot.0.png)  <br>
+├──68. [init](elist/Images/init.0.png)  <br>
+├──69. [intlize](elist/Images/intlize.0.png)  <br>
+├──70. [strlize](elist/Images/strlize.0.png)  <br>
+├──71. [array_from](elist/Images/array_from.0.png)  <br>
+├──72. [array_of](elist/Images/array_of.0.png)  <br>
+
 
 
 
