@@ -122,7 +122,7 @@ __9. search(value,**kwargs)__
 __ListTree lquery APIs:__
 
 
--------------------------------------------------------
+-----------------------------------------------------------------------
 >├──10. [ancestor_paths](elist/Images/ListTree.ancestors.0.png)  <br>
 ├──11. [ancestors](elist/Images/ListTree.ancestors.0.png)  <br>
 ├──12. [parent_path](elist/Images/ListTree.parent.0.png)  <br>
@@ -166,5 +166,8 @@ __ListTree lquery APIs:__
 ├──50. [depth](elist/Images/ListTree.PARAMS.0.png)  <br>
 ├──51. [flatWidth](elist/Images/ListTree.PARAMS.0.png)  <br>
 
+-----------------------------------------------------------------------
 
+## _elist_ functions
 
+-----------------------------------------------------------------------
