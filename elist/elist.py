@@ -2534,7 +2534,7 @@ def find_allnot(ol,test_func,*args):
             rslt.append({'index':i,'value':ol[i]})
     return(rslt)
 
-def push(l,*eles,**kwargs):
+def push(ol,*eles,**kwargs):
     '''
         from elist.elist import *
         ol=[1,2,3,4]
