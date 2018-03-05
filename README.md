@@ -192,7 +192,13 @@ __ListTree lquery APIs:__
 ├──16. [index_first](elist/Images/index_first.0.png)  <br>
 ├──17. [array_index](elist/Images/index_first.0.png)  <br>
 ├──18. [indexOf](elist/Images/index_first.0.png)  <br>
-
+├──19. [index_firstnot](elist/Images/index_firstnot.0.png)  <br>
+├──20. [array_indexnot](elist/Images/index_firstnot.0.png)  <br>
+├──21. [indexOfnot](elist/Images/index_firstnot.0.png)  <br>
+├──22. [index_last](elist/Images/index_last.0.png)  <br>
+├──24. [lastIndexOf](elist/Images/index_last.0.png)  <br>
+├──25. [index_lastnot](elist/Images/index_lastnot.0.png)  <br>
+├──26. [lastIndexOfnot](elist/Images/index_lastnot.0.png)  <br>
 
 
 
