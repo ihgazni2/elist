@@ -207,6 +207,19 @@ __ListTree lquery APIs:__
 ├──32. [index_somenot](elist/Images/index_somenot.0.png)  <br>
 ├──33. [index_seqs](elist/Images/index_seqs.0.png)  <br>
 ├──34. [index_seqsnot](elist/Images/index_seqs.0.png)  <br>
+├──35. [first_continuous_indexes_slice](elist/Images/firstlast_continuous_indexes_slice.0.png)  <br>
+├──36. [first_continuous_indexesnot_slice](elist/Images/firstlast_continuous_indexes_slice.0.png)  <br>
+├──37. [last_continuous_indexes_slice](elist/Images/firstlast_continuous_indexes_slice.0.png)  <br>
+├──38. [last_continuous_indexesnot_slice](elist/Images/firstlast_continuous_indexes_slice.0.png)  <br>
+├──39. [which_continuous_indexes_slice](elist/Images/which_continuous_indexes_slice.0.png)  <br>
+├──40. [which_continuous_indexesnot_slice](elist/Images/which_continuous_indexes_slice.0.png)  <br>
+├──41. [some_continuous_indexes_slices](elist/Images/some_continuous_indexes_slices.0.png)  <br>
+├──42. [some_continuous_indexesnot_slices](elist/Images/some_continuous_indexesnot_slices.0.png)  <br>
+├──43. [seqs_continuous_indexes_slices](elist/Images/seqs_continuous_indexes_slices.0.png)  <br>
+├──44. [seqs_continuous_indexesnot_slices](elist/Images/seqs_continuous_indexesnot_slices.0.png)  <br>
+├──45. [all_continuous_indexes_slices](elist/Images/all_continuous_indexes_slices.0.png)  <br>
+├──46. [all_continuous_indexesnot_slices](elist/Images/all_continuous_indexesnot_slices.0.png)  <br>
+
 
 
 
