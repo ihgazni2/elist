@@ -224,6 +224,22 @@ __ListTree lquery APIs:__
 ├──49. [pop_range](elist/Images/pop_range.0.png)  <br>
 ├──50. [pop_some](elist/Images/pop_some.0.png)  <br>
 ├──51. [pop_indexes](elist/Images/pop_indexes.0.png)  <br>
+├──52. [array_remove](elist/Images/.array_remove.0.png)  <br>
+├──53. [remove_first](elist/Images/.remove_first.0.png)  <br>
+├──54. [array_removenot](elist/Images/.array_removenot.0.png)  <br>
+├──55. [remove_firstnot](elist/Images/.remove_firstnot.0.png)  <br>
+├──56. [remove_last](elist/Images/.remove_last.0.png)  <br>
+├──57. [remove_lastnot](elist/Images/.remove_lastnot.0.png)  <br>
+├──58. [remove_which](elist/Images/.remove_which.0.png)  <br>
+├──59. [remove_whichnot](elist/Images/.remove_whichnot.0.png)  <br>
+├──60. [remove_some](elist/Images/.remove_some.0.png)  <br>
+├──61. [remove_somenot](elist/Images/.remove_somenot.0.png)  <br>
+├──62. [remove_seqs](elist/Images/.remove_seqs.0.png)  <br>
+├──63. [remove_seqsnot](elist/Images/.remove_seqsnot.0.png)  <br>
+├──64. [remove_all](elist/Images/.remove_all.0.png)  <br>
+├──65. [remove_allnot](elist/Images/.remove_allnot.0.png)  <br>
+├──66. [remove_many](elist/Images/.remove_many.0.png)  <br>
+├──67. [remove_manynot](elist/Images/.remove_manynot.0.png)  <br>
 
 
 
