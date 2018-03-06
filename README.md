@@ -88,7 +88,7 @@ __8. \_\_getitem\_\_(\*pathlist)__
 
 ![](elist/Images/ListTree.__getitem__.0.png)
 
-__9. search(value,**kwargs)__
+__9A. search(value,**kwargs)__
 -----------------------------
 
         from xdict.TestLib.genrand import gen_random_recursive_only_list_data as randlist
@@ -118,6 +118,39 @@ __9. search(value,**kwargs)__
         l[11][3]
 
 <img src="elist/Images/ListTree.search.4.png" width="400">
+
+
+__9B. cond_search(value,**kwargs)__
+-----------------------------------
+
+        pl1=ltree.search('v_4')
+        pl1.__len__() 
+        #we found 125 match of "v_4"
+        pl2=ltree.search('v_8')
+        pl2.__len__()
+        #we found 117 match of "v_8"
+
+        #the next we need to found "v_4" or "v_8" whose pathlist includes <14>, and the <14> appears at index <4> in the pathlist
+        def cond_func(ele_value,ele_pathlist,position):
+            cond1 = ("4" in ele_value) | ("8" in ele_value)
+            cond2 = (14 in ele_pathlist)
+            cond3 = False
+            if(cond2):
+                cond3 = (ele_pathlist.index(14) == position)
+            else:
+                pass
+            return(cond1 & cond2 & cond3)
+
+        position = 4
+        pl = ltree.cond_search(cond_func=cond_func,cond_func_args=[position])
+
+<img src="elist/Images/ListTree.cond_search.0.png">
+
+        #verify the values
+
+<img src="elist/Images/ListTree.cond_search.1.png">
+
+
 
 __ListTree lquery APIs:__
 
