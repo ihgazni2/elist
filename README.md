@@ -249,6 +249,19 @@ __ListTree lquery APIs:__
 ├──73. [deepcopy](elist/Images/copy.0.png)  <br>
 ├──74. [copy_within](elist/Images/copy.0.png)  <br>
 ├──75. [copyWithin](elist/Images/copy.0.png)  <br>
+├──76. [reverse](elist/Images/reverse.0.png)  <br>
+├──77. [comprise](elist/Images/comprise.0.png)  <br>
+├──78. [entries](elist/Images/entries.0.png)  <br>
+├──79. [includes](elist/Images/entries.0.png)  <br>
+├──80. [toString](elist/Images/entries.0.png)  <br>
+├──81. [toSource](elist/Images/entries.0.png)  <br>
+├──82. [splice](elist/Images/splice.0.png)  <br>
+├──83. [slice](elist/Images/slice.0.png)  <br>
+├──84. [join](elist/Images/join.0.png)  <br>
+├──85. [join2](elist/Images/join.0.png)  <br>
+├──86. [htmljoin](elist/Images/join.0.png)  <br>
+├──87. [uniqualize](elist/Images/uniqualize.0.png)  <br>
+├──88. [interleave](elist/Images/interleave.0.png)  <br>
 
 
 
