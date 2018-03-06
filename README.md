@@ -275,6 +275,7 @@ __ListTree lquery APIs:__
 ├──66. [remove_many](elist/Images/.remove_many.0.png)  <br>
 ├──67. [remove_manynot](elist/Images/.remove_manynot.0.png)  <br>
 ├──68. [init](elist/Images/init.0.png)  <br>
+├──68. [initWith](elist/Images/initWith.0.png)  <br>
 ├──69. [intlize](elist/Images/init.0.png)  <br>
 ├──70. [strlize](elist/Images/init.0.png)  <br>
 ├──71. [array_from](elist/Images/array_from.0.png)  <br>
