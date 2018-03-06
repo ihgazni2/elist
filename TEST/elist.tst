@@ -1407,6 +1407,31 @@ l[4][2][1][0][0][3]
 l[4][2][1][0][0][19][11]
 l[11][3]
 
+#cond_search
+
+pl1=ltree.search('v_4')
+pl1.__len__() 
+#we found 125 match of "v_4"
+pl2=ltree.search('v_8')
+pl2.__len__()
+#we found 117 match of "v_8"
+
+#the next we need to found "v_4" or "v_8" whose pathlist includes <14>, and the <14> appears at index <4> in the pathlist
+def cond_func(ele_value,ele_pathlist,position):
+    cond1 = ("4" in ele_value) | ("8" in ele_value)
+    cond2 = (14 in ele_pathlist)
+    cond3 = False
+    if(cond2):
+        cond3 = (ele_pathlist.index(14) == position)
+    else:
+        pass
+    return(cond1 & cond2 & cond3)
+
+position = 4
+
+pl = ltree.cond_search(cond_func=cond_func,cond_func_args=[position])
+
+
 #lquery
 #ancestors
 l = [1, [4], 2, [3, [5, 6]]]
