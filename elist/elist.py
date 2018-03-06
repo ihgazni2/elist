@@ -175,6 +175,28 @@ def extend(ol,nl,**kwargs):
         ol.extend(nl)
         return(ol)
 
+def push(ol,*eles,**kwargs):
+    '''
+        from elist.elist import *
+        ol=[1,2,3,4]
+        id(ol)
+        new = push(ol,5,6,7)
+        new
+        id(new)
+        ####
+        ol=[1,2,3,4]
+        id(ol)
+        rslt = push(ol,5,6,7,mode="original")
+        rslt
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = "new"
+    eles = list(eles)
+    return(extend(ol,eles,mode=mode))
+
 def prextend(ol,nl,**kwargs):
     '''
         from elist.elist import *
@@ -544,9 +566,6 @@ def batsorted(referer,*lists,**kwargs):
             nl.append(l[loc])
         rslt.append(nl)
     return(tuple(rslt))
-
-
-#@@@@@@@@@@@@@@
 
 def index_first(ol,value):
     '''
@@ -1211,7 +1230,33 @@ def all_continuous_indexesnot_slices(ol,value):
         pass
     return(rslt)
 
-#@@@@@@@@@@@@@@
+def shift(ol,**kwargs):
+    '''
+        from elist.jprint import pobj
+        from elist.elist import *
+        ol = [1,2,3,4]
+        id(ol)
+        rslt = shift(ol)
+        pobj(rslt)
+        ol
+        id(ol)
+        id(rslt['list'])
+        ####
+        ol = [1,2,3,4]
+        id(ol)
+        rslt = shift(ol,mode="original")
+        rslt
+        ol
+        id(ol)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = "new"
+    length = ol.__len__()
+    rslt = pop(ol,0,mode=mode)
+    return(rslt)
+
 def pop(ol,index,**kwargs):
     '''
         from elist.jprint import pobj
@@ -1251,7 +1296,6 @@ def pop_range(ol,start_index,end_index,**kwargs):
         ol = [1,2,3,4,5,6]
         id(ol)
         rslt = pop_range(ol,2,4)
-        pobj(rslt)
         ol
         id(ol)
         id(rslt['list'])
@@ -1302,7 +1346,6 @@ def pop_some(ol,*indexes,**kwargs):
         ol = [1,2,3,4,5,6]
         id(ol)
         rslt = pop_some(ol,0,2,5)
-        pobj(rslt)
         ol
         id(ol)
         id(rslt['list'])
@@ -1350,7 +1393,6 @@ def pop_indexes(ol,indexes,**kwargs):
         ol = [1,2,3,4,5,6]
         id(ol)
         rslt = pop_indexes(ol,{0,-3,5})
-        pobj(rslt)
         ol
         id(ol)
         id(rslt['list'])
@@ -1993,81 +2035,37 @@ def remove_manynot(ol,values,seqs,**kwargs):
         ol.extend(new)
         return(ol)
 
-def reverse(ol,**kwargs):
+def init(len,default_element=None):
     '''
         from elist.elist import *
-        ol = [1,2,3,4]
-        id(ol)
-        new = reverse(ol)
-        ol
-        new
-        id(ol)
-        id(new)
-        ####
-        ol = [1,2,3,4]
-        id(ol)
-        rslt = reverse(ol,mode="original")
-        ol
-        rslt
-        id(ol)
-        id(rslt)
+        init(5)
+        init(5,"x")
     '''
-    if('mode' in kwargs):
-        mode = kwargs["mode"]
-    else:
-        mode = "new"
-    if(mode == "new"):
-        new = copy.deepcopy(ol)
-        new.reverse()
-        return(new) 
-    else:
-        ol.reverse()
-        return(ol)
+    rslt = []
+    for i in range(0,len):
+        rslt.append(default_element)
+    return(rslt)
 
-
-    'reverse',
-    'sort'
-
-
-
-def comprise(list1,list2,**kwargs):
+def intlize(l):
     '''
         from elist.elist import *
-        comprise([1,2,3,4,5],[2,3,4],mode="loose")
-        comprise([1,2,3,4,5],[2,3,4])
-        comprise([1,2,3,4,5],[2,3,4],mode="strict")
-        comprise([1,2,3,4,5],[1,2,3,4],mode="strict")
+        l = ["1","3","4","5"]
+        intlize(l)
     '''
-    if('mode' in kwargs):
-        mode = kwargs['mode']
-    else:
-        mode = "loose"
-    len_1 = list1.__len__()
-    len_2 = list2.__len__()
-    if(len_2>len_1):
-        return(False)
-    else:
-        if(mode=="strict"):
-            if(list2 == list1[:len_2]):
-                return(True)
-            else:
-                return(False)
-        else:
-            end = len_1 - len_2
-            for i in range(0,end+1):
-                if(list2 == list1[i:(i+len_2)]):
-                    return(True)
-                else:
-                    pass
-    return(False)
+    return(list(map(lambda ele:int(ele),l)))
 
-
-
+def strlize(l):
+    '''
+        from elist.elist import *
+        l = [1,3,4,5]
+        strlize(l)
+    '''
+    return(list(map(lambda ele:str(ele),l)))
 
 def array_from(obj,func,*args):
     '''
         from elist.elist import *
-        array_from("abcd")
+        array_from("abcd",None)
         #####
         def map_func(ele,x,y):
             return(int(ele)+x+y)
@@ -2095,6 +2093,16 @@ def array_of(*eles):
     '''
     return(list(eles))
 
+def deepcopy(ol):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        id(ol)
+        new = deepcopy(ol)
+        new
+        id(new)
+    '''
+    return(copy.deepcopy(ol))
 
 def copy_within(ol,target, start=None, end=None):
     '''
@@ -2147,6 +2155,74 @@ def copy_within(ol,target, start=None, end=None):
 
 copyWithin = copy_within
 
+def reverse(ol,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        id(ol)
+        new = reverse(ol)
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,2,3,4]
+        id(ol)
+        rslt = reverse(ol,mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    if(mode == "new"):
+        new = copy.deepcopy(ol)
+        new.reverse()
+        return(new) 
+    else:
+        ol.reverse()
+        return(ol)
+
+
+    'reverse',
+    'sort'
+
+def comprise(list1,list2,**kwargs):
+    '''
+        from elist.elist import *
+        comprise([1,2,3,4,5],[2,3,4],mode="loose")
+        comprise([1,2,3,4,5],[2,3,4])
+        comprise([1,2,3,4,5],[2,3,4],mode="strict")
+        comprise([1,2,3,4,5],[1,2,3,4],mode="strict")
+        #not recursive ,only one level
+        #please refer to ListTree.search for recursive support
+    '''
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = "loose"
+    len_1 = list1.__len__()
+    len_2 = list2.__len__()
+    if(len_2>len_1):
+        return(False)
+    else:
+        if(mode=="strict"):
+            if(list2 == list1[:len_2]):
+                return(True)
+            else:
+                return(False)
+        else:
+            end = len_1 - len_2
+            for i in range(0,end+1):
+                if(list2 == list1[i:(i+len_2)]):
+                    return(True)
+                else:
+                    pass
+    return(False)
+
 def entries(ol):
     '''
         from elist.elist import *
@@ -2159,6 +2235,263 @@ def entries(ol):
     for i in range(0,length):
         entry = [i,ol[i]]
         rslt.append(entry)
+    return(rslt)
+
+def includes(ol,value):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        includes(ol,3)
+        includes(ol,5)
+    '''
+    return((value in ol))
+
+def toString(ol):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        toString(ol)
+    '''
+    return(ol.__str__())
+
+def toSource(ol):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        toSource(ol)
+    '''
+    return(ol.__repr__())
+
+def splice(ol,start,deleteCount,*eles,**kwargs):
+    '''
+        from elist.elist import *
+        ol = ["angel", "clown", "mandarin", "surgeon"]
+        id(ol)
+        new = splice(ol,2,0,"drum")
+        new
+        id(new)
+        ####
+        ol = ["angel", "clown", "mandarin", "surgeon"]
+        id(ol)
+        new = splice(ol,2,1,"drum",mode="original")
+        new
+        id(new)
+        ####
+        ol = [1,2,3,4,5,6]
+        id(ol)
+        new = splice(ol,2,2,77,777)
+        new
+        id(new)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = "new"
+    length = ol.__len__()
+    new = copy.deepcopy(ol)
+    if(start >= length):
+        eles = list(eles)
+        new.extend(eles)
+    else:
+        start = uniform_index(start,length)
+        end = start + deleteCount
+        tmp = pop_range(new,start,end,mode="new")['list']
+        new = insert_some(tmp,*eles,index=start,mode="new")
+    if(mode == "new"):
+        return(new)
+    else:
+        ol.clear()
+        ol.extend(new)
+        return(ol)
+
+def slice(ol,start,end=None,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4,5]
+        id(ol)
+        new = slice(ol,2,4)
+        new
+        id(new)
+        ####
+        id(ol)
+        rslt = slice(ol,1,-2,mode="original")
+        rslt
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = "new"
+    length = ol.__len__()
+    new = copy.deepcopy(ol)
+    if(end == None):
+        end = length
+    else:
+        end = uniform_index(end,length)
+    start = uniform_index(start,length)
+    if(mode == "new"):
+        return(new[start:end])
+    else:
+        ol.clear()
+        ol.extend(new[start:end])
+        return(ol)
+
+def join(ol,separator=","):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        join(ol,separator="-")
+    '''
+    rslt =""
+    length = ol.__len__()
+    for i in range(0,length-1):
+        rslt = rslt + str(ol[i]) + separator
+    rslt = rslt + str(ol[length - 1])
+    return(rslt)
+
+def join2(ol,*sps):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        join2(ol,"-","+","*")
+    '''
+    rslt =""
+    length = ol.__len__()
+    for i in range(0,length-1):
+        rslt = rslt + str(ol[i]) + sps[i]
+    rslt = rslt + str(ol[length - 1])
+    return(rslt)
+
+def htmljoin(ol,sp,**kwargs):
+    '''
+        ol = [1,2,3,4]
+        htmljoin(ol,"option",outer="select")
+        
+    '''
+    if('outer' in kwargs):
+        outer = kwargs['outer']
+    else:
+        outer = ""
+    if(outer):
+        head = "<" + outer + ">"
+        tail = "</" + outer + ">"
+    else:
+        head = ""
+        tail = ""
+    rslt = head
+    length = ol.__len__()
+    begin = "<" + sp + ">"
+    end = "</" + sp + ">"
+    for i in range(0,length):
+        rslt = rslt + begin + str(ol[i]) + end
+    rslt = rslt + tail
+    return(rslt)
+
+def uniqualize(l,**kwargs):
+    '''
+        from elist.elist import *
+        l = [1, 2, 2]
+        new = uniqualize(l)
+        new
+        id(l)
+        id(new)
+        ####
+        l = [1, 2, 2]
+        rslt = uniqualize(l,mode="original")
+        rslt
+        id(l)
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = 'new'
+    pt = copy.deepcopy(l)
+    seqs_for_del =[]
+    vset = set({})
+    for v in pt:
+        vset.add(v)
+    tslen = vset.__len__()
+    freq = {}
+    for i in range(0,pt.__len__()):
+        v = pt[i]
+        if(v in freq):
+            freq[v] = freq[v] + 1
+            seqs_for_del.append(i)
+        else:
+            freq[v] = 0
+    npt = []
+    for i in range(0,pt.__len__()):
+        if(i in seqs_for_del):
+            pass
+        else:
+            npt.append(pt[i])
+    pt = npt
+    if(mode == 'new'):
+        return(npt)
+    else:
+        l.clear()
+        l.extend(npt)
+        return(l)
+
+def interleave(*arrays,**kwargs):
+    '''
+        arr1 = [1,2,3,4]
+        arr2 = ['a','b','c','d']
+        arr3 = ['@','#','%','*']
+        interleave(arr1,arr2,arr3)
+    '''
+    anum = arrays.__len__()
+    rslt = []
+    length = arrays[0].__len__()
+    for j in range(0,length):
+        for i in range(0,anum):
+            array = arrays[i]
+            rslt.append(array[j])
+    return(rslt)
+
+#@@@@@@@@@@@@@@@@@@
+
+def for_each(ol,test_func,*args):
+    '''
+        from elist.elist import *
+        def show_func(ele):
+            print("<{0}>".format(ele))
+        
+        ol = [1,2,3,4]
+        for_each(ol,show_func)
+        
+        ####forEach is the same as for_each
+    '''
+    rslt = (True,None)
+    length = ol.__len__()
+    for i in range(0,length):
+        test_func(ol[i],*args)
+
+forEach = for_each
+
+def some(ol,test_func,*args):
+    '''
+        from elist.elist import *
+        def test_func(ele,x):
+            cond = (ele > x)
+            return(cond)
+        
+        ol = [1,2,3,4]
+        some(ol,test_func,3)
+        
+        ol = [1,2,1,3]
+        some(ol,test_func,3)
+        
+    '''
+    rslt = {'cond':False,'index':None}
+    length = ol.__len__()
+    for i in range(0,length):
+        cond = test_func(ol[i],*args)
+        if(cond):
+            return({'cond':True,'index':i})
+        else:
+            pass
     return(rslt)
 
 def every(ol,test_func,*args):
@@ -2534,177 +2867,45 @@ def find_allnot(ol,test_func,*args):
             rslt.append({'index':i,'value':ol[i]})
     return(rslt)
 
-def push(ol,*eles,**kwargs):
+
+def array_map(ol,map_func,*args):
     '''
         from elist.elist import *
-        ol=[1,2,3,4]
-        id(ol)
-        new = push(ol,5,6,7)
-        new
-        id(new)
-        ####
-        ol=[1,2,3,4]
-        id(ol)
-        rslt = push(ol,5,6,7,mode="original")
-        rslt
-        id(rslt)
+        ol = [1,2,3,4]
+        def map_func(ele,mul,plus):
+            return(ele*mul+plus)
+        
+        array_map(ol,map_func,2,100)
     '''
-    if('mode' in kwargs):
-        mode = kwargs['mode']
+    rslt = list(map(lambda ele:map_func(ele,*args),ol))
+    return(rslt)
+
+def array_dualmap(ol,value_map_func,**kwargs):
+    '''
+    '''
+    def get_self(obj):
+        return(obj)
+    if('iargs' in kwargs):
+        iargs = kwargs['iargs']
     else:
-        mode = "new"
-    eles = list(eles)
-    return(extend(ol,eles,mode=mode))
-
-def includes(ol,value):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        includes(ol,3)
-        includes(ol,5)
-    '''
-    return((value in ol))
-
-def toString(ol):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        toString(ol)
-    '''
-    return(ol.__str__())
-
-def toSource(ol):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        toSource(ol)
-    '''
-    return(ol.__repr__())
-
-def splice(ol,start,deleteCount,*eles,**kwargs):
-    '''
-        from elist.elist import *
-        ol = ["angel", "clown", "mandarin", "surgeon"]
-        id(ol)
-        new = splice(ol,2,0,"drum")
-        new
-        id(new)
-        ####
-        ol = ["angel", "clown", "mandarin", "surgeon"]
-        id(ol)
-        new = splice(ol,2,1,"drum",mode="original")
-        new
-        id(new)
-        ####
-        ol = [1,2,3,4,5,6]
-        id(ol)
-        new = splice(ol,2,2,77,777)
-        new
-        id(new)
-    '''
-    if('mode' in kwargs):
-        mode = kwargs['mode']
+        iargs = []
+    if('vargs' in kwargs):
+        vargs = kwargs['vargs']
     else:
-        mode = "new"
+        vargs = []
+    if('index_map_func' in kwargs):
+        index_map_func = kwargs['index_map_func']
+    else:
+        index_map_func = get_self
     length = ol.__len__()
-    new = copy.deepcopy(ol)
-    if(start >= length):
-        eles = list(eles)
-        new.extend(eles)
-    else:
-        start = uniform_index(start,length)
-        end = start + deleteCount
-        tmp = pop_range(new,start,end,mode="new")['list']
-        new = insert_some(tmp,*eles,index=start,mode="new")
-    if(mode == "new"):
-        return(new)
-    else:
-        ol.clear()
-        ol.extend(new)
-        return(ol)
-
-def some(ol,test_func,*args):
-    '''
-        from elist.elist import *
-        def test_func(ele,x):
-            cond = (ele > x)
-            return(cond)
-        
-        ol = [1,2,3,4]
-        some(ol,test_func,3)
-        
-        ol = [1,2,1,3]
-        some(ol,test_func,3)
-        
-    '''
-    rslt = {'cond':False,'index':None}
-    length = ol.__len__()
+    il = list(range(0,length))
+    nil = list(map(lambda ele:index_map_func(ele,*iargs),il))
+    nvl = []
     for i in range(0,length):
-        cond = test_func(ol[i],*args)
-        if(cond):
-            return({'cond':True,'index':i})
-        else:
-            pass
-    return(rslt)
-
-def slice(ol,start,end=None,**kwargs):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4,5]
-        id(ol)
-        new = slice(ol,2,4)
-        new
-        id(new)
-        ####
-        id(ol)
-        rslt = slice(ol,1,-2,mode="original")
-        rslt
-        id(rslt)
-    '''
-    if('mode' in kwargs):
-        mode = kwargs['mode']
-    else:
-        mode = "new"
-    length = ol.__len__()
-    new = copy.deepcopy(ol)
-    if(end == None):
-        end = length
-    else:
-        end = uniform_index(end,length)
-    start = uniform_index(start,length)
-    if(mode == "new"):
-        return(new[start:end])
-    else:
-        ol.clear()
-        ol.extend(new[start:end])
-        return(ol)
-
-def shift(ol,**kwargs):
-    '''
-        from elist.jprint import pobj
-        from elist.elist import *
-        ol = [1,2,3,4]
-        id(ol)
-        rslt = shift(ol)
-        pobj(rslt)
-        ol
-        id(ol)
-        id(rslt['list'])
-        ####
-        ol = [1,2,3,4]
-        id(ol)
-        rslt = shift(ol,mode="original")
-        rslt
-        ol
-        id(ol)
-    '''
-    if('mode' in kwargs):
-        mode = kwargs['mode']
-    else:
-        mode = "new"
-    length = ol.__len__()
-    rslt = pop(ol,0,mode=mode)
-    return(rslt)
+        ele = ol[i]
+        v = value_map_func(ele,nil[i],*vargs)
+        nvl.append(v)
+    return(nvl)
 
 def reduce_left(ol,callback,initialValue):
     '''
@@ -2747,93 +2948,12 @@ def reduce_right(ol,callback,initialValue):
 
 reduceRight = reduce_right
 
-def array_map(ol,map_func,*args):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        def map_func(ele,mul,plus):
-            return(ele*mul+plus)
-        
-        array_map(ol,map_func,2,100)
-    '''
-    rslt = list(map(lambda ele:map_func(ele,*args),ol))
-    return(rslt)
-
-def array_dualmap(ol,value_map_func,**kwargs):
-    '''
-    '''
-    def get_self(obj):
-        return(obj)
-    if('iargs' in kwargs):
-        iargs = kwargs['iargs']
-    else:
-        iargs = []
-    if('vargs' in kwargs):
-        vargs = kwargs['vargs']
-    else:
-        vargs = []
-    if('index_map_func' in kwargs):
-        index_map_func = kwargs['index_map_func']
-    else:
-        index_map_func = get_self
-    length = ol.__len__()
-    il = list(range(0,length))
-    nil = list(map(lambda ele:index_map_func(ele,*iargs),il))
-    nvl = []
-    for i in range(0,length):
-        ele = ol[i]
-        v = value_map_func(ele,nil[i],*vargs)
-        nvl.append(v)
-    return(nvl)
 
 
 
-def join(ol,separator=","):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        join(ol,separator="-")
-    '''
-    rslt =""
-    length = ol.__len__()
-    for i in range(0,length-1):
-        rslt = rslt + str(ol[i]) + separator
-    rslt = rslt + str(ol[length - 1])
-    return(rslt)
 
-def for_each(ol,test_func,*args):
-    '''
-        from elist.elist import *
-        def show_func(ele):
-            print("<{0}>".format(ele))
-        
-        ol = [1,2,3,4]
-        for_each(ol,show_func)
-        
-        ####forEach is the same as for_each
-    '''
-    rslt = (True,None)
-    length = ol.__len__()
-    for i in range(0,length):
-        test_func(ol[i],*args)
 
-forEach = for_each
 
-def intlize(l):
-    '''
-        from elist.elist import *
-        l = ["1","3","4","5"]
-        intlize(l)
-    '''
-    return(list(map(lambda ele:int(ele),l)))
-
-def strlize(l):
-    '''
-        from elist.elist import *
-        l = [1,3,4,5]
-        strlize(l)
-    '''
-    return(list(map(lambda ele:str(ele),l)))
 
 def diff_indexes(l1,l2):
     '''
@@ -2886,64 +3006,6 @@ def same_values(l1,l2):
         if(l1[i]==l2[i]):
             rslt.append(l1[i])
     return(rslt)
-
-def init(len,default_element=None):
-    '''
-        from elist.elist import *
-        init(5)
-        init(5,"x")
-    '''
-    rslt = []
-    for i in range(0,len):
-        rslt.append(default_element)
-    return(rslt)
-
-def uniqualize(l,**kwargs):
-    '''
-        from elist.elist import *
-        l = [1, 2, 2]
-        new = uniqualize(l)
-        new
-        id(l)
-        id(new)
-        ####
-        l = [1, 2, 2]
-        rslt = uniqualize(l,mode="original")
-        rslt
-        id(l)
-        id(rslt)
-    '''
-    if('mode' in kwargs):
-        mode = kwargs['mode']
-    else:
-        mode = 'new'
-    pt = copy.deepcopy(l)
-    seqs_for_del =[]
-    vset = set({})
-    for v in pt:
-        vset.add(v)
-    tslen = vset.__len__()
-    freq = {}
-    for i in range(0,pt.__len__()):
-        v = pt[i]
-        if(v in freq):
-            freq[v] = freq[v] + 1
-            seqs_for_del.append(i)
-        else:
-            freq[v] = 0
-    npt = []
-    for i in range(0,pt.__len__()):
-        if(i in seqs_for_del):
-            pass
-        else:
-            npt.append(pt[i])
-    pt = npt
-    if(mode == 'new'):
-        return(npt)
-    else:
-        l.clear()
-        l.extend(new)
-        return(l)
 
 def value_indexes_mapping(l):
     '''
@@ -3079,17 +3141,6 @@ def is_list(obj):
 
 isArray = is_list
 
-
-def deepcopy(ol):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        id(ol)
-        new = deepcopy(ol)
-        new
-        id(new)
-    '''
-    return(copy.deepcopy(ol))
 
 
 
@@ -3897,12 +3948,6 @@ def get_j_str_lvs_dict(j_str,block_op_pairs_dict=get_block_op_pairs("{}[]()")):
             j_str_lvs_dict[seq] =level
             seq = seq + 1
     return(j_str_lvs_dict)
-
-
-
-
-
-
 
 
 
