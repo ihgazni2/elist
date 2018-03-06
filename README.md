@@ -324,6 +324,21 @@ __ListTree lquery APIs:__
 ├──115. [reduceLeft](elist/Images/reduce_left.0.png)  <br>
 ├──116. [reduce_right](elist/Images/reduce_right.0.png)  <br>
 ├──117. [reduceRight](elist/Images/reduce_right.0.png)  <br>
+├──118. [diff_indexes](elist/Images/diff_and_same.0.png)  <br>
+├──119. [diff_values](elist/Images/diff_and_same.0.png)  <br>
+├──120. [same_indexes](elist/Images/diff_and_same.0.png)  <br>
+├──121. [same_values](elist/Images/diff_and_same.0.png)  <br>
+├──122. [value_indexes_mapping](elist/Images/diff_and_same.0.png)  <br>
+├──123. [getitem_via_pathlist](elist/Images/get.0.png)  <br>
+├──124. [getitem_via_pathlist2](elist/Images/get.0.png)  <br>
+├──125. [getitem_via_sibseqs](elist/Images/get.0.png)  <br>
+├──126. [setitem_via_pathlist](elist/Images/set_del.0.png)  <br>
+├──127. [setitem_via_sibseqs](elist/Images/set_del.0.png)  <br>
+├──128. [delitem_via_pathlist](elist/Images/set_del.0.png)  <br>
+├──129. [delitem_via_sibseqs](elist/Images/set_del.0.png)  <br>
+├──130. [is_leaf](elist/Images/is_leaf.0.png)  <br>
+
+
 
 
 
