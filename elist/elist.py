@@ -5,7 +5,7 @@ from types import MethodType
 
 def select_some(ol,seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = ['a','b','c','d']
         select_some(ol,[1,2])
     '''
@@ -20,7 +20,7 @@ def select_some(ol,seqs):
 
 def select_seqs(ol,*seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = ['a','b','c','d']
         select_seqs(ol,1,2)
     '''
@@ -36,7 +36,7 @@ def select_seqs(ol,*seqs):
 
 def append(ol,ele,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         ele = 5
         id(ol)
@@ -65,7 +65,7 @@ def append(ol,ele,**kwargs):
 
 def append_some(ol,*eles,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         append_some(ol,5,6,7,8,mode="original")
@@ -87,7 +87,7 @@ def append_some(ol,*eles,**kwargs):
 
 def prepend(ol,ele,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         ele = 5
         id(ol)
@@ -121,7 +121,7 @@ def prepend(ol,ele,**kwargs):
 
 def prepend_some(ol,*eles,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         prepend_some(ol,5,6,7,8,mode="original")
@@ -147,7 +147,7 @@ unshift = prepend_some
 
 def extend(ol,nl,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         nl = [5,6,7,8]
         id(ol)
@@ -177,7 +177,7 @@ def extend(ol,nl,**kwargs):
 
 def push(ol,*eles,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol=[1,2,3,4]
         id(ol)
         new = push(ol,5,6,7)
@@ -199,7 +199,7 @@ def push(ol,*eles,**kwargs):
 
 def prextend(ol,nl,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         nl = [5,6,7,8]
         id(ol)
@@ -238,7 +238,7 @@ def prextend(ol,nl,**kwargs):
 
 def concat(*arrays):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l1 = [1,2,3]
         l2 = ["a","b","c"]
         l3 = [100,200]
@@ -259,7 +259,7 @@ def concat(*arrays):
 
 def car(ol):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol=[1,2,3,4]
         car(ol)
     '''
@@ -267,7 +267,7 @@ def car(ol):
 
 def cdr(ol,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol=[1,2,3,4]
         id(ol)
         new = cdr(ol)
@@ -293,7 +293,7 @@ def cdr(ol,**kwargs):
 
 def cons(head_ele,l,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol=[1,2,3,4]
         id(ol)
         new = cons(5,ol)
@@ -334,7 +334,7 @@ def uniform_index(index,length):
 
 def insert(ol,start_index,ele,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         ele = 5
         id(ol)
@@ -367,7 +367,7 @@ def insert(ol,start_index,ele,**kwargs):
 
 def insert_some(ol,*eles,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         insert_some(ol,5,6,7,8,index=2,mode="original")
@@ -405,7 +405,7 @@ def insert_some(ol,*eles,**kwargs):
 
 def insert_many(ol,eles,locs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4,5]
         eles = [7,77,777]
         locs = [0,2,4]
@@ -465,7 +465,7 @@ def insert_many(ol,eles,locs,**kwargs):
 
 def sort(ol,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,3,4,2]
         id(ol)
         new = sort(ol)
@@ -496,7 +496,7 @@ def sort(ol,**kwargs):
 
 def sorted_refer_to(l,referer,reverse=False,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l = ["a","b","c"]
         referer = [7,8,6]
         sorted_refer_to(l,referer)
@@ -529,7 +529,7 @@ def sorted_refer_to(l,referer,reverse=False,**kwargs):
 
 def batsorted(referer,*lists,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         referer = [4,2,3,1]
         l1 = ['a','b','c','d']
         l2 = [100,200,300,400]
@@ -569,7 +569,7 @@ def batsorted(referer,*lists,**kwargs):
 
 def index_first(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         index_first(ol,'a')
         ####index_first, array_index, indexOf  are the same
@@ -583,7 +583,7 @@ indexOf = index_first
 
 def index_firstnot(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         index_firstnot(ol,'a')
         ####index_firstnot, array_indexnot, indexOfnot  are the same
@@ -603,7 +603,7 @@ indexOfnot = index_firstnot
 
 def index_last(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         index_last(ol,'a')
         ####lastIndexOf is the same as index_last
@@ -621,7 +621,7 @@ lastIndexOf = index_last
 
 def index_lastnot(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         index_lastnot(ol,'a')
         ####lastIndexOfnot is the same as index_lastnot
@@ -639,7 +639,7 @@ lastIndexOfnot = index_lastnot
 
 def index_which(ol,value,which):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         index_which(ol,'a',0)
         index_which(ol,'a',1)
@@ -661,7 +661,7 @@ def index_which(ol,value,which):
 
 def index_whichnot(ol,value,which):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         index_whichnot(ol,'a',0)
         index_whichnot(ol,'a',1)
@@ -682,7 +682,7 @@ def index_whichnot(ol,value,which):
 
 def indexes_all(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         indexes_all(ol,'a')
     '''
@@ -697,7 +697,7 @@ def indexes_all(ol,value):
 
 def indexes_allnot(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         indexes_allnot(ol,'a')
     '''
@@ -712,7 +712,7 @@ def indexes_allnot(ol,value):
 
 def indexes_some(ol,value,*seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         indexes_some(ol,'a',0,2)
         indexes_some(ol,'a',0,1)
@@ -736,7 +736,7 @@ def indexes_some(ol,value,*seqs):
 
 def indexes_somenot(ol,value,*seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         indexes_somenot(ol,'a',0,2)
         indexes_somenot(ol,'a',0,1)
@@ -760,7 +760,7 @@ def indexes_somenot(ol,value,*seqs):
 
 def indexes_seqs(ol,value,seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         indexes_seqs(ol,'a',{0,2})
         indexes_seqs(ol,'a',{0,1})
@@ -784,7 +784,7 @@ def indexes_seqs(ol,value,seqs):
 
 def indexes_seqsnot(ol,value,seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',4,'a',5]
         indexes_seqsnot(ol,'a',{0,2})
         indexes_seqsnot(ol,'a',{0,1})
@@ -808,7 +808,7 @@ def indexes_seqsnot(ol,value,seqs):
 
 def first_continuous_indexes_slice(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         first_continuous_indexes_slice(ol,"a")
     '''
@@ -834,7 +834,7 @@ def first_continuous_indexes_slice(ol,value):
 
 def first_continuous_indexesnot_slice(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = ["a",0,1,"a","a",2,3,"a",4,"a","a","a",5]
         first_continuous_indexesnot_slice(ol,"a")
     '''
@@ -860,7 +860,7 @@ def first_continuous_indexesnot_slice(ol,value):
 
 def last_continuous_indexes_slice(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         last_continuous_indexes_slice(ol,"a")
     '''
@@ -887,7 +887,7 @@ def last_continuous_indexes_slice(ol,value):
 
 def last_continuous_indexesnot_slice(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         last_continuous_indexesnot_slice(ol,"a")
     '''
@@ -914,7 +914,7 @@ def last_continuous_indexesnot_slice(ol,value):
 
 def which_continuous_indexes_slice(ol,value,which):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         which_continuous_indexes_slice(ol,"a",0)
         which_continuous_indexes_slice(ol,"a",1)
@@ -958,7 +958,7 @@ def which_continuous_indexes_slice(ol,value,which):
 
 def which_continuous_indexesnot_slice(ol,value,which):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         which_continuous_indexesnot_slice(ol,"a",0)
         which_continuous_indexesnot_slice(ol,"a",1)
@@ -1002,7 +1002,7 @@ def which_continuous_indexesnot_slice(ol,value,which):
 
 def some_continuous_indexes_slices(ol,value,*seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         some_continuous_indexes_slices(ol,"a",0,2)
     '''
@@ -1044,7 +1044,7 @@ def some_continuous_indexes_slices(ol,value,*seqs):
 
 def some_continuous_indexesnot_slices(ol,value,*seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         some_continuous_indexesnot_slices(ol,"a",0,2)
     '''
@@ -1086,7 +1086,7 @@ def some_continuous_indexesnot_slices(ol,value,*seqs):
 
 def seqs_continuous_indexes_slices(ol,value,seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         seqs_continuous_indexes_slices(ol,"a",{0,2})
     '''
@@ -1127,7 +1127,7 @@ def seqs_continuous_indexes_slices(ol,value,seqs):
 
 def seqs_continuous_indexesnot_slices(ol,value,seqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         seqs_continuous_indexesnot_slices(ol,"a",{0,2})
     '''
@@ -1168,7 +1168,7 @@ def seqs_continuous_indexesnot_slices(ol,value,seqs):
 
 def all_continuous_indexes_slices(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         all_continuous_indexes_slices(ol,"a")
     '''
@@ -1200,7 +1200,7 @@ def all_continuous_indexes_slices(ol,value):
 
 def all_continuous_indexesnot_slices(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
         all_continuous_indexesnot_slices(ol,"a")
     '''
@@ -1232,8 +1232,8 @@ def all_continuous_indexesnot_slices(ol,value):
 
 def shift(ol,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         rslt = shift(ol)
@@ -1259,8 +1259,8 @@ def shift(ol,**kwargs):
 
 def pop(ol,index,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         rslt = pop(ol,2)
@@ -1291,8 +1291,8 @@ def pop(ol,index,**kwargs):
 
 def pop_range(ol,start_index,end_index,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,2,3,4,5,6]
         id(ol)
         rslt = pop_range(ol,2,4)
@@ -1341,8 +1341,8 @@ def pop_range(ol,start_index,end_index,**kwargs):
 
 def pop_some(ol,*indexes,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,2,3,4,5,6]
         id(ol)
         rslt = pop_some(ol,0,2,5)
@@ -1388,8 +1388,8 @@ def pop_some(ol,*indexes,**kwargs):
 
 def pop_indexes(ol,indexes,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,2,3,4,5,6]
         id(ol)
         rslt = pop_indexes(ol,{0,-3,5})
@@ -1435,8 +1435,8 @@ def pop_indexes(ol,indexes,**kwargs):
 
 def remove_first(ol,value,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a']
         id(ol)
         new = remove_first(ol,'a')
@@ -1470,8 +1470,8 @@ array_remove = remove_first
 
 def remove_firstnot(ol,value,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a']
         id(ol)
         new = remove_firstnot(ol,'a')
@@ -1516,7 +1516,7 @@ array_removenot = remove_firstnot
 
 def remove_last(ol,value,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a']
         id(ol)
         new = remove_last(ol,'a')
@@ -1550,8 +1550,8 @@ def remove_last(ol,value,**kwargs):
 
 def remove_lastnot(ol,value,**kwargs):
     '''
-        from elist.jprint import pobj
-        from elist.elist import *
+        from xdict.jprint import pobj
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a']
         id(ol)
         new = remove_lastnot(ol,'a')
@@ -1593,7 +1593,7 @@ def remove_lastnot(ol,value,**kwargs):
 
 def remove_which(ol,value,which,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a']
         id(ol)
         new = remove_which(ol,'a',1)
@@ -1635,7 +1635,7 @@ def remove_which(ol,value,which,**kwargs):
 
 def remove_whichnot(ol,value,which,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a']
         id(ol)
         new = remove_whichnot(ol,'a',1)
@@ -1677,7 +1677,7 @@ def remove_whichnot(ol,value,which,**kwargs):
 
 def remove_some(ol,value,*seqs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a',6,'a']
         id(ol)
         new = remove_some(ol,'a',1,3)
@@ -1721,7 +1721,7 @@ def remove_some(ol,value,*seqs,**kwargs):
 
 def remove_somenot(ol,value,*seqs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a',6,'a']
         id(ol)
         new = remove_somenot(ol,'a',1,3)
@@ -1765,7 +1765,7 @@ def remove_somenot(ol,value,*seqs,**kwargs):
 
 def remove_seqs(ol,value,seqs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a',6,'a']
         id(ol)
         new = remove_seqs(ol,'a',{1,3})
@@ -1809,7 +1809,7 @@ def remove_seqs(ol,value,seqs,**kwargs):
 
 def remove_seqsnot(ol,value,seqs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a',6,'a']
         id(ol)
         new = remove_seqsnot(ol,'a',{1,3})
@@ -1853,7 +1853,7 @@ def remove_seqsnot(ol,value,seqs,**kwargs):
 
 def remove_all(ol,value,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a',6,'a']
         id(ol)
         new = remove_all(ol,'a')
@@ -1891,7 +1891,7 @@ def remove_all(ol,value,**kwargs):
 
 def remove_allnot(ol,value,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'a',5,'a',6,'a']
         id(ol)
         new = remove_allnot(ol,'a')
@@ -1929,7 +1929,7 @@ def remove_allnot(ol,value,**kwargs):
 
 def remove_many(ol,values,seqs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'b',5,'a',6,'a',7,'b',8,'b',9]
         id(ol)
         new = remove_many(ol,['a','b'],[1,2])
@@ -1983,7 +1983,7 @@ def remove_many(ol,values,seqs,**kwargs):
 
 def remove_manynot(ol,values,seqs,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,'a',3,'b',5,'a',6,'a',7,'b',8,'b',9]
         id(ol)
         new = remove_manynot(ol,['a','b'],[1,2])
@@ -2037,7 +2037,7 @@ def remove_manynot(ol,values,seqs,**kwargs):
 
 def init(len,default_element=None):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         init(5)
         init(5,"x")
     '''
@@ -2048,7 +2048,7 @@ def init(len,default_element=None):
 
 def intlize(l):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l = ["1","3","4","5"]
         intlize(l)
     '''
@@ -2056,7 +2056,7 @@ def intlize(l):
 
 def strlize(l):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l = [1,3,4,5]
         strlize(l)
     '''
@@ -2064,7 +2064,7 @@ def strlize(l):
 
 def array_from(obj,func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         array_from("abcd",None)
         #####
         def map_func(ele,x,y):
@@ -2088,14 +2088,14 @@ def array_from(obj,func,*args):
 
 def array_of(*eles):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         array_of(1,2,4,5,6)
     '''
     return(list(eles))
 
 def deepcopy(ol):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         new = deepcopy(ol)
@@ -2106,7 +2106,7 @@ def deepcopy(ol):
 
 def copy_within(ol,target, start=None, end=None):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1, 2, 3, 4, 5]
         id(ol)
         rslt = copyWithin(ol,0,3,4)
@@ -2157,7 +2157,7 @@ copyWithin = copy_within
 
 def reverse(ol,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         id(ol)
         new = reverse(ol)
@@ -2192,7 +2192,7 @@ def reverse(ol,**kwargs):
 
 def comprise(list1,list2,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         comprise([1,2,3,4,5],[2,3,4],mode="loose")
         comprise([1,2,3,4,5],[2,3,4])
         comprise([1,2,3,4,5],[2,3,4],mode="strict")
@@ -2225,7 +2225,7 @@ def comprise(list1,list2,**kwargs):
 
 def entries(ol):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = ['a','b','c']
         rslt = entries(ol)
         rslt
@@ -2239,7 +2239,7 @@ def entries(ol):
 
 def includes(ol,value):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         includes(ol,3)
         includes(ol,5)
@@ -2248,7 +2248,7 @@ def includes(ol,value):
 
 def toString(ol):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         toString(ol)
     '''
@@ -2256,7 +2256,7 @@ def toString(ol):
 
 def toSource(ol):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         toSource(ol)
     '''
@@ -2264,7 +2264,7 @@ def toSource(ol):
 
 def splice(ol,start,deleteCount,*eles,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = ["angel", "clown", "mandarin", "surgeon"]
         id(ol)
         new = splice(ol,2,0,"drum")
@@ -2306,7 +2306,7 @@ def splice(ol,start,deleteCount,*eles,**kwargs):
 
 def slice(ol,start,end=None,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4,5]
         id(ol)
         new = slice(ol,2,4)
@@ -2338,7 +2338,7 @@ def slice(ol,start,end=None,**kwargs):
 
 def join(ol,separator=","):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         join(ol,separator="-")
     '''
@@ -2351,7 +2351,7 @@ def join(ol,separator=","):
 
 def join2(ol,*sps):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         join2(ol,"-","+","*")
     '''
@@ -2389,7 +2389,7 @@ def htmljoin(ol,sp,**kwargs):
 
 def uniqualize(l,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l = [1, 2, 2]
         new = uniqualize(l)
         new
@@ -2454,7 +2454,7 @@ def interleave(*arrays,**kwargs):
 
 def for_each(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def show_func(ele):
             print("<{0}>".format(ele))
         
@@ -2474,7 +2474,7 @@ forEach = for_each
 
 def every(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2498,7 +2498,7 @@ def every(ol,test_func,*args):
 
 def some(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2521,7 +2521,7 @@ def some(ol,test_func,*args):
 
 def fill(ol,value,start=None, end=None,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1, 2, 3,4,5]
         id(ol)
         rslt = fill(ol,4)
@@ -2567,7 +2567,7 @@ def fill(ol,value,start=None, end=None,**kwargs):
 
 def filter(ol,test_func,*args,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2609,7 +2609,7 @@ def filter(ol,test_func,*args,**kwargs):
 
 def find_first(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2636,7 +2636,7 @@ find = find_first
 
 def find_firstnot(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2663,7 +2663,7 @@ findnot = find_firstnot
 
 def find_last(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2687,7 +2687,7 @@ def find_last(ol,test_func,*args):
 
 def find_lastnot(ol,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2711,7 +2711,7 @@ def find_lastnot(ol,test_func,*args):
 
 def find_which(ol,which,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2738,7 +2738,7 @@ def find_which(ol,which,test_func,*args):
 
 def find_whichnot(ol,which,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2765,7 +2765,7 @@ def find_whichnot(ol,which,test_func,*args):
 
 def find_seqs(ol,seqs,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2797,7 +2797,7 @@ find_some = find_seqs
 
 def find_seqsnot(ol,seqs,test_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2829,8 +2829,8 @@ find_somenot = find_seqsnot
 
 def find_all(ol,test_func,*args):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2851,8 +2851,8 @@ def find_all(ol,test_func,*args):
 
 def find_allnot(ol,test_func,*args):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         def test_func(ele,x):
             cond = (ele > x)
             return(cond)
@@ -2875,7 +2875,7 @@ def find_allnot(ol,test_func,*args):
 #@@@@@@@@@@@@@@@@
 def array_map(ol,map_func,*args):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         def map_func(ele,mul,plus):
             return(ele*mul+plus)
@@ -2887,7 +2887,7 @@ def array_map(ol,map_func,*args):
 
 def array_map2(*referls,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         refl1 = ['+','+','+','+']
         refl2 = [7,7,7,7]
@@ -2920,7 +2920,7 @@ def array_map2(*referls,**kwargs):
 
 def array_dualmap(ol,value_map_func,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = ['a','b','c','d']
         def index_map_func(index,prefix,suffix):
             s = prefix +str(index+97)+ suffix
@@ -2960,7 +2960,7 @@ def array_dualmap(ol,value_map_func,**kwargs):
 
 def array_dualmap2(*refls,**kwargs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         ol = [1,2,3,4]
         refl1 = ['+','+','+','+']
         refl2 = [7,7,7,7]
@@ -3001,7 +3001,7 @@ def array_dualmap2(*refls,**kwargs):
 
 def reduce_left(ol,callback,initialValue):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def callback(accumulator,currentValue):
             accumulator.append(currentValue[0])
             accumulator.append(currentValue[1])
@@ -3022,7 +3022,7 @@ reduceLeft = reduce_left
 
 def reduce_right(ol,callback,initialValue):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         def callback(accumulator,currentValue):
             accumulator.append(currentValue[0])
             accumulator.append(currentValue[1])
@@ -3049,7 +3049,7 @@ reduceRight = reduce_right
 
 def diff_indexes(l1,l2):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l1 = [1,2,3,5]
         l2 = [0,2,3,4]
         diff_indexes(l1,l2)
@@ -3062,7 +3062,7 @@ def diff_indexes(l1,l2):
 
 def diff_values(l1,l2):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l1 = [1,2,3,5]
         l2 = [0,2,3,4]
         diff_values(l1,l2)
@@ -3075,7 +3075,7 @@ def diff_values(l1,l2):
 
 def same_indexes(l1,l2):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l1 = [1,2,3,5]
         l2 = [0,2,3,4]
         same_indexes(l1,l2)
@@ -3088,7 +3088,7 @@ def same_indexes(l1,l2):
 
 def same_values(l1,l2):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         l1 = [1,2,3,5]
         l2 = [0,2,3,4]
         same_values(l1,l2)
@@ -3101,8 +3101,8 @@ def same_values(l1,l2):
 
 def value_indexes_mapping(l):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         l = ['a','b','b','a','c','b']
         desc = value_indexes_mapping(l)
         pobj(desc)
@@ -3120,7 +3120,7 @@ def value_indexes_mapping(l):
 
 def getitem_via_pathlist(ol,pathlist):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         getitem_via_pathlist(y,[1,1])
@@ -3133,7 +3133,7 @@ def getitem_via_pathlist(ol,pathlist):
 
 def getitem_via_pathlist2(pathlist,ol):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         getitem_via_pathlist2([1,1],y)
@@ -3146,7 +3146,7 @@ def getitem_via_pathlist2(pathlist,ol):
 
 def getitem_via_sibseqs(ol,*sibseqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         getitem_via_sibseqs(y,1,1)
@@ -3160,7 +3160,7 @@ def getitem_via_sibseqs(ol,*sibseqs):
 
 def setitem_via_pathlist(ol,value,pathlist):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         setitem_via_pathlist(y,"500",[1,1])
@@ -3175,7 +3175,7 @@ def setitem_via_pathlist(ol,value,pathlist):
 
 def setitem_via_sibseqs(ol,value,*sibseqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         setitem_via_sibseqs(y,"500",1,1)
@@ -3191,7 +3191,7 @@ def setitem_via_sibseqs(ol,value,*sibseqs):
 
 def delitem_via_pathlist(ol,pathlist):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         delitem_via_pathlist(y,[1,1])
@@ -3206,7 +3206,7 @@ def delitem_via_pathlist(ol,pathlist):
 
 def delitem_via_sibseqs(ol,*sibseqs):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         y = ['a',['b',["bb"]],'c']
         y[1][1]
         delitem_via_sibseqs(y,1,1)
@@ -3222,7 +3222,7 @@ def delitem_via_sibseqs(ol,*sibseqs):
 
 def is_list(obj):
     '''
-        from elist.elist import *
+        from xdict.elist import *
         is_list([1,2,3])
         is_list(200)
     '''
@@ -3251,7 +3251,7 @@ def is_leaf(obj):
         the below is for nested-list
         any type is not list will be treated as a leaf
         empty list will be treated as a leaf
-        from elist.elist import *
+        from xdict.elist import *
         is_leaf(1)
         is_leaf([1,2,3])
         is_leaf([])
@@ -3555,8 +3555,8 @@ class PointerCache():
 ##the below is for each element desc handle
 def new_ele_description(**kwargs):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         root_desc = new_ele_description(leaf=False,depth=0,breadth_path=[],path=[],parent_path=[],parent_breadth_path=[])
         pobj(root_desc)
         #None means not handled
@@ -3588,16 +3588,16 @@ def new_ele_description(**kwargs):
 
 def root_list(*args):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         root_list([1],2,[1,2,3])
     '''
     return(list(args))
 
 def init_desc_matrix(l):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         l = [1,[4],2,[3,[5,6]]]
         desc_matrix = init_desc_matrix(l)
         pobj(desc_matrix)
@@ -3615,8 +3615,8 @@ def init_desc_matrix(l):
 
 def reset_parent_desc_template(desc):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         pobj(desc)
         tem = reset_parent_desc_template(desc)
         pobj(tem)
@@ -3629,8 +3629,8 @@ def reset_parent_desc_template(desc):
 
 def _init_unhandled(l,inited_matrix):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         l = [1,[4],2,[3,[5,6]]]
         desc_matrix = init_desc_matrix(l)
         unhandled = _init_unhandled(l,desc_matrix)
@@ -3782,8 +3782,8 @@ def update_desc_rcin_path(desc,sibs_len,pdesc_level):
 
 def scan(l,**kwargs):
     '''
-        from elist.elist import *
-        from elist.jprint import pobj
+        from xdict.elist import *
+        from xdict.jprint import pobj
         l = [1,[4],2,[3,[5,6]]]
         desc = description(l)
         l = [1,2,[4],[3,[5,6]]]
@@ -3934,7 +3934,7 @@ def pathlist_to_getStr(path_list):
     return(s)
 
 
-####from elist.jprint
+####from xdict.jprint
 
 def get_block_op_pairs(pairs_str):
     '''
@@ -4043,10 +4043,10 @@ def get_j_str_lvs_dict(j_str,block_op_pairs_dict=get_block_op_pairs("{}[]()")):
 
 
 
-####from elist.utils
+####from xdict.utils
 def str_display_width(s):
     '''
-        from elist.utils import *
+        from xdict.utils import *
         str_display_width('a')
         str_display_width('去')
     '''
@@ -4059,7 +4059,7 @@ def str_display_width(s):
         width = width + sublen
     return(width)
 
-####from elist.ltdict
+####from xdict.ltdict
 def ltdict2list(ltdict):
     l = []
     length = ltdict.__len__()
@@ -4940,21 +4940,23 @@ class ListTree():
                 nvs.append(v)
             else:
                 pass
-        
+        def showlog_append(ele1,ele2,*args):
+            return(ele1 + ' : ' + str(ele2))
         showl = array_map(nrslt,pathlist_to_getStr)
+        showl2 = array_map2(showl,nvs,map_func=showlog_append)
         nrslt,showl = batsorted(nrslt,nrslt,showl)
         func_name = cond_func.__name__
         vstr = 'ele_value,ele_pathlist,' +str(cond_func_args)[1:-1]
         vstr = func_name + '(' + vstr + ')'
         self.showlog = ['search '+ vstr + ' -'+prompt+' :']
-        self.showlog.extend(showl)
+        self.showlog.extend(showl2)
         forEach(showl,print)
         return(nrslt)
 
 def help(func_name):
     if(func_name == "select_some"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> ol = ['a','b','c','d']
             >>> select_some(ol,[1,2])
             ['b', 'c']
@@ -4962,7 +4964,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "select_seqs"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> ol = ['a','b','c','d']
             >>> select_seqs(ol,[1,2])
             ['b', 'c']
@@ -4970,7 +4972,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "extend"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> nl = [5,6,7,8]
             >>> id(ol)
@@ -4996,10 +4998,10 @@ def help(func_name):
         print(doc)
     elif(func_name == "append"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             Traceback (most recent call last):
               File "<stdin>", line 1, in <module>
-            ImportError: No module named 'elist.elist'
+            ImportError: No module named 'xdict.elist'
             >>> ol = [1,2,3,4]
             >>> ele = 5
             >>> id(ol)
@@ -5024,7 +5026,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "append_some"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140004175608712
@@ -5048,7 +5050,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "deepcopy"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140004172033160
@@ -5062,7 +5064,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "prextend"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> nl = [5,6,7,8]
             >>> id(ol)
@@ -5091,7 +5093,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "prepend"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> ele = 5
             >>> id(ol)
@@ -5116,7 +5118,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "prepend_some")|(func_name == "unshift")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140507015081416
@@ -5155,10 +5157,10 @@ def help(func_name):
         print(doc)
     elif(func_name == "insert"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             Traceback (most recent call last):
               File "<stdin>", line 1, in <module>
-            ImportError: No module named 'elist.elist'
+            ImportError: No module named 'xdict.elist'
             >>> ol = [1,2,3,4]
             >>> ele = 5
             >>> id(ol)
@@ -5184,7 +5186,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "insert_some"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140660491488328
@@ -5208,7 +5210,7 @@ def help(func_name):
         print(doc)
     elif(func_name == 'insert_many'):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4,5]
             >>> eles = [7,77,777]
             >>> locs = [0,2,4]
@@ -5239,7 +5241,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "sorted_refer_to"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l = ["a","b","c"]
             >>> referer = [7,8,6]
             >>> sorted_refer_to(l,referer)
@@ -5271,7 +5273,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "index_first")|(func_name == "indexOf")|(func_name == "array_index")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> index_first(ol,'a')
             1
@@ -5281,7 +5283,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "index_firstnot")|(func_name == "indexOfnot")|(func_name == "array_indexnot")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> index_firstnot(ol,'a')
             0
@@ -5290,7 +5292,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "index_last")|(func_name == "lastIndexOf")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> index_last(ol,'a')
             5
@@ -5300,7 +5302,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "index_lastnot")|(func_name == "lastIndexOfnot")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> index_lastnot(ol,'a')
             6
@@ -5309,7 +5311,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "index_which"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> index_which(ol,'a',0)
             1
@@ -5324,7 +5326,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "index_whichnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> index_whichnot(ol,'a',0)
             0
@@ -5337,7 +5339,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "indexes_all"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> indexes_all(ol,'a')
             [1, 3, 5]
@@ -5346,7 +5348,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "indexes_allnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> indexes_allnot(ol,'a')
             [0, 2, 4, 6]
@@ -5355,7 +5357,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "indexes_some"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> indexes_some(ol,'a',0,2)
             [1, 5]
@@ -5370,7 +5372,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "indexes_somenot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> indexes_somenot(ol,'a',0,2)
             [0, 4]
@@ -5385,7 +5387,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "indexes_seqs"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> indexes_seqs(ol,'a',{0,2})
             [1, 5]
@@ -5400,7 +5402,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "indexes_seqsnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',4,'a',5]
             >>> indexes_seqsnot(ol,'a',{0,2})
             [0, 4]
@@ -5415,7 +5417,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "first_continuous_indexes_slice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> first_continuous_indexes_slice(ol,"a")
             [1, 2]
@@ -5424,7 +5426,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "first_continuous_indexesnot_slice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = ["a",0,1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> first_continuous_indexesnot_slice(ol,"a")
             [1, 2]
@@ -5433,7 +5435,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "last_continuous_indexes_slice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> last_continuous_indexes_slice(ol,"a")
             [7, 8, 9]
@@ -5442,7 +5444,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "last_continuous_indexesnot_slice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> last_continuous_indexesnot_slice(ol,"a")
             [10]
@@ -5451,7 +5453,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "which_continuous_indexes_slice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> which_continuous_indexes_slice(ol,"a",0)
             [1, 2]
@@ -5468,7 +5470,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "which_continuous_indexesnot_slice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> which_continuous_indexesnot_slice(ol,"a",0)
             [0]
@@ -5485,7 +5487,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "seqs_continuous_indexes_slices"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> seqs_continuous_indexes_slices(ol,"a",{0,2})
             [[1, 2], [7, 8, 9]]
@@ -5494,7 +5496,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "seqs_continuous_indexesnot_slices"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> seqs_continuous_indexesnot_slices(ol,"a",0,2)
             [[0], [6]]
@@ -5503,7 +5505,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "some_continuous_indexes_slices"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> some_continuous_indexes_slices(ol,"a",0,2)
             [[1, 2], [7, 8, 9]]
@@ -5512,7 +5514,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "some_continuous_indexesnot_slices"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> some_continuous_indexesnot_slices(ol,"a",{0,2})
             [[0], [6]]
@@ -5521,7 +5523,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "all_continuous_indexes_slices"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> all_continuous_indexes_slices(ol,"a")
             [[1, 2], [5], [7, 8, 9]]
@@ -5530,7 +5532,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "all_continuous_indexesnot_slices"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,"a","a",2,3,"a",4,"a","a","a",5]
             >>> all_continuous_indexesnot_slices(ol,"a")
             [[0], [3, 4], [6], [10]]
@@ -5539,8 +5541,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "pop"):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140660487975432
@@ -5577,8 +5579,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "pop_range"):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4,5,6]
             >>> id(ol)
             140623819361160
@@ -5620,8 +5622,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "pop_some"):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4,5,6]
             >>> id(ol)
             140660489580104
@@ -5663,7 +5665,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "pop_indexes"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4,5,6]
             >>> id(ol)
             140660491486024
@@ -5704,8 +5706,8 @@ def help(func_name):
         print(doc)
     elif((func_name == "remove_first")|(func_name == "array_remove")):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a']
             >>> id(ol)
             140660491494728
@@ -5736,8 +5738,8 @@ def help(func_name):
         print(doc)
     elif((func_name == "remove_firstnot")|(func_name == "array_removenot")):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a']
             >>> id(ol)
             140623820657544
@@ -5768,7 +5770,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_last"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a']
             >>> id(ol)
             140623821862856
@@ -5798,8 +5800,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_lastnot"):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a']
             >>> id(ol)
             140623820657544
@@ -5830,7 +5832,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_which"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a']
             >>> id(ol)
             140623821864008
@@ -5860,7 +5862,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_whichnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a']
             >>> id(ol)
             140623820643464
@@ -5891,7 +5893,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_some"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a',6,'a']
             >>> id(ol)
             140623821822088
@@ -5922,7 +5924,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_somenot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a',6,'a']
             >>> id(ol)
             140623821822728
@@ -5953,7 +5955,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_seqs"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a',6,'a']
             >>> id(ol)
             140623819361160
@@ -5984,7 +5986,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_seqsnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a',6,'a']
             >>> id(ol)
             140623819970696
@@ -6015,7 +6017,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_all"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a',6,'a']
             >>> id(ol)
             140623821864008
@@ -6046,7 +6048,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_allnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'a',5,'a',6,'a']
             >>> id(ol)
             140623819968328
@@ -6077,7 +6079,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_many"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'b',5,'a',6,'a',7,'b',8,'b',9]
             >>> id(ol)
             140623820657544
@@ -6108,7 +6110,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "remove_manynot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,'a',3,'b',5,'a',6,'a',7,'b',8,'b',9]
             >>> id(ol)
             140623820643464
@@ -6138,7 +6140,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "reverse"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140623821822088
@@ -6169,7 +6171,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "sort"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,3,4,2]
             >>> id(ol)
             140623821862856
@@ -6200,7 +6202,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "comprise"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> comprise([1,2,3,4,5],[2,3,4],mode="loose")
             True
             >>> comprise([1,2,3,4,5],[2,3,4])
@@ -6214,7 +6216,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "car"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol=[1,2,3,4]
             >>> car(ol)
             1
@@ -6223,7 +6225,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "cdr"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol=[1,2,3,4]
             >>> id(ol)
             140623819361160
@@ -6246,7 +6248,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "cons"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol=[1,2,3,4]
             >>> id(ol)
             140623821862856
@@ -6269,7 +6271,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "array_from"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> array_from("abcd")
             Traceback (most recent call last):
               File "<stdin>", line 1, in <module>
@@ -6294,7 +6296,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "array_of"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> array_of(1,2,4,5,6)
             [1, 2, 4, 5, 6]
         '''
@@ -6320,7 +6322,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "copyWithin") | (func_name == "copy_within")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1, 2, 3, 4, 5]
             >>> id(ol)
             140623820567560
@@ -6353,7 +6355,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "entries"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = ['a','b','c']
             >>> rslt = entries(ol)
             >>> rslt
@@ -6363,7 +6365,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "every"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6380,7 +6382,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "fill"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1, 2, 3]
             >>> id(ol)
             140623820568904
@@ -6412,7 +6414,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "filter"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6438,7 +6440,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "find_first") | (func_name == "find")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6459,7 +6461,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "find_firstnot") | (func_name == "findnot")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6480,7 +6482,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "find_last"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6499,7 +6501,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "find_lastnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6518,7 +6520,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "find_which"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6535,7 +6537,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "find_whichnot"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6552,7 +6554,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "find_some")|(func_name == "find_seqs")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6569,7 +6571,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "find_somenot")|(func_name == "find_seqsnot")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6586,8 +6588,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "find_all"):
         doc = '''
-            >>> from elist.elist import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.elist import *
+            >>> from xdict.jprint import pobj
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6618,8 +6620,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "find_allnot"):
         doc = '''
-            >>> from elist.elist import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.elist import *
+            >>> from xdict.jprint import pobj
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6646,7 +6648,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "push"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol=[1,2,3,4]
             >>> id(ol)
             140623821822728
@@ -6668,7 +6670,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "includes"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> includes(ol,3)
             True
@@ -6679,7 +6681,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "toString"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> toString(ol)
             '[1, 2, 3, 4]'
@@ -6688,7 +6690,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "toSource"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> toSource(ol)
             '[1, 2, 3, 4]'
@@ -6697,7 +6699,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "splice"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = ["angel", "clown", "mandarin", "surgeon"]
             >>> id(ol)
             140623819990664
@@ -6729,7 +6731,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "some"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def test_func(ele,x):
             ...     cond = (ele > x)
             ...     return(cond)
@@ -6767,8 +6769,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "shift"):
         doc = '''
-            >>> from elist.jprint import pobj
-            >>> from elist.elist import *
+            >>> from xdict.jprint import pobj
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> id(ol)
             140623820838920
@@ -6805,7 +6807,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "reduce_left")|(func_name == "array_reduce")|(func_name == "reduceLeft")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def callback(accumulator,currentValue):
             ...     accumulator.append(currentValue[0])
             ...     accumulator.append(currentValue[1])
@@ -6819,7 +6821,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "reduceRight")|(func_name == "reduce_right")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def callback(accumulator,currentValue):
             ...     accumulator.append(currentValue[0])
             ...     accumulator.append(currentValue[1])
@@ -6833,7 +6835,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "array_map"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> def map_func(ele,mul,plus):
             ...     return(ele*mul+plus)
@@ -6844,7 +6846,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "join"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> ol = [1,2,3,4]
             >>> join(ol,separator="-")
             '1-2-3-4'
@@ -6853,7 +6855,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "for_each")|(func_name == "forEach")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> def show_func(ele):
             ...     print("<{0}>".format(ele))
             ...
@@ -6869,7 +6871,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "intlize"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l = [1,3,4,5]
             >>> intlize(l)
             [1, 3, 4, 5]
@@ -6878,7 +6880,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "strlize"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l = [1,3,4,5]
             >>> strlize(l)
             ['1', '3', '4', '5']
@@ -6887,7 +6889,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "diff_indexes"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l1 = [1,2,3,5]
             >>> l2 = [0,2,3,4]
             >>> diff_indexes(l1,l2)
@@ -6897,7 +6899,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "diff_values"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l1 = [1,2,3,5]
             >>> l2 = [0,2,3,4]
             >>> diff_values(l1,l2)
@@ -6907,7 +6909,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "same_indexes"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l1 = [1,2,3,5]
             >>> l2 = [0,2,3,4]
             >>> same_indexes(l1,l2)
@@ -6917,7 +6919,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "same_values"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l1 = [1,2,3,5]
             >>> l2 = [0,2,3,4]
             >>> same_values(l1,l2)
@@ -6927,7 +6929,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "init"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> init(5)
             [None, None, None, None, None]
             >>> init(5,"x")
@@ -6937,7 +6939,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "uniqualize"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> l = [1, 2, 2]
             >>> new = uniqualize(l)
             >>> new
@@ -6960,8 +6962,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "value_indexes_mapping"):
         doc = '''
-            >>> from elist.utils import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.utils import *
+            >>> from xdict.jprint import pobj
             >>> l = ['a','b','b','a','c','b']
             >>> desc = value_indexes_mapping(l)
             >>> pobj(desc)
@@ -6987,7 +6989,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "getitem_via_pathlist"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -6997,7 +6999,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "getitem_via_pathlist2"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -7007,7 +7009,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "getitem_via_sibseqs"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -7018,7 +7020,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "setitem_via_pathlist"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -7030,7 +7032,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "setitem_via_sibseqs"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -7043,7 +7045,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "delitem_via_pathlist"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -7055,7 +7057,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "delitem_via_sibseqs"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> y = ['a',['b',["bb"]],'c']
             >>> y[1][1]
             ['bb']
@@ -7074,7 +7076,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "is_list")|(func_name == "isArray")):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> is_list([1,2,3])
             True
             >>> is_list(200)
@@ -7084,7 +7086,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "is_leaf"):
         doc = '''
-            >>> from elist.elist import *
+            >>> from xdict.elist import *
             >>> is_leaf(1)
             True
             >>> is_leaf([1,2,3])
@@ -7096,8 +7098,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "new_ele_description"):
         doc = '''
-            >>> from elist.elist import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.elist import *
+            >>> from xdict.jprint import pobj
             >>> root_desc = new_ele_description(leaf=False,depth=0,breadth_path=[],path=[],parent_path=[],parent_breadth_path=[])
             >>> pobj(root_desc)
             {
@@ -7131,8 +7133,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "root_list"):
         doc = '''
-            >>> from elist.elist import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.elist import *
+            >>> from xdict.jprint import pobj
             >>> root_list([1],2,[1,2,3])
             [[1], 2, [1, 2, 3]]
             >>>
@@ -7140,8 +7142,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "init_desc_matrix"):
         doc = '''
-            >>> from elist.elist import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.elist import *
+            >>> from xdict.jprint import pobj
             >>> l = [1,[4],2,[3,[5,6]]]
             >>> desc_matrix = init_desc_matrix(l)
             >>> pobj(desc_matrix)
@@ -7252,8 +7254,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "_init_unhandled"):
         doc = '''
-            >>> from elist.elist import *
-            >>> from elist.jprint import pobj
+            >>> from xdict.elist import *
+            >>> from xdict.jprint import pobj
             >>> l = [1,[4],2,[3,[5,6]]]
             >>> desc_matrix = init_desc_matrix(l)
             >>> unhandled = _init_unhandled(l,desc_matrix)
@@ -7332,7 +7334,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.__init__"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             [0]
@@ -7349,7 +7351,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.__repr__"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             [0]
@@ -7380,7 +7382,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.tree"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             [0]
@@ -7431,7 +7433,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.flatten"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             l = [1, [4], 2, [3, [5, 6]]]
             ltree = ListTree(l)
             flat = ltree.flatten()
@@ -7442,7 +7444,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.dig"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             >>> depthfirst = ltree.dig()
@@ -7470,7 +7472,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.level"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             >>> level = ltree.level(1)
@@ -7496,7 +7498,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.include"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             >>> l[3][1][0]
@@ -7514,8 +7516,8 @@ def help(func_name):
         print(doc)
     elif(func_name == "ListTree.search"):
         doc = '''
-            from elist.elist import *
-            from elist.TestLib.genrand import gen_random_recursive_only_list_data as randlist
+            from xdict.elist import *
+            from xdict.TestLib.genrand import gen_random_recursive_only_list_data as randlist
             l = randlist()
             ltree = ListTree(l)
             pathlists = ltree.search('v_4')
@@ -7528,7 +7530,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.ancestor_paths")|(func_name == "ListTree.ancestors")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             >>> ltree
@@ -7549,7 +7551,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.parent_paths")|(func_name == "ListTree.parents")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             >>> ltree
@@ -7568,7 +7570,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.descendant_paths")|(func_name == "ListTree.descendants")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
             >>> ltree
@@ -7595,13 +7597,13 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.son_paths")|(func_name == "ListTree.sons")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
 
         '''
         print(doc)
     elif((func_name == "ListTree.PrevSibPath")|(func_name == "ListTree.PrevSibling")|(func_name == "ListTree.lsib_path")|(func_name == "ListTree.lsib")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> #prevSib
             ... l = [1, [4], 2, [3, [5, 6]]]
             >>> ltree = ListTree(l)
@@ -7625,7 +7627,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.NextSibPath")|(func_name == "ListTree.NextSibling")|(func_name == "ListTree.rsib_path")|(func_name == "ListTree.rsib")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>>
             >>> #nextSib
             ... l = [1, [4], 2, [3, [5, 6]]]
@@ -7704,7 +7706,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.whichSibPath")|(func_name == "ListTree.whichSib")|(func_name == "ListTree.which_sib_path")|(func_name == "ListTree.which_sib")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> #whichSib
             ... l = [1, [4], 2, [3, [5, 6],7,[8,9]]]
             >>> ltree = ListTree(l)
@@ -7733,7 +7735,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.precedingSibPaths")|(func_name == "ListTree.precedingSibs")|(func_name == "ListTree.preceding_sib_paths")|(func_name == "ListTree.preceding_sibs")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> #precedingSibs
             ... l = [1, [4], 2, [3, [5, 6],7,[8,9]]]
             >>> ltree = ListTree(l)
@@ -7762,7 +7764,7 @@ def help(func_name):
         print(doc)
     elif((func_name == "ListTree.followingSibPaths")|(func_name == "ListTree.followingSibs")|(func_name == "ListTree.following_sib_paths")|(func_name == "ListTree.following_sibs")):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> #followingSibs
             ... l = [1, [4], 2, [3, [5, 6],7,[8,9]]]
             >>> ltree = ListTree(l)
@@ -7791,7 +7793,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "lcin"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> # lcin
             ... l = [1, [4], 2, [3, [5, 6],[8,9],7]]
             >>> ltree = ListTree(l)
@@ -7813,7 +7815,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "rcin"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> #rcin
             ... l = [1, [4], 2, [3, [5, 6],[8,9],7]]
             >>> ltree = ListTree(l)
@@ -7835,7 +7837,7 @@ def help(func_name):
         print(doc)
     elif(func_name == "sons"):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
             >>> #sons
             ... l = [1, [4], 2, [3, [5, 6],[8,9],7]]
             >>> ltree = ListTree(l)
@@ -7869,12 +7871,12 @@ def help(func_name):
         print(doc)
     elif(func_name == ""):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
         doc = '''
-            from elist.elist import *
+            from xdict.elist import *
         '''
         print(doc)
     elif(func_name == ""):
