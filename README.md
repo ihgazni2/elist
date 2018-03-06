@@ -315,6 +315,15 @@ __ListTree lquery APIs:__
 ├──106. [find_somenot](elist/Images/find_seqsnot.0.png)  <br>
 ├──107. [find_all](elist/Images/find_all.0.png)  <br>
 ├──108. [find_allnot](elist/Images/find_allnot.0.png)  <br>
+├──109. [array_map](elist/Images/array_map.0.png)  <br>
+├──110. [array_map2](elist/Images/array_map2.0.png)  <br>
+├──111. [array_dualmap](elist/Images/array_dualmap.0.png)  <br>
+├──112. [array_dualmap2](elist/Images/array_dualmap2.0.png)  <br>
+├──113. [reduce_left](elist/Images/reduce_left.0.png)  <br>
+├──114. [array_reduce ](elist/Images/reduce_left.0.png)  <br>
+├──115. [reduceLeft](elist/Images/reduce_left.0.png)  <br>
+├──116. [reduce_right](elist/Images/reduce_right.0.png)  <br>
+├──117. [reduceRight](elist/Images/reduce_right.0.png)  <br>
 
 
 
