@@ -301,6 +301,20 @@ __ListTree lquery APIs:__
 ├──92. [every](elist/Images/every.0.png)  <br>
 ├──93. [fill](elist/Images/fill.0.png)  <br>
 ├──94. [filter](elist/Images/filter.0.png)  <br>
+├──95. [find_first](elist/Images/find_first.0.png)  <br>
+├──96. [find](elist/Images/find_first.0.png)  <br>
+├──97. [find_firstnot](elist/Images/find_firstnot.0.png)  <br>
+├──98. [findnot](elist/Images/find_firstnot.0.png)  <br>
+├──99. [find_last](elist/Images/find_last.0.png)  <br>
+├──100. [find_lastnot](elist/Images/find_lastnot.0.png)  <br>
+├──101. [find_which](elist/Images/find_which.0.png)  <br>
+├──102. [find_whichnot](elist/Images/find_whichnot.0.png)  <br>
+├──103. [find_seqs](elist/Images/find_seqs.0.png)  <br>
+├──104. [find_some](elist/Images/find_seqs.0.png)  <br>
+├──105. [find_seqsnot](elist/Images/find_seqsnot.0.png)  <br>
+├──106. [find_somenot](elist/Images/find_seqsnot.0.png)  <br>
+├──107. [find_all](elist/Images/find_all.0.png)  <br>
+├──108. [find_allnot](elist/Images/find_allnot.0.png)  <br>
 
 
 
