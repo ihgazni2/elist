@@ -2046,6 +2046,8 @@ def init(len,default_element=None):
         rslt.append(default_element)
     return(rslt)
 
+initWith = init
+
 def intlize(l):
     '''
         from elist.elist import *
@@ -3219,6 +3221,48 @@ def delitem_via_sibseqs(ol,*sibseqs):
         this = this.__getitem__(key)
     this.__delitem__(pathlist[-1])
     return(ol)
+
+def replace_seqs(ol,value,indexes,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        new = replace_seqs(ol,'AAA',[1,3,7])
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        rslt = replace_seqs(ol,'AAA',[1,3,7],mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    indexes = list(indexes)
+    new = []
+    length = ol.__len__()
+    cpol = copy.deepcopy(ol)
+    for i in range(0,length):
+        if(i in indexes):
+            new.append(value)
+        else:
+            new.append(cpol[i])
+    if(mode == "new"):
+        return(new)
+    else:
+        ol.clear()
+        ol.extend(new)
+        return(ol)
+
+    
+
 
 def is_list(obj):
     '''
@@ -7861,8 +7905,36 @@ def help(func_name):
             >>>
         '''
         print(doc)
-    elif(func_name == ""):
+    elif(func_name == "replace_seqs"):
         doc = '''
+            >>>from elist.elist import *
+            >>> from elist.elist import *
+            >>> ol = [1,'a',3,'a',5,'a',6,'a']
+            >>> id(ol)
+            139808801363208
+            >>> new = replace_seqs(ol,'AAA',[1,3,7])
+            >>> ol
+            [1, 'a', 3, 'a', 5, 'a', 6, 'a']
+            >>> new
+            [1, 'AAA', 3, 'AAA', 5, 'a', 6, 'AAA']
+            >>> id(ol)
+            139808801363208
+            >>> id(new)
+            139808815138376
+            >>> ####
+            ... ol = [1,'a',3,'a',5,'a',6,'a']
+            >>> id(ol)
+            139808801363272
+            >>> rslt = replace_seqs(ol,'AAA',[1,3,7],mode="original")
+            >>> ol
+            [1, 'AAA', 3, 'AAA', 5, 'a', 6, 'AAA']
+            >>> rslt
+            [1, 'AAA', 3, 'AAA', 5, 'a', 6, 'AAA']
+            >>> id(ol)
+            139808801363272
+            >>> id(rslt)
+            139808801363272
+            >>>
         '''
         print(doc)
     elif(func_name == ""):
