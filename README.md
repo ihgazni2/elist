@@ -338,6 +338,7 @@ __ListTree lquery APIs:__
 ├──128. [delitem_via_pathlist](elist/Images/set_del.0.png)  <br>
 ├──129. [delitem_via_sibseqs](elist/Images/set_del.0.png)  <br>
 ├──130. [is_leaf](elist/Images/is_leaf.0.png)  <br>
+├──131. [replace_seqs](elist/Images/replace_seqs.0.png)  <br>
 
 
 
