@@ -345,6 +345,7 @@ __ListTree lquery APIs:__
 ├──132. [replace_some](elist/Images/replace_some.0.png)  <br>
 ├──133. [replace_value_some](elist/Images/replace_value_some.0.png)  <br>
 ├──134. [replace_value_seqs](elist/Images/replace_value_seqs.0.png)  <br>
+├──135. [rangize](elist/Images/rangize.0.png)  <br>
 
 
 
