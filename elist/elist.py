@@ -2037,6 +2037,10 @@ def remove_manynot(ol,values,seqs,**kwargs):
         ol.extend(new)
         return(ol)
 
+#remove_swarm(ol,values,seqs_matrix=[[value1_seqs],[value2_seqs],[value3_seqs]....[valuen_seqs]],**kwargs)
+#remove_swarmnot
+
+
 def init(len,default_element=None):
     '''
         from elist.elist import *
