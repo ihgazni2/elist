@@ -3,11 +3,11 @@ import copy
 from operator import itemgetter
 from types import MethodType
 
-def select_some(ol,seqs):
+def select_seqs(ol,seqs):
     '''
         from elist.elist import *
         ol = ['a','b','c','d']
-        select_some(ol,[1,2])
+        select_seqs(ol,[1,2])
     '''
     rslt =[]
     for i in range(0,ol.__len__()):
@@ -18,11 +18,11 @@ def select_some(ol,seqs):
             pass
     return(rslt)
 
-def select_seqs(ol,*seqs):
+def select_some(ol,*seqs):
     '''
         from elist.elist import *
         ol = ['a','b','c','d']
-        select_seqs(ol,1,2)
+        select_some(ol,1,2)
     '''
     seqs = list(seqs)
     rslt =[]
@@ -3222,6 +3222,8 @@ def delitem_via_sibseqs(ol,*sibseqs):
     this.__delitem__(pathlist[-1])
     return(ol)
 
+##
+
 def replace_seqs(ol,value,indexes,**kwargs):
     '''
         from elist.elist import *
@@ -3240,6 +3242,7 @@ def replace_seqs(ol,value,indexes,**kwargs):
         rslt
         id(ol)
         id(rslt)
+        #replace_indexes = replace_seqs
     '''
     if('mode' in kwargs):
         mode = kwargs["mode"]
@@ -3261,7 +3264,28 @@ def replace_seqs(ol,value,indexes,**kwargs):
         ol.extend(new)
         return(ol)
 
+replace_indexes = replace_seqs
+
+#replace_some
+
+#replace_value
+#replace_value_first
+#replace_value_last
+#replace_value_which
+#replace_value_some
+#replace_value_seqs
+#replace_value_many
     
+def replace_value_seqs(ol,src_value,dst_value,seqs,*kwargs):
+    '''
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    indexes = indexes_seqs(ol,src_value,seqs)
+    return(replace_indexes(ol,dst_value,indexes,mode=mode))
+      
 
 
 def is_list(obj):
@@ -4814,12 +4838,14 @@ class ListTree():
             non_leaf_only = kwargs['non_leaf_only']
         else:
             non_leaf_only = False
+        #here "some" mean "seqs"
         some = kwargs['some']
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibps = select_some(sibps,some)
+        #sibps = select_some(sibps,some)
+        sibps = select_seqs(sibps,some)
         return(sibps)
     def some_sibs(self,*sibseqs,**kwargs):
         if('pathlist' in kwargs):
@@ -4834,12 +4860,14 @@ class ListTree():
             non_leaf_only = kwargs['non_leaf_only']
         else:
             non_leaf_only = False
+        #here some mean seqs
         some = kwargs['some']
         locx,locy = tuple(self.path2loc(pl))
         ppl = self.desc[locx][locy]['parent_path']
         seq = self.desc[locx][locy]['sib_seq']
         sibps = self.son_paths(pathlist=ppl,leaf_only=leaf_only,non_leaf_only=non_leaf_only)
-        sibps = select_some(sibps,some)
+        #sibps = select_some(sibps,some)
+        sibps = select_seqs(sibps,some)
         sibvs = array_map(sibps,getitem_via_pathlist2,self.list)
         return(sibvs)
     def which_sib_path(self,*sibseqs,**kwargs):
@@ -5002,7 +5030,7 @@ def help(func_name):
         doc = '''
             from elist.elist import *
             >>> ol = ['a','b','c','d']
-            >>> select_some(ol,[1,2])
+            >>> select_some(ol,1,2)
             ['b', 'c']
         '''
         print(doc)
