@@ -260,6 +260,25 @@ def concat(*arrays):
         new.extend(array)
     return(new)
 
+concat_some = concat
+
+def concat_seqs(arrays):
+    '''
+        from elist.elist import *
+        l1 = [1,2,3]
+        l2 = ["a","b","c"]
+        l3 = [100,200]
+        id(l1)
+        id(l2)
+        id(l3)
+        arrays = [l1,l2,l3]
+        new = concat_seqs(arrays)
+        new
+        id(new)
+    '''
+    return(concat(*tuple(arrays)))
+
+
 def car(ol):
     '''
         from elist.elist import *
@@ -466,8 +485,43 @@ def insert_many(ol,eles,locs,**kwargs):
         ol.extend(new)
         return(ol)
 
-#insert_section
-#insert_sections_some
+def insert_sections_some(ol,*secs,**kwargs):
+    '''
+        ol = initRange(0,20,1)
+        ol
+        loc = 6
+        rslt = insert_sections_some(ol,['a','a','a'],['c','c','c','c'],index=loc)
+        rslt
+        ####
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    loc = kwargs['index']
+    secs = list(secs)
+    secs = [concat(*secs)]
+    locs = [loc]
+    return(insert_sections_many(ol,secs,locs,mode=mode))
+
+
+def insert_section(ol,sec,loc,**kwargs):
+    '''
+        ol = initRange(0,20,1)
+        ol
+        loc = 6
+        sec = ['a','b','c','d']
+        rslt = insert_section(ol,sec,loc)
+        rslt
+        ####
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    secs = [sec]
+    locs = [loc]
+    return(insert_sections_many(ol,secs,locs,mode=mode))
 
 def insert_sections_many(ol,secs,locs,**kwargs):
     '''
