@@ -18,6 +18,8 @@ def select_seqs(ol,seqs):
             pass
     return(rslt)
 
+select_indexes = select_seqs
+
 def select_some(ol,*seqs):
     '''
         from elist.elist import *
@@ -3266,18 +3268,57 @@ def replace_seqs(ol,value,indexes,**kwargs):
 
 replace_indexes = replace_seqs
 
-#replace_some
+def replace_some(ol,value,*indexes,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        new = replace_some(ol,'AAA',1,3,7)
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        rslt = replace_some(ol,'AAA',1,3,7,mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    indexes = list(indexes)
+    return(replace_seqs(ol,value,indexes,mode=mode))
+    
 
 #replace_value
 #replace_value_first
 #replace_value_last
 #replace_value_which
-#replace_value_some
-#replace_value_seqs
 #replace_value_many
     
-def replace_value_seqs(ol,src_value,dst_value,seqs,*kwargs):
+def replace_value_seqs(ol,src_value,dst_value,seqs,**kwargs):
     '''
+        from elist.elist import *
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        new = replace_value_seqs(ol,'a','AAA',[0,1])
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        rslt = replace_value_seqs(ol,'a','AAA',[0,1],mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
     '''
     if('mode' in kwargs):
         mode = kwargs["mode"]
@@ -3286,6 +3327,31 @@ def replace_value_seqs(ol,src_value,dst_value,seqs,*kwargs):
     indexes = indexes_seqs(ol,src_value,seqs)
     return(replace_indexes(ol,dst_value,indexes,mode=mode))
       
+def replace_value_some(ol,src_value,dst_value,*seqs,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        new = replace_value_some(ol,'a','AAA',0,1)
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'a',3,'a',5,'a',6,'a']
+        id(ol)
+        rslt = replace_value_some(ol,'a','AAA',0,1,mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+    '''
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    return(replace_value_some(ol,src_value,dst_value,list(seqs),mode=mode))
+
 
 
 def is_list(obj):
