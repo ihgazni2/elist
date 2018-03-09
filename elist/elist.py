@@ -1,4 +1,5 @@
 # class name initial is  uppercased 
+# vars 可以动态调用函数
 import copy
 from operator import itemgetter
 from types import MethodType
@@ -807,6 +808,18 @@ def indexes_seqsnot(ol,value,seqs):
             else:
                 pass
     return(indexes)
+
+
+#indexes_many
+#indexes_manynot
+#indexes_swarm(ol,values,**kwargs)
+#    kwargs['seqs_matrix'] = None
+#    seqs_matrix = init(values.__len__(),None)
+#    seqs = seqs_matrix[i]
+#    if(seqs == None):
+#        indexes_all
+#indexes_swarmnot
+
 
 def first_continuous_indexes_slice(ol,value):
     '''
@@ -2054,6 +2067,14 @@ def init(len,default_element=None):
 
 initWith = init
 
+def init_range(start,end,step):
+    '''
+        init_range(1,20,2)
+    '''
+    return(list(range(start,end,step)))
+
+initRange = init_range
+
 def intlize(l):
     '''
         from elist.elist import *
@@ -2879,6 +2900,11 @@ def find_allnot(ol,test_func,*args):
             rslt.append({'index':i,'value':ol[i]})
     return(rslt)
 
+#find_many
+#find_manynot
+#find_swarm
+#find_swarmnot
+
 
 #@@@@@@@@@@@@@@@@
 def array_map(ol,map_func,*args):
@@ -3358,6 +3384,39 @@ def replace_value_some(ol,src_value,dst_value,*seqs,**kwargs):
 
 
 
+def rangize(break_points,length):
+    '''
+        break_points = [1,3,9,12,-2]
+        length = 15
+        secs = rangize(break_points,length)
+        forEach(secs,print)
+    '''
+    bps = array_map(break_points,uniform_index,length)
+    bps.sort()
+    bps = prepend(bps,0)
+    bps = append(bps,length)
+    bps = uniqualize(bps)
+    bpslen = bps.__len__()
+    secs=[(0,bps[0])]
+    for i in range(0,bpslen-1):
+        r = (bps[i],bps[i+1])
+        secs.append(r)
+    secs.append((bps[bpslen-1],length))
+    if(secs[0][0] == secs[0][1]):
+        secs.pop(0)
+    else:
+        pass
+    if(secs[-1][0] == secs[-1][1]):
+        secs.pop(-1)
+    else:
+        pass
+    return(secs)
+
+
+
+
+
+
 def is_list(obj):
     '''
         from elist.elist import *
@@ -3372,6 +3431,34 @@ def is_list(obj):
 isArray = is_list
 
 
+def broken_seqs(ol,break_points):
+    '''
+        ol = initRange(0,20,1)
+        ol
+        break_points = [1,6,14,9]
+        secs = broken_seqs(ol,break_points)
+        forEach(secs,print)
+    '''
+    bps = list(break_points)
+    length = ol.__len__()
+    rgs = rangize(bps,length)
+    rslt = []
+    for i in range(0,rgs.__len__()):
+        si,ei = rgs[i]
+        sec = ol[si:ei]
+        rslt.append(sec)
+    return(rslt)
+
+
+def broken_some(ol,*break_points):
+    '''
+        ol = initRange(0,20,1)
+        ol
+        secs = broken_some(ol,1,6,14,9)
+        forEach(secs,print)
+    '''
+    bps = list(break_points)
+    return(broken_seqs(ol,bps))
 
 
 
