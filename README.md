@@ -206,6 +206,7 @@ __ListTree lquery APIs:__
 -----------------------------------------------------------------------
 >├──0. [select_some](elist/Images/select.0.png)  <br>
 ├──1. [select_seqs](elist/Images/select.0.png)  <br>
+├──1. [select_indexes](elist/Images/select.0.png)  <br>
 ├──2. [append](elist/Images/append.0.png)  <br>
 ├──3. [append_some](elist/Images/append_some.0.png)  <br>
 ├──4. [prepend](elist/Images/prepend.0.png)  <br>
@@ -339,6 +340,10 @@ __ListTree lquery APIs:__
 ├──129. [delitem_via_sibseqs](elist/Images/set_del.0.png)  <br>
 ├──130. [is_leaf](elist/Images/is_leaf.0.png)  <br>
 ├──131. [replace_seqs](elist/Images/replace_seqs.0.png)  <br>
+├──132. [replace_some](elist/Images/replace_some.0.png)  <br>
+├──133. [replace_value_some](elist/Images/replace_value_some.0.png)  <br>
+├──134. [replace_value_seqs](elist/Images/replace_value_seqs.0.png)  <br>
+
 
 
 
