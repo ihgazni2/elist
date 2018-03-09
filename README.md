@@ -215,6 +215,8 @@ __ListTree lquery APIs:__
 ├──6. [extend](elist/Images/extend.0.png)  <br>
 ├──6. [push](elist/Images/push.0.png)  <br>
 ├──7. [concat](elist/Images/concat.0.png)  <br>
+├──7. [concat_some](elist/Images/concat.0.png)  <br>
+├──7. [concat_seqs](elist/Images/concat_seqs.0.png)  <br>
 ├──8. [prextend](elist/Images/prextend.0.png)  <br>
 ├──9. [car](elist/Images/carcdr.0.png)  <br>
 ├──10. [cdr](elist/Images/carcdr.0.png)  <br>
@@ -222,6 +224,8 @@ __ListTree lquery APIs:__
 ├──12. [insert](elist/Images/insert.0.png)  <br>
 ├──13. [insert_some](elist/Images/insert_some.0.png)  <br>
 ├──14. [insert_many](elist/Images/insert_many.0.png)  <br>
+├──14. [insert_section](elist/Images/insert_section.0.png)  <br>
+├──14. [insert_sections_some](elist/Images/insert_section.0.png)  <br>
 ├──14. [insert_sections_many](elist/Images/insert_sections_many.0.png)  <br>
 ├──14. [sort](elist/Images/sort.0.png)  <br>
 ├──15. [batsorted](elist/Images/batsorted.0.png)  <br>
