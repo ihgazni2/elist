@@ -3350,7 +3350,7 @@ def replace_value_some(ol,src_value,dst_value,*seqs,**kwargs):
         mode = kwargs["mode"]
     else:
         mode = "new"
-    return(replace_value_some(ol,src_value,dst_value,list(seqs),mode=mode))
+    return(replace_value_seqs(ol,src_value,dst_value,list(seqs),mode=mode))
 
 
 
