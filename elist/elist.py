@@ -3545,6 +3545,15 @@ def delitem_via_sibseqs(ol,*sibseqs):
 
 ##
 
+#replace
+#replacenot
+#replace_first
+#replace_firstnot
+#replace_last
+#replace_lastnot
+#replace_all
+#replace_allnot
+
 def replace_seqs(ol,value,indexes,**kwargs):
     '''
         from elist.elist import *
@@ -3619,6 +3628,7 @@ def replace_some(ol,value,*indexes,**kwargs):
 #replace_value_last
 #replace_value_which
 #replace_value_many
+#replace_value_all
     
 def replace_value_seqs(ol,src_value,dst_value,seqs,**kwargs):
     '''
@@ -3670,6 +3680,152 @@ def replace_value_some(ol,src_value,dst_value,*seqs,**kwargs):
     else:
         mode = "new"
     return(replace_value_seqs(ol,src_value,dst_value,list(seqs),mode=mode))
+
+#
+def cond_replace_value_all(ol,dst_value,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+        id(ol)
+        def afterCH(ele,ch):
+            cond = (ord(str(ele)) > ord(ch))
+            return(cond)
+
+        new = cond_replace_value_all(ol,"REPLACED",cond_func=afterCH,cond_func_args=['B'])
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+        id(ol)
+        rslt = cond_replace_value_all(ol,"REPLACED",cond_func=afterCH,cond_func_args=['B'],mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+
+    ''' 
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    new = copy.deepcopy(ol)
+    selected = find_all(new,cond_func,*cond_func_args)
+    selected_indexes = array_map(selected,lambda ele:ele['index'])
+    new = replace_seqs(new,dst_value,selected_indexes)
+    if(mode == "new"):
+        return(new)
+    else:
+        ol.clear()
+        ol.extend(new)
+        return(ol)
+
+
+def cond_replace_value_seqs(ol,dst_value,seqs,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+        id(ol)
+        def afterCH(ele,ch):
+            cond = (ord(str(ele)) > ord(ch))
+            return(cond)
+        
+        new = cond_replace_value_seqs(ol,"REPLACED",[0,2],cond_func=afterCH,cond_func_args=['B'])
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+        id(ol)
+        rslt = cond_replace_value_seqs(ol,"REPLACED",[0,2],cond_func=afterCH,cond_func_args=['B'],mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    new = copy.deepcopy(ol)
+    selected = find_all(new,cond_func,*cond_func_args)
+    selected_indexes = array_map(selected,lambda ele:ele['index'])
+    selected_indexes = select_seqs(selected_indexes,seqs)
+    new = replace_seqs(new,dst_value,selected_indexes)
+    if(mode == "new"):
+        return(new)
+    else:
+        ol.clear()
+        ol.extend(new)
+        return(ol)
+
+
+def cond_replace_value_some(ol,dst_value,*some,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+        id(ol)
+        def afterCH(ele,ch):
+            cond = (ord(str(ele)) > ord(ch))
+            return(cond)
+        
+        new = cond_replace_value_some(ol,"REPLACED",0,2,cond_func=afterCH,cond_func_args=['B'])
+        ol
+        new
+        id(ol)
+        id(new)
+        ####
+        ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+        id(ol)
+        rslt = cond_replace_value_some(ol,"REPLACED",0,2,cond_func=afterCH,cond_func_args=['B'],mode="original")
+        ol
+        rslt
+        id(ol)
+        id(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    if('mode' in kwargs):
+        mode = kwargs["mode"]
+    else:
+        mode = "new"
+    seqs = list(some)
+    new = copy.deepcopy(ol)
+    selected = find_all(new,cond_func,*cond_func_args)
+    selected_indexes = array_map(selected,lambda ele:ele['index'])
+    selected_indexes = select_seqs(selected_indexes,seqs)
+    new = replace_seqs(new,dst_value,selected_indexes)
+    if(mode == "new"):
+        return(new)
+    else:
+        ol.clear()
+        ol.extend(new)
+        return(ol)
+
+
+#cond_replace_value
+#cond_replace_value_first
+#cond_replace_value_last
+#cond_replace_value_which
+#cond_replace_value_many
+#cond_replace_value_swarm
+
+
 
 
 

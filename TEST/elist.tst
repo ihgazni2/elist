@@ -1684,3 +1684,182 @@ id(ol)
 id(rslt)
 
 
+
+
+
+
+
+#cond_replace_value_all
+
+from elist.elist import *
+ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+id(ol)
+def afterCH(ele,ch):
+    cond = (ord(str(ele)) > ord(ch))
+    return(cond)
+
+new = cond_replace_value_all(ol,"REPLACED",cond_func=afterCH,cond_func_args=['B'])
+ol
+new
+id(ol)
+id(new)
+####
+ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+id(ol)
+rslt = cond_replace_value_all(ol,"REPLACED",cond_func=afterCH,cond_func_args=['B'],mode="original")
+ol
+rslt
+id(ol)
+id(rslt)
+
+
+# >>> #cond_replace_value_all
+# ...
+# >>> from elist.elist import *
+# >>> ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+# >>> id(ol)
+# 139927002027016
+# >>> def afterCH(ele,ch):
+# ...     cond = (ord(str(ele)) > ord(ch))
+# ...     return(cond)
+# ...
+# >>> new = cond_replace_value_all(ol,"REPLACED",cond_func=afterCH,cond_func_args=['B'])
+# >>> ol
+# [1, 'X', 3, 'b', 5, 'c', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> new
+# [1, 'REPLACED', 3, 'REPLACED', 5, 'REPLACED', 6, 'A', 7, 'REPLACED', 8, 'B', 9]
+# >>> id(ol)
+# 139927002027016
+# >>> id(new)
+# 139927014765896
+# >>> ####
+# ... ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+# >>> id(ol)
+# 139927002026184
+# >>> rslt = cond_replace_value_all(ol,"REPLACED",cond_func=afterCH,cond_func_args=['B'],                                   mode="original")
+# >>> ol
+# [1, 'REPLACED', 3, 'REPLACED', 5, 'REPLACED', 6, 'A', 7, 'REPLACED', 8, 'B', 9]
+# >>> rslt
+# [1, 'REPLACED', 3, 'REPLACED', 5, 'REPLACED', 6, 'A', 7, 'REPLACED', 8, 'B', 9]
+# >>> id(ol)
+# 139927002026184
+# >>> id(rslt)
+# 139927002026184
+
+
+from elist.elist import *
+ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+id(ol)
+def afterCH(ele,ch):
+    cond = (ord(str(ele)) > ord(ch))
+    return(cond)
+
+new = cond_replace_value_seqs(ol,"REPLACED",[0,2],cond_func=afterCH,cond_func_args=['B'])
+ol
+new
+id(ol)
+id(new)
+####
+ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+id(ol)
+rslt = cond_replace_value_seqs(ol,"REPLACED",[0,2],cond_func=afterCH,cond_func_args=['B'],mode="original")
+ol
+rslt
+id(ol)
+id(rslt)
+
+
+# >>>
+# >>> from elist.elist import *
+# >>> ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+# >>> id(ol)
+# 139927002027016
+# >>> def afterCH(ele,ch):
+# ...     cond = (ord(str(ele)) > ord(ch))
+# ...     return(cond)
+# ...
+# >>> new = cond_replace_value_seqs(ol,"REPLACED",[0,2],cond_func=afterCH,cond_func_args=['B'])
+# id(new)
+# >>> ol
+# [1, 'X', 3, 'b', 5, 'c', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> new
+# [1, 'REPLACED', 3, 'b', 5, 'REPLACED', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> id(ol)
+# 139927002027016
+# >>> id(new)
+# 139927002026312
+# >>> ####
+# ... ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+# >>> id(ol)
+# 139927014765896
+# >>> rslt = cond_replace_value_seqs(ol,"REPLACED",[0,2],cond_func=afterCH,cond_func_args=['B'],mode="original")
+# >>> ol
+# [1, 'REPLACED', 3, 'b', 5, 'REPLACED', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> rslt
+# [1, 'REPLACED', 3, 'b', 5, 'REPLACED', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> id(ol)
+# 139927014765896
+# >>> id(rslt)
+# 139927014765896
+# >>>
+
+
+from elist.elist import *
+ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+id(ol)
+def afterCH(ele,ch):
+    cond = (ord(str(ele)) > ord(ch))
+    return(cond)
+
+new = cond_replace_value_some(ol,"REPLACED",0,2,cond_func=afterCH,cond_func_args=['B'])
+ol
+new
+id(ol)
+id(new)
+####
+ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+id(ol)
+rslt = cond_replace_value_some(ol,"REPLACED",0,2,cond_func=afterCH,cond_func_args=['B'],mode="original")
+ol
+rslt
+id(ol)
+id(rslt)
+
+# >>>
+# >>> from elist.elist import *
+# >>> ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+# >>> id(ol)
+# 139927002028680
+# >>> def afterCH(ele,ch):
+# ...     cond = (ord(str(ele)) > ord(ch))
+# ...     return(cond)
+# ...
+# >>> new = cond_replace_value_some(ol,"REPLACED",0,2,cond_func=afterCH,cond_func_args=['B'])
+# >>> ol
+# [1, 'X', 3, 'b', 5, 'c', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> new
+# [1, 'REPLACED', 3, 'b', 5, 'REPLACED', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> id(ol)
+# 139927002028680
+# >>> id(new)
+# 139927002028168
+# >>> ####
+# ... ol = [1,'X',3,'b',5,'c',6,'A',7,'b',8,'B',9]
+# >>> id(ol)
+# 139927002027784
+# >>> rslt = cond_replace_value_some(ol,"REPLACED",0,2,cond_func=afterCH,cond_func_args=['B'],mode="original")
+# >>> ol
+# [1, 'REPLACED', 3, 'b', 5, 'REPLACED', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> rslt
+# [1, 'REPLACED', 3, 'b', 5, 'REPLACED', 6, 'A', 7, 'b', 8, 'B', 9]
+# >>> id(ol)
+# 139927002027784
+# >>> id(rslt)
+# 139927002027784
+# >>>
+# >>>
+
+
+
+
+
