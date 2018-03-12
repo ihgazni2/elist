@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
       name="elist",
-      version = "0.2.8",
+      version = "0.2.9",
       description="handle list,nested list tree",
       author="dapeli",
       url="https://github.com/ihgazni2/elist",

@@ -2752,6 +2752,70 @@ def uniqualize(l,**kwargs):
         l.extend(npt)
         return(l)
 
+#uniqulize_many
+
+def cond_uniqualize(l,**kwargs):
+    '''
+        from elist.elist import *
+        l = [('BIGipServer', 'rd100'), ('TS013d8ed5', '00A0'), ('BIGipServer', 'rd200'), ('TS013d8ed5', '00B0'), ('SID', '1'), ('SID', '2')]
+        
+        def cond_func(ele,*args):
+            cond = ele[0]
+            return(cond)
+        
+        uniqualized = cond_uniqualize(l,cond_func=cond_func)
+        pobj(uniqualized)
+        
+        l = [('BIGipServer', 'rd100'), ('TS013d8ed5', '00A0'), ('BIGipServer', 'rd200'), ('TS013d8ed5', '00B0'), ('SID', '1'), ('SID', '2')]
+        
+        reserved_mapping = {'BIGipServer':0,'TS013d8ed5':1,'SID':1}
+        uniqualized = cond_uniqualize(l,cond_func=cond_func,reserved_mapping=reserved_mapping)
+        pobj(uniqualized)
+        
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    if('reserved_mapping' in kwargs):
+        reserved_mapping = kwargs['reserved_mapping']
+    else:
+        reserved_mapping = None
+    if('mode' in kwargs):
+        mode = kwargs['mode']
+    else:
+        mode = 'new'
+    desc = cond_value_indexes_mapping(l,cond_func=cond_func,cond_func_args=cond_func_args)
+    keys = list(desc.keys())
+    rmapping = {}
+    for key in keys:
+        rmapping[key] = 0
+    if(reserved_mapping == None):
+        pass
+    else:
+        for key in reserved_mapping:
+            rmapping[key] = reserved_mapping[key]
+    reserved_indexes = []
+    for key in desc:
+        indexes = desc[key]
+        index = indexes[rmapping[key]]
+        reserved_indexes.append(index)
+    new = copy.deepcopy(l)
+    new = select_seqs(new,reserved_indexes)
+    if(mode == "new"):
+        return(new)
+    else:
+        ol.clear()
+        ol.extend(new)
+        return(ol)
+
+     
+
+
+
+
+
 def interleave(*arrays,**kwargs):
     '''
         arr1 = [1,2,3,4]
@@ -3440,6 +3504,38 @@ def value_indexes_mapping(l):
     for i in range(0,l.__len__()):
         desc[l[i]].append(i)
     return(desc)
+
+
+def cond_value_indexes_mapping(l,**kwargs):
+    '''
+        from elist.elist import *
+        l = [('BIGipServer', 'rd19'), ('TS013d8ed5', '0105b6b0'), ('BIGipServer', 'rd19'), ('TS013d8ed5', '0105b6b0'), ('SID', '1'), ('SID', '2')]
+        
+        def cond_func(ele,*args):
+            cond = ele[0]
+            return(cond)
+        
+        desc = cond_value_indexes_mapping(l,cond_func=cond_func)
+        pobj(desc)
+    
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    desc = {}
+    for i in range(0,l.__len__()):
+        ele = l[i]
+        cond = cond_func(ele,*cond_func_args)
+        if(cond in desc):
+            desc[cond].append(i)
+        else:
+            desc[cond] = [i]
+    return(desc)
+
+
+
 
 def getitem_via_pathlist(ol,pathlist):
     '''

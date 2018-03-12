@@ -1862,4 +1862,135 @@ id(rslt)
 
 
 
+#cond_value_indexes_mapping
+
+l = [('BIGipServer', 'rd19'), ('TS013d8ed5', '0105b6b0'), ('BIGipServer', 'rd19'), ('TS013d8ed5', '0105b6b0'), ('SID', '1'), ('SID', '2')]
+
+def cond_func(ele,*args):
+    cond = ele[0]
+    return(cond)
+
+desc = cond_value_indexes_mapping(l,cond_func=cond_func)
+pobj(desc)
+
+
+# >>> l = [('BIGipServer', 'rd19'), ('TS013d8ed5', '0105b6b0'), ('BIGipServer', 'rd19'), ('TS013d8ed5', '0105b6b0'), ('SID', '1'), ('SID', '2')]
+# >>>
+# >>> def cond_func(ele,*args):
+# ...     cond = ele[0]
+# ...     return(cond)
+# ...
+# >>> desc = cond_value_indexes_mapping(l,cond_func=cond_func)
+# >>> pobj(desc)
+# {
+ # 'BIGipServer':
+                # [
+                 # 0,
+                 # 2
+                # ],
+ # 'SID':
+        # [
+         # 4,
+         # 5
+        # ],
+ # 'TS013d8ed5':
+               # [
+                # 1,
+                # 3
+               # ]
+# }
+# >>>
+
+
+
+
+
+        
+from elist.elist import *
+l = [('BIGipServer', 'rd100'), ('TS013d8ed5', '00A0'), ('BIGipServer', 'rd200'), ('TS013d8ed5', '00B0'), ('SID', '1'), ('SID', '2')]
+
+def cond_func(ele,*args):
+    cond = ele[0]
+    return(cond)
+
+uniqualized = cond_uniqualize(l,cond_func=cond_func)
+pobj(uniqualized)
+
+l = [('BIGipServer', 'rd100'), ('TS013d8ed5', '00A0'), ('BIGipServer', 'rd200'), ('TS013d8ed5', '00B0'), ('SID', '1'), ('SID', '2')]
+
+reserved_mapping = {'BIGipServer':0,'TS013d8ed5':1,'SID':1}
+uniqualized = cond_uniqualize(l,cond_func=cond_func,reserved_mapping=reserved_mapping)
+pobj(uniqualized)
+
+
+# >>>
+# >>>
+# >>> from elist.elist import *
+# >>> l = [('BIGipServer', 'rd100'), ('TS013d8ed5', '00A0'), ('BIGipServer', 'rd200'), ('TS013d8ed5', '00B0'), ('SID', '1'), ('SID', '2')]
+# >>>
+# >>> def cond_func(ele,*args):
+# ...     cond = ele[0]
+# ...     return(cond)
+# ...
+# >>> uniqualized = cond_uniqualize(l,cond_func=cond_func)
+# >>> pobj(uniqualized)
+# [
+ # (
+  # 'BIGipServer',
+  # 'rd100'
+ # ),
+ # (
+  # 'TS013d8ed5',
+  # '00A0'
+ # ),
+ # (
+  # 'SID',
+  # '1'
+ # )
+# ]
+# >>>
+
+
+
+# >>> l = [('BIGipServer', 'rd100'), ('TS013d8ed5', '00A0'), ('BIGipServer', 'rd200'), ('TS013d8ed5', '00B0'), ('SID', '1'), ('SID', '2')]
+# pobj(uniqualized)
+# >>>
+# >>> reserved_mapping = {'BIGipServer':0,'TS013d8ed5':1,'SID':1}
+# >>> uniqualized = cond_uniqualize(l,cond_func=cond_func,reserved_mapping=reserved_mapping)
+# >>> pobj(uniqualized)
+# [
+ # (
+  # 'BIGipServer',
+  # 'rd100'
+ # ),
+ # (
+  # 'TS013d8ed5',
+  # '00B0'
+ # ),
+ # (
+  # 'SID',
+  # '2'
+ # )
+# ]
+# >>>
+
+
+
+
+   
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
 
