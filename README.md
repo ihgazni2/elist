@@ -306,6 +306,7 @@ __ListTree lquery APIs:__
 ├──85. [join2](elist/Images/join.0.png)  <br>
 ├──86. [htmljoin](elist/Images/join.0.png)  <br>
 ├──87. [uniqualize](elist/Images/uniqualize.0.png)  <br>
+├──87. [cond_uniqualize](elist/Images/cond_uniqualize.0.png)  <br>
 ├──88. [interleave](elist/Images/interleave.0.png)  <br>
 ├──89. [for_each](elist/Images/forEach.0.png)  <br>
 ├──90. [forEach](elist/Images/forEach.0.png)  <br>
