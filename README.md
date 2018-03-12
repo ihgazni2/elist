@@ -341,6 +341,7 @@ __ListTree lquery APIs:__
 ├──120. [same_indexes](elist/Images/diff_and_same.0.png)  <br>
 ├──121. [same_values](elist/Images/diff_and_same.0.png)  <br>
 ├──122. [value_indexes_mapping](elist/Images/diff_and_same.0.png)  <br>
+├──122. [cond_value_indexes_mapping](elist/Images/cond_value_indexes_mapping.0.png)  <br>
 ├──123. [getitem_via_pathlist](elist/Images/get.0.png)  <br>
 ├──124. [getitem_via_pathlist2](elist/Images/get.0.png)  <br>
 ├──125. [getitem_via_sibseqs](elist/Images/get.0.png)  <br>
