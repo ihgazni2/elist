@@ -2786,8 +2786,9 @@ def cond_uniqualize(l,**kwargs):
         mode = kwargs['mode']
     else:
         mode = 'new'
-    desc = cond_value_indexes_mapping(l,cond_func=cond_func,cond_func_args=cond_func_args)
+    desc = cond_value_indexes_mapping(l,cond_func=cond_func,cond_func_args=cond_func_args,with_none=True)
     keys = list(desc.keys())
+    keys.remove(None)
     rmapping = {}
     for key in keys:
         rmapping[key] = 0
@@ -2797,12 +2798,16 @@ def cond_uniqualize(l,**kwargs):
         for key in reserved_mapping:
             rmapping[key] = reserved_mapping[key]
     reserved_indexes = []
-    for key in desc:
+    for key in keys:
         indexes = desc[key]
         index = indexes[rmapping[key]]
         reserved_indexes.append(index)
-    new = copy.deepcopy(l)
-    new = select_seqs(new,reserved_indexes)
+    newcopy = copy.deepcopy(l)
+    new = select_seqs(newcopy,reserved_indexes)
+    ####
+    for index in desc[None]:
+        new.append(newcopy[index])
+    ####
     if(mode == "new"):
         return(new)
     else:
@@ -3524,11 +3529,15 @@ def cond_value_indexes_mapping(l,**kwargs):
         cond_func_args = kwargs['cond_func_args']
     else:
         cond_func_args = []
+    if('with_none' in kwargs):
+        with_none = kwargs['with_none']
+    else:
+        with_none = False
     desc = {}
     for i in range(0,l.__len__()):
         ele = l[i]
         cond = cond_func(ele,*cond_func_args)
-        if(cond == None):
+        if((cond == None)&(not(with_none))):
             pass
         else:
             if(cond in desc):
