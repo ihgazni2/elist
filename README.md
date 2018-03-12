@@ -306,6 +306,8 @@ __ListTree lquery APIs:__
 ├──85. [join2](elist/Images/join.0.png)  <br>
 ├──86. [htmljoin](elist/Images/join.0.png)  <br>
 ├──87. [uniqualize](elist/Images/uniqualize.0.png)  <br>
+├──87. [cond_uniqualize\<0\>](elist/Images/cond_uniqualize.0.png)  <br>
+├──87. [cond_uniqualize\<1\>](elist/Images/cond_uniqualize.1.png)  <br>
 ├──88. [interleave](elist/Images/interleave.0.png)  <br>
 ├──89. [for_each](elist/Images/forEach.0.png)  <br>
 ├──90. [forEach](elist/Images/forEach.0.png)  <br>
@@ -341,6 +343,7 @@ __ListTree lquery APIs:__
 ├──120. [same_indexes](elist/Images/diff_and_same.0.png)  <br>
 ├──121. [same_values](elist/Images/diff_and_same.0.png)  <br>
 ├──122. [value_indexes_mapping](elist/Images/diff_and_same.0.png)  <br>
+├──122. [cond_value_indexes_mapping](elist/Images/cond_value_indexes_mapping.0.png)  <br>
 ├──123. [getitem_via_pathlist](elist/Images/get.0.png)  <br>
 ├──124. [getitem_via_pathlist2](elist/Images/get.0.png)  <br>
 ├──125. [getitem_via_sibseqs](elist/Images/get.0.png)  <br>
