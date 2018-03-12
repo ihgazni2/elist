@@ -2788,7 +2788,10 @@ def cond_uniqualize(l,**kwargs):
         mode = 'new'
     desc = cond_value_indexes_mapping(l,cond_func=cond_func,cond_func_args=cond_func_args,with_none=True)
     keys = list(desc.keys())
-    keys.remove(None)
+    if(None in keys):
+        keys.remove(None)
+    else:
+        pass
     rmapping = {}
     for key in keys:
         rmapping[key] = 0
@@ -2805,8 +2808,11 @@ def cond_uniqualize(l,**kwargs):
     newcopy = copy.deepcopy(l)
     new = select_seqs(newcopy,reserved_indexes)
     ####
-    for index in desc[None]:
-        new.append(newcopy[index])
+    if(None in desc):
+        for index in desc[None]:
+            new.append(newcopy[index])
+    else:
+        pass
     ####
     if(mode == "new"):
         return(new)
