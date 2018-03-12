@@ -3528,10 +3528,13 @@ def cond_value_indexes_mapping(l,**kwargs):
     for i in range(0,l.__len__()):
         ele = l[i]
         cond = cond_func(ele,*cond_func_args)
-        if(cond in desc):
-            desc[cond].append(i)
+        if(cond == None):
+            pass
         else:
-            desc[cond] = [i]
+            if(cond in desc):
+                desc[cond].append(i)
+            else:
+                desc[cond] = [i]
     return(desc)
 
 
