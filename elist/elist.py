@@ -849,7 +849,53 @@ def sortDictList(dictList,**kwargs):
     return(ndl)
 
 
-
+def sortDictList2(dictList,**kwargs):
+    '''
+        
+    '''
+    def default_eq_func(value1,value2):
+        cond = (value1 == value2)
+        return(cond)
+    def default_gt_func(value1,value2):
+        cond = (value1 > value2)
+        return(cond)
+    def default_lt_func(value1,value2):
+        cond = (value1 < value2)
+        return(cond)
+    keys = kwargs['cond_keys']
+    length = keys.__len__()
+    if('eq_funcs' in kwargs):
+        eq_funcs = kwargs['eq_funcs']
+    else:
+        eq_funcs = [default_eq_func] * length
+    if('gt_funcs' in kwargs):
+        gt_funcs = kwargs['gt_funcs']
+    else:
+        gt_funcs = [default_gt_func] * length
+    if('lt_funcs' in kwargs):
+        lt_funcs = kwargs['lt_funcs']
+    else:
+        lt_funcs = [default_lt_func] * length
+    def cmp_dict(d1,d2):
+        '''
+        '''
+        for i in range(0,length):
+            key = keys[i]
+            eq_func = eq_funcs[i]
+            cond = eq_func(d1[key],d2[key])
+            if(cond):
+                pass
+            else:
+                gt_func = gt_funcs[i]
+                cond = gt_func(d1[key],d2[key])
+                if(cond):
+                    return(1)
+                else:
+                    return(-1)
+        return(0)
+    ndl = dictList
+    ndl = sorted(ndl,key=functools.cmp_to_key(cmp_dict))
+    return(ndl)
 
 
 ####
