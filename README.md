@@ -233,6 +233,7 @@ __ListTree lquery APIs:__
 ├──14. [sort](elist/Images/sort.0.png)  <br>
 ├──15. [batsorted](elist/Images/batsorted.0.png)  <br>
 ├──15. [sortDictList](elist/Images/sortDictList.0.png)  <br>
+├──15. [sortDictList2](elist/Images/sortDictList2.0.png)  <br>
 ├──16. [index_first](elist/Images/index_first.0.png)  <br>
 ├──17. [array_index](elist/Images/index_first.0.png)  <br>
 ├──18. [indexOf](elist/Images/index_first.0.png)  <br>
