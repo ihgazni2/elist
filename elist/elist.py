@@ -4203,9 +4203,56 @@ def broken_some(ol,*break_points):
     bps = list(break_points)
     return(broken_seqs(ol,bps))
 
+#classify
+
+
+def classify(dl,**kwargs):
+    '''
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    rslt = {}
+    rslt['yes'] = []
+    rslt['no'] = []
+    length = dl.__len__()
+    for i in range(0,length):
+        ele = dl[i]
+        cond = cond_func(ele,*cond_func_args)
+        if(cond):
+            rslt['yes'].append(ele)
+        else:
+            rslt['no'].append(ele)
+    return(rslt)
 
 
 
+#classifyDictList
+
+
+def classifyDictList(dl,**kwargs):
+    '''
+    '''
+    key = kwargs['key']
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []        
+    rslt = {}
+    rslt['yes'] = []
+    rslt['no'] = []
+    length = dl.__len__()
+    for i in range(0,length):
+        ele = dl[i]
+        cond = cond_func(ele,via,*cond_func_args)
+        if(cond):
+            rslt['yes'].append(ele)
+        else:
+            rslt['no'].append(ele)
+    return(rslt)
 
 
 
