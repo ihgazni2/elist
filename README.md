@@ -367,8 +367,8 @@ __ListTree lquery APIs:__
 ├──135. [rangize](elist/Images/rangize.0.png)  <br>
 ├──136. [broken_seqs](elist/Images/broken.0.png)  <br>
 ├──137. [broken_some](elist/Images/broken.0.png)  <br>
-
-
+├──138. [classify](elist/Images/classify.0.png)  <br>
+├──139. [classifyDictList](elist/Images/classifyDictList.0.png)  <br>
 
 
 
