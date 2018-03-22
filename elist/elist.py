@@ -3420,6 +3420,10 @@ def find_all(ol,test_func,*args):
             pass
     return(rslt)
 
+#find_all_indexes
+#find_all_values
+
+
 def find_allnot(ol,test_func,*args):
     '''
         from elist.elist import *
@@ -3447,6 +3451,8 @@ def find_allnot(ol,test_func,*args):
 #find_swarm
 #find_swarmnot
 
+#find_allnot_indexes
+#find_allnot_values
 
 #@@@@@@@@@@@@@@@@
 def array_map(ol,map_func,*args):
