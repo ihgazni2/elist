@@ -365,6 +365,8 @@ __ListTree lquery APIs:__
 ├──134. [cond_replace_value_seqs](elist/Images/cond_replace_value_seqs.0.png)  <br>
 ├──134. [cond_replace_value_some](elist/Images/cond_replace_value_some.0.png)  <br>
 ├──135. [rangize](elist/Images/rangize.0.png)  <br>
+├──135. [range_compress](elist/Images/range_compress.0.png)  <br>
+├──135. [range_decompress](elist/Images/range_decompress.0.png)  <br>
 ├──136. [broken_seqs](elist/Images/broken.0.png)  <br>
 ├──137. [broken_some](elist/Images/broken.0.png)  <br>
 ├──138. [classify](elist/Images/classify.0.png)  <br>
