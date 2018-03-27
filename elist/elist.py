@@ -4901,10 +4901,10 @@ def scan(l,**kwargs):
         l = [1,2,[4],[3,[5,6]]]
         desc = description(l)
     '''
-    if('iter' in kwargs):
-        iter = True
+    if('itermode' in kwargs):
+        itermode = True
     else:
-        iter = False
+        itermode = False
     ####level ==  0
     desc_matrix = init_desc_matrix(l)
     if(desc_matrix[0][0]['leaf'] == True):
