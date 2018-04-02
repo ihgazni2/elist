@@ -2838,6 +2838,10 @@ def join(ol,separator=","):
         ol = [1,2,3,4]
         join(ol,separator="-")
     '''
+    if(ol.__len__() == 0):
+        return("")
+    else:
+        pass
     cond = (type(ol[0])==type(b''))
     if(cond):
         rslt = b''
