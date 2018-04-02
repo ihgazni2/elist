@@ -373,5 +373,12 @@ __ListTree lquery APIs:__
 ├──138. [classify](elist/Images/classify.0.png)  <br>
 ├──139. [classifyDictList](elist/Images/classifyDictList.0.png)  <br>
 ├──140. [split](elist/Images/split.0.png)  <br>
+├──141. [where](elist/Images/where.0.png)  <br>
+├──142. [where_index_interval](elist/Images/where.0.png)  <br>
+├──143. [index_interval](elist/Images/where.0.png)  <br>
+├──142. [where_value_interval](elist/Images/value_interval.0.png)  <br>
+├──143. [value_interval](elist/Images/value_interval.0.png)  <br>
+├──144. [upper_bound](elist/Images/upper_bound.0.png)  <br>
+├──145. [lower_bound](elist/Images/lower_bound.0.png)  <br>
 
 
