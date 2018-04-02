@@ -4419,6 +4419,87 @@ def split(ol,value,**kwargs):
 #def split_some(ol,*some):
 
 
+def where(ol,value):
+    '''
+        ol = [0, 4, 6, 8, 10, 14]
+        where(ol,-1)
+        where(ol,1)
+        where(ol,2)
+        where(ol,3)
+        where(ol,4)
+        where(ol,9)
+        where(ol,14)
+        where(ol,17)
+    '''
+    si = None
+    ei = None
+    for i in range(0,ol.__len__()):
+        ele = ol[i]
+        if(value >ele):
+            si = i 
+        elif(value == ele):
+            return((i,i))
+        else:
+            ei = i 
+            return((si,ei))
+    return((si,ei))
+
+where_index_interval = where
+index_interval = where
+
+def value_interval(ol,value):
+    '''
+        ol = [0, 4, 6, 8, 10, 14]
+        value_interval(ol,-1)
+        value_interval(ol,1)
+        value_interval(ol,2)
+        value_interval(ol,3)
+        value_interval(ol,4)
+        value_interval(ol,9)
+        value_interval(ol,14)
+        value_interval(ol,17)
+    '''
+    si,ei = where(ol,value)
+    if(si == None):
+        sv = None
+    else:
+        sv = ol[si]
+    if(ei == None):
+        ev = None
+    else:
+        ev = ol[ei]
+    return((sv,ev))
+
+where_value_interval = value_interval
+
+def upper_bound(ol,value):
+    '''
+        ol = [0, 4, 6, 8, 10, 14]
+        upper_bound(ol,-1)
+        upper_bound(ol,1)
+        upper_bound(ol,2)
+        upper_bound(ol,3)
+        upper_bound(ol,4)
+        upper_bound(ol,9)
+        upper_bound(ol,14)
+        upper_bound(ol,17)
+    '''
+    return(value_interval(ol,value)[1])
+
+def lower_bound(ol,value):
+    '''
+        ol = [0, 4, 6, 8, 10, 14]
+        lower_bound(ol,-1)
+        lower_bound(ol,1)
+        lower_bound(ol,2)
+        lower_bound(ol,3)
+        lower_bound(ol,4)
+        lower_bound(ol,9)
+        lower_bound(ol,14)
+        lower_bound(ol,17)
+    '''
+    return(value_interval(ol,value)[0])
+
 
 #the below is for nested analysis
 
