@@ -2529,7 +2529,7 @@ def init(len,default_element=None):
     '''
     rslt = []
     for i in range(0,len):
-        rslt.append(default_element)
+        rslt.append(copy.deepcopy(default_element))
     return(rslt)
 
 initWith = init
