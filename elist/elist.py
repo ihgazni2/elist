@@ -5382,7 +5382,135 @@ def table(l,depth,**kwargs):
     else:
         return(rslt)
 
+####mat func for description matrix
+
+def matrix_map(mat,map_func,map_func_args=[]):
+    '''
+        mat = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ]
+        
+        def map_func(value,indexr,indexc,prefix,suffix):
+            msg = prefix + str((indexr,indexc)) + " : "+str(value) + suffix
+            return(msg)
+        
+        mmat = matrix_map(mat,map_func,map_func_args=["<",">"])
+        
+        mmat 
+    '''
+    mmat = []
+    for i in range(0,mat.__len__()):
+        level = mat[i]
+        mmat.append([])
+        for j in range(0,level.__len__()):
+            value = level[j]
+            indexr = i
+            indexc = j
+            ele = map_func(value,indexr,indexc,*map_func_args)
+            mmat[i].append(ele)
+    return(mmat)
+
+#dfs depth-first-search trace
+def get_dfs(l):
+    '''
+        l = ['v_7', 'v_3', 'v_1', 'v_4', ['v_4', 'v_2'], 'v_5', 'v_6', 'v_1', 'v_6', 'v_7', 'v_5', ['v_4', ['v_1', 'v_8', 'v_3', 'v_4', 'v_2', 'v_7', [['v_3', 'v_2'], 'v_4', 'v_5', 'v_1', 'v_3', 'v_1', 'v_2', 'v_5', 'v_8', 'v_8', 'v_7'], 'v_5', 'v_8', 'v_7', 'v_1', 'v_5'], 'v_6'], 'v_4', 'v_5', 'v_8', 'v_5']
+        dfs = get_dfs(l)
+    '''
+    ltree = ListTree(l)
+    dfs = ltree.tree()
+    return(dfs)
+
+
+#wfs  width-first-search trace
+#wfsmat width-first-search matrix
+
+def get_wfsmat(l):
+    '''
+       l = ['v_7', 'v_3', 'v_1', 'v_4', ['v_4', 'v_2'], 'v_5', 'v_6', 'v_1', 'v_6', 'v_7', 'v_5', ['v_4', ['v_1', 'v_8', 'v_3', 'v_4', 'v_2', 'v_7', [['v_3', 'v_2'], 'v_4', 'v_5', 'v_1', 'v_3', 'v_1', 'v_2', 'v_5', 'v_8', 'v_8', 'v_7'], 'v_5', 'v_8', 'v_7', 'v_1', 'v_5'], 'v_6'], 'v_4', 'v_5', 'v_8', 'v_5']
+       get_wfs(l)
+    '''
+    ltree = ListTree(l)
+    vdescmat = ltree.desc
+    wfsmat = matrix_map(vdescmat,lambda v,ix,iy:v['path'])
+    wfsmat.pop(0)
+    return(wfsmat)
+
+
+
+def mat2wfs(wfsmat):
+    trace = []
+    for i in range(0,wfsmat.__len__()):
+        trace.extend(wfsmat[i])
+    return(trace)
+
+def wfs2mat(wfs):
+    '''
+        wfs = [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [4, 0], [4, 1], [11, 0], [11, 1], [11, 2], [11, 1, 0], [11, 1, 1], [11, 1, 2], [11, 1, 3], [11, 1, 4], [11, 1, 5], [11, 1, 6], [11, 1, 7], [11, 1, 8], [11, 1, 9], [11, 1, 10], [11, 1, 11], [11, 1, 6, 0], [11, 1, 6, 1], [11, 1, 6, 2], [11, 1, 6, 3], [11, 1, 6, 4], [11, 1, 6, 5], [11, 1, 6, 6], [11, 1, 6, 7], [11, 1, 6, 8], [11, 1, 6, 9], [11, 1, 6, 10], [11, 1, 6, 0, 0], [11, 1, 6, 0, 1]]
+    '''
+    wfsmat = []
+    depth = 0
+    level = elel.filter(wfs,lambda ele:ele.__len__()==1)
+    while(level.__len__()>0):
+        wfsmat.append([])
+        wfsmat[depth] = level
+        depth = depth+1
+        level = elel.filter(wfs,lambda ele:ele.__len__()==depth+1)
+    return(wfsmat)
+
+
+def get_wfs(l):
+    wfsmat = get_wfsmat(l)
+    wfs =  wfsmat2wfs(wfsmat)
+    return(wfs)
+
+
+def dfs2wfsmat(dfs):
+    '''
+        dfs = [[0], [1], [2], [3], [4], [4, 0], [4, 1], [5], [6], [7], [8], [9], [10], [11], [11, 0], [11, 1], [11, 1, 0], [11, 1, 1], [11, 1, 2], [11, 1, 3], [11, 1, 4], [11, 1, 5], [11, 1, 6], [11, 1, 6, 0], [11, 1, 6, 0, 0], [11, 1, 6, 0, 1], [11, 1, 6, 1], [11, 1, 6, 2], [11, 1, 6, 3], [11, 1, 6, 4], [11, 1, 6, 5], [11, 1, 6, 6], [11, 1, 6, 7], [11, 1, 6, 8], [11, 1, 6, 9], [11, 1, 6, 10], [11, 1, 7], [11, 1, 8], [11, 1, 9], [11, 1, 10], [11, 1, 11], [11, 2], [12], [13], [14], [15]]
+        
+        dfs2wfs(dfs)
+    '''
+    wfsmat = []
+    depth = 0
+    level = filter(dfs,lambda ele:ele.__len__()==1)
+    while(level.__len__()>0):
+        wfsmat.append([])
+        wfsmat[depth] = level
+        depth = depth+1
+        level = filter(dfs,lambda ele:ele.__len__()==depth+1)
+    return(wfsmat)
+
+
+     
+
+
+def wfsmat2dfs(wfsmat):
+    '''
+        wfs = [[[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15]], [[4, 0], [4, 1], [11, 0], [11, 1], [11, 2]], [[11, 1, 0], [11, 1, 1], [11, 1, 2], [11, 1, 3], [11, 1, 4], [11, 1, 5], [11, 1, 6], [11, 1, 7], [11, 1, 8], [11, 1, 9], [11, 1, 10], [11, 1, 11]], [[11, 1, 6, 0], [11, 1, 6, 1], [11, 1, 6, 2], [11, 1, 6, 3], [11, 1, 6, 4], [11, 1, 6, 5], [11, 1, 6, 6], [11, 1, 6, 7], [11, 1, 6, 8], [11, 1, 6, 9], [11, 1, 6, 10]], [[11, 1, 6, 0, 0], [11, 1, 6, 0, 1]]]
+        wfs2dfs(wfs)
+        
+    '''
+    dfs = mat2wfs(wfsmat)
+    dfs.sort()
+    return(dfs)
+
+
+
+
+def dfs2wfs(dfs):
+    wfsmat = dfs2wfsmat(dfs)
+    wfs = mat2wfs(wfsmat)
+    return(wfs)
+
+def wfs2dfs(wfs):
+    wfsmat = wfs2mat(wfs)
+    dfs = wfsmat2dfs(wfsmat)
+    return(dfs)
+
 ####
+
 
 class ListTree():
     '''
