@@ -381,5 +381,15 @@ __ListTree lquery APIs:__
 ├──143. [value_interval](elist/Images/value_interval.0.png)  <br>
 ├──144. [upper_bound](elist/Images/upper_bound.0.png)  <br>
 ├──145. [lower_bound](elist/Images/lower_bound.0.png)  <br>
+├──146. [matrix_map](elist/Images/matrix_map.0.png)  <br>
+├──147. [mat2wfs](elist/Images/mat2wfs.0.png)  <br>
+├──148. [wfs2mat](elist/Images/wfs2mat.0.png)  <br>
+├──149. [wfsmat2dfs](elist/Images/wfsmat2dfs.0.png)  <br>
+├──150. [dfs2wfsmat](elist/Images/dfs2wfsmat.0.png)  <br>
+├──151. [wfs2dfs](elist/Images/wfs2dfs.0.png)  <br>
+├──152. [dfs2wfs](elist/Images/dfs2wfs.0.png)  <br>
+├──153. [get_dfs](elist/Images/get_dfs.0.png)  <br>
+├──154. [get_wfsmat](elist/Images/get_wfsmat.0.png)  <br>
+├──155. [get_wfs](elist/Images/get_wfs.0.png)  <br>
 
 
