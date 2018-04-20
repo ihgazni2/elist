@@ -5462,7 +5462,7 @@ def wfs2mat(wfs):
 
 def get_wfs(l):
     wfsmat = get_wfsmat(l)
-    wfs =  wfsmat2wfs(wfsmat)
+    wfs =  mat2wfs(wfsmat)
     return(wfs)
 
 
