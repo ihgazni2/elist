@@ -4431,7 +4431,7 @@ def split(ol,value,**kwargs):
     if(whiches == None):
         pass
     else:
-        indexes = elel.select_indexes(indexes,whiches)
+        indexes = select_indexes(indexes,whiches)
     rslt = []
     rslt.append(ol[:indexes[0]])
     si = indexes[0]+1
@@ -5451,12 +5451,12 @@ def wfs2mat(wfs):
     '''
     wfsmat = []
     depth = 0
-    level = elel.filter(wfs,lambda ele:ele.__len__()==1)
+    level = filter(wfs,lambda ele:ele.__len__()==1)
     while(level.__len__()>0):
         wfsmat.append([])
         wfsmat[depth] = level
         depth = depth+1
-        level = elel.filter(wfs,lambda ele:ele.__len__()==depth+1)
+        level = filter(wfs,lambda ele:ele.__len__()==depth+1)
     return(wfsmat)
 
 
