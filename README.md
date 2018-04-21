@@ -320,6 +320,7 @@ __ListTree lquery APIs:__
 ├──92. [every](elist/Images/every.0.png)  <br>
 ├──93. [fill](elist/Images/fill.0.png)  <br>
 ├──94. [filter](elist/Images/filter.0.png)  <br>
+├──94. [filter2](elist/Images/filter2.0.png)  <br>
 ├──95. [find_first](elist/Images/find_first.0.png)  <br>
 ├──96. [find](elist/Images/find_first.0.png)  <br>
 ├──97. [find_firstnot](elist/Images/find_firstnot.0.png)  <br>
