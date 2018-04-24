@@ -5260,6 +5260,19 @@ def pathlist_to_getStr(path_list):
         s = ''.join((s,'[',t2[i],']'))
     return(s)
 
+#pl path-list
+#gs get-string
+pl2gs = pathlist_to_getStr
+
+#
+def getStr_to_pathlist(gs):
+    '''
+    '''
+    gs = gs[1:-1]
+    pl = gs.split("][")
+    return(pl)
+
+gs2pl = getStr_to_pathlist
 
 ####from elist.jprint
 
