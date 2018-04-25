@@ -3170,7 +3170,7 @@ def loose_in(pl,k):
         loose_in(pl,'abc')
         
     '''
-    cond = every(pl,lambda ele:(k in ele))[0]
+    cond = some(pl,lambda ele:(k in ele))['cond']
     return(cond)
 
 
@@ -3204,7 +3204,7 @@ def regex_in(pl,regex):
             return(False)
         else:
             return(True)
-    cond = every(pl,cond_func,regex)[0]
+    cond = some(pl,cond_func,regex)['cond']
     return(cond)
 
 
