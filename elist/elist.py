@@ -66,7 +66,36 @@ def cond_select_all(ol,**kwargs):
     rslt = array_map(founded,lambda ele:ele['value'])
     return(rslt)
 
+
+def cond_select_all2(ol,**kwargs):
+    '''
+        from elist.elist import *
+        from elist.jprint import pobj
+        def test_func(ele,index,x):
+            cond1 = (ele > x)
+            cond2 = (index %2 == 0)
+            cond =(cond1 & cond2)
+            return(cond)
+
+        ol = [1,2,3,4,5,6,7]
+        rslt = cond_select_all(ol,cond_func = test_func,cond_func_args = [3])
+        pobj(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    ####
+    founded = find_all2(ol,cond_func,*cond_func_args)
+    rslt = array_map(founded,lambda ele:ele['value'])
+    return(rslt)
+
+
 cond_select_values_all = cond_select_all
+cond_select_values_all2 = cond_select_all2
+
+
 
 def cond_select_indexes_all(ol,**kwargs):
     '''
@@ -3083,6 +3112,52 @@ def every(ol,test_func,*args):
             return((False,i))
     return(rslt)
 
+
+def every2(ol,test_func,*args):
+    '''
+        from elist.elist import *
+        def test_func(ele,index,x):
+            cond1 = (ele > x)
+            cond2 = (index %2 ==0)
+            cond = cond1 & cond2
+            return(cond)
+
+        ol = [1,2,3,4]
+        every(ol,test_func,3)
+
+        ol = [10,20,30,40]
+        every(ol,test_func,3)
+
+    '''
+    rslt = (True,None)
+    length = ol.__len__()
+    for i in range(0,length):
+        cond = test_func(ol[i],i,*args)
+        if(cond):
+            pass
+        else:
+            return((False,i))
+    return(rslt)
+
+
+###
+def loose_in(pl,k):
+    '''
+        pl = ['bcd','xabcxx','x','y']
+        loose_in(pl,'abc')
+        
+    '''
+    cond = every(pl,lambda ele:(k in ele))[0]
+    return(cond)
+
+
+
+###
+
+
+
+
+
 def some(ol,test_func,*args):
     '''
         from elist.elist import *
@@ -3476,6 +3551,32 @@ def find_all(ol,test_func,*args):
         else:
             pass
     return(rslt)
+
+
+def find_all2(ol,test_func,*args):
+    '''
+        from elist.elist import *
+        from elist.jprint import pobj
+        def test_func(ele,index,x):
+            cond1 = (ele > x)
+            cond2 = (index %2 == 0)
+            return(cond)
+
+        ol = [1,2,3,4,5,6,7]
+        rslt = find_all2(ol,test_func,3)
+        pobj(rslt)
+    '''
+    rslt =[]
+    length = ol.__len__()
+    for i in range(0,length):
+        cond = test_func(ol[i],i,*args)
+        if(cond):
+            rslt.append({'index':i,'value':ol[i]})
+        else:
+            pass
+    return(rslt)
+
+
 
 #find_all_indexes
 #find_all_values
