@@ -3560,6 +3560,7 @@ def find_all2(ol,test_func,*args):
         def test_func(ele,index,x):
             cond1 = (ele > x)
             cond2 = (index %2 == 0)
+            cond = (cond1 & cond2)
             return(cond)
 
         ol = [1,2,3,4,5,6,7]
