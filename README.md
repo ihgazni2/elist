@@ -208,8 +208,11 @@ __ListTree lquery APIs:__
 ├──1. [select_seqs](elist/Images/select.0.png)  <br>
 ├──1. [select_indexes](elist/Images/select.0.png)  <br>
 ├──1. [cond_select_all](elist/Images/cond_select_all.0.png)  <br>
+├──1. [cond_select_all2](elist/Images/cond_select_all2.0.png)  <br>
 ├──1. [cond_select_values_all](elist/Images/cond_select_all.0.png)  <br>
-├──1. [cond_select_indexes_all](elist/Images/cond_select_all.0.png)  <br>
+├──1. [cond_select_values_all2](elist/Images/cond_select_all2.0.png)  <br>
+├──1. [cond_select_indexes_all](elist/Images/cond_select_indexes_all.0.png)  <br>
+├──1. [cond_select_indexes_all2](elist/Images/cond_select_indexes_all2.0.png)  <br>
 ├──2. [append](elist/Images/append.0.png)  <br>
 ├──3. [append_some](elist/Images/append_some.0.png)  <br>
 ├──4. [prepend](elist/Images/prepend.0.png)  <br>
@@ -318,6 +321,7 @@ __ListTree lquery APIs:__
 ├──90. [forEach](elist/Images/forEach.0.png)  <br>
 ├──91. [some](elist/Images/some.0.png)  <br>
 ├──92. [every](elist/Images/every.0.png)  <br>
+├──92. [every2](elist/Images/every2.0.png)  <br>
 ├──93. [fill](elist/Images/fill.0.png)  <br>
 ├──94. [filter](elist/Images/filter.0.png)  <br>
 ├──94. [filter2](elist/Images/filter2.0.png)  <br>
@@ -334,6 +338,7 @@ __ListTree lquery APIs:__
 ├──105. [find_seqsnot](elist/Images/find_seqsnot.0.png)  <br>
 ├──106. [find_somenot](elist/Images/find_seqsnot.0.png)  <br>
 ├──107. [find_all](elist/Images/find_all.0.png)  <br>
+├──107. [find_all2](elist/Images/find_all2.0.png)  <br>
 ├──108. [find_allnot](elist/Images/find_allnot.0.png)  <br>
 ├──109. [array_map](elist/Images/array_map.0.png)  <br>
 ├──110. [array_map2](elist/Images/array_map2.0.png)  <br>
