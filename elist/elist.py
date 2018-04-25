@@ -3180,10 +3180,22 @@ def select_loose_in(pl,k):
         select_loose_in(pl,'abc')
     '''
     def cond_func(ele,index,k):
+        cond = loose_in(ele,k)
+        return(cond)
+    arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[k])
+    return(arr)
+
+
+def select_strict_in(pl,k):
+    '''
+        pl = ['bcd','xabcxx','x','y']
+        select_loose_in(pl,'abc')
+    '''
+    def cond_func(ele,index,k):
         cond = (k in ele)
         return(cond)
-    cond = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[k])
-    return(cond)
+    arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[k])
+    return(arr)
 
 
 
