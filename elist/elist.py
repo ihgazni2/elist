@@ -3224,14 +3224,11 @@ def select_regex_in(pl,regex):
     '''
         regex = re.compile("^x.*x$")
         pl = ['bcd','xabcxx','xx','y']
-        select_loose_in(pl,'abc')
+        select_regex_in(pl,'abc')
     '''
     def cond_func(ele,index,regex):
-        m = regex.search(ele)
-        if(m == None):
-            return(False)
-        else:
-            return(True)
+        cond = regex_in(ele,regex)
+        return(cond)
     arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[regex])
     return(arr)
 
