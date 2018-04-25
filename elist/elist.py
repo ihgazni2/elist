@@ -3146,10 +3146,10 @@ def every2(ol,test_func,*args):
             return(cond)
 
         ol = [1,2,3,4]
-        every(ol,test_func,3)
+        every2(ol,test_func,3)
 
         ol = [10,20,30,40]
-        every(ol,test_func,3)
+        every2(ol,test_func,3)
 
     '''
     rslt = (True,None)
@@ -3172,6 +3172,57 @@ def loose_in(pl,k):
     '''
     cond = every(pl,lambda ele:(k in ele))[0]
     return(cond)
+
+
+def select_loose_in(pl,k):
+    '''
+        pl = ['bcd','xabcxx','x','y']
+        select_loose_in(pl,'abc')
+    '''
+    def cond_func(ele,index,k):
+        cond = (k in ele)
+        return(cond)
+    cond = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[k])
+    return(cond)
+
+
+
+def regex_in(pl,regex):
+    '''
+        regex = re.compile("^[a-z]+$")
+        pl = ['b1c3d','xab15cxx','1x','y2']
+        regex_in(pl,regex)
+        
+        regex = re.compile("^[0-9a-z]+$")
+        pl = ['b1c3d','xab15cxx','1x','y2']
+        regex_in(pl,regex)
+        
+    '''
+    def cond_func(ele,regex):
+        m = regex.search(ele)
+        if(m == None):
+            return(False)
+        else:
+            return(True)
+    cond = every(pl,cond_func,regex)[0]
+    return(cond)
+
+
+def select_regex_in(pl,regex):
+    '''
+        regex = re.compile("^x.*x$")
+        pl = ['bcd','xabcxx','xx','y']
+        select_loose_in(pl,'abc')
+    '''
+    def cond_func(ele,index,regex):
+        m = regex.search(ele)
+        if(m == None):
+            return(False)
+        else:
+            return(True)
+    arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[regex])
+    return(arr)
+
 
 
 
