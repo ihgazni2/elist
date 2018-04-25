@@ -215,6 +215,7 @@ __ListTree lquery APIs:__
 ├──1. [cond_select_indexes_all2](elist/Images/cond_select_indexes_all2.0.png)  <br>
 ├──1. [loose_in](elist/Images/loose_in.0.png)  <br>
 ├──1. [select_loose_in](elist/Images/loose_in.0.png)  <br>
+├──1. [select_strict_in](elist/Images/strict_in.0.png)  <br>
 ├──1. [regex_in](elist/Images/regex_in.0.png)  <br>
 ├──1. [select_regex_in](elist/Images/regex_in.0.png)  <br>
 ├──2. [append](elist/Images/append.0.png)  <br>
