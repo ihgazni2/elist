@@ -3180,7 +3180,10 @@ def select_loose_in(pl,k):
         select_loose_in(pl,'abc')
     '''
     def cond_func(ele,index,k):
-        cond = loose_in(ele,k)
+        if(type(ele) == type([])):
+            cond = loose_in(ele,k)
+        else:
+            cond = (k in ele)
         return(cond)
     arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[k])
     return(arr)
@@ -3189,10 +3192,13 @@ def select_loose_in(pl,k):
 def select_strict_in(pl,k):
     '''
         pl = ['bcd','xabcxx','x','y']
-        select_loose_in(pl,'abc')
+        select_strict_in(pl,'abc')
     '''
     def cond_func(ele,index,k):
-        cond = (k in ele)
+        if(type(ele) == type([])):
+            cond = (k in ele)
+        else:
+            cond = (k == ele)
         return(cond)
     arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[k])
     return(arr)
@@ -3227,7 +3233,14 @@ def select_regex_in(pl,regex):
         select_regex_in(pl,'abc')
     '''
     def cond_func(ele,index,regex):
-        cond = regex_in(ele,regex)
+        if(type(ele)==type([])):
+            cond = regex_in(ele,regex)
+        else:
+            m = regex.search(ele)
+            if(m == None):
+                cond = False
+            else:
+                cond = True
         return(cond)
     arr = cond_select_values_all2(pl,cond_func=cond_func, cond_func_args =[regex])
     return(arr)
