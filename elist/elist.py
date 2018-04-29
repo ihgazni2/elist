@@ -5696,6 +5696,32 @@ def matrix_map(mat,map_func,map_func_args=[]):
             mmat[i].append(ele)
     return(mmat)
 
+def is_matrix(m,**kwargs):
+    def cond_func(ele,lngth):
+        cond = (ele.__len__() == lngth)
+        return(cond)
+    cond_1 = every(m,is_list)[0]
+    if(cond_1):
+        if('mode' in kwargs):
+            mode = kwargs['mode']
+        else:
+            mode = 'strict' 
+        if(mode == 'strict'):
+            try:
+                lngth = m[0].__len__()
+                cond_2 = every(m,cond_func,lngth)[0]
+            except:
+                return(False)
+            else:
+                pass
+        else:
+            cond_2 = True
+        return(cond_1 & cond_2)
+    else:
+        return(True)
+
+
+
 #dfs depth-first-search trace
 def get_dfs(l):
     '''
