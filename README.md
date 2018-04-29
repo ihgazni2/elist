@@ -393,6 +393,7 @@ __ListTree lquery APIs:__
 ├──144. [upper_bound](elist/Images/upper_bound.0.png)  <br>
 ├──145. [lower_bound](elist/Images/lower_bound.0.png)  <br>
 ├──146. [matrix_map](elist/Images/matrix_map.0.png)  <br>
+├──146. [is_matrix](elist/Imagesis_matrix.0.png)  <br>
 ├──147. [mat2wfs](elist/Images/mat2wfs.0.png)  <br>
 ├──148. [wfs2mat](elist/Images/wfs2mat.0.png)  <br>
 ├──149. [wfsmat2dfs](elist/Images/wfsmat2dfs.0.png)  <br>
