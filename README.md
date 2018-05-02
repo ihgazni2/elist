@@ -206,6 +206,7 @@ __ListTree lquery APIs:__
 -----------------------------------------------------------------------
 >├──0. [select_some](elist/Images/select.0.png)  <br>
 ├──1. [select_seqs](elist/Images/select.0.png)  <br>
+├──1. [select_seqs_keep_order](elist/Images/select_seqs_keep_order.0.png)  <br>
 ├──1. [select_indexes](elist/Images/select.0.png)  <br>
 ├──1. [cond_select_all](elist/Images/cond_select_all.0.png)  <br>
 ├──1. [cond_select_all2](elist/Images/cond_select_all2.0.png)  <br>
@@ -238,6 +239,7 @@ __ListTree lquery APIs:__
 ├──14. [insert_section](elist/Images/insert_section.0.png)  <br>
 ├──14. [insert_sections_some](elist/Images/insert_section.0.png)  <br>
 ├──14. [insert_sections_many](elist/Images/insert_sections_many.0.png)  <br>
+├──14. [reorder_sub](elist/Images/reorder_sub.0.png)  <br>
 ├──14. [sort](elist/Images/sort.0.png)  <br>
 ├──15. [batsorted](elist/Images/batsorted.0.png)  <br>
 ├──15. [sortDictList](elist/Images/sortDictList.0.png)  <br>
@@ -403,5 +405,6 @@ __ListTree lquery APIs:__
 ├──153. [get_dfs](elist/Images/get_dfs.0.png)  <br>
 ├──154. [get_wfsmat](elist/Images/get_wfsmat.0.png)  <br>
 ├──155. [get_wfs](elist/Images/get_wfs.0.png)  <br>
-
+├──156. [rand_some_indexes](elist/Images/rand_some_indexes.0.png)  <br>
+├──157. [rand_sub](elist/Images/rand_sub.0.png)  <br>
 
