@@ -5,6 +5,18 @@ from operator import itemgetter
 from types import MethodType
 import functools
 
+def select_seqs_keep_order(ol,seqs):
+    '''
+    '''
+    rslt = []
+    for i in range(0,seqs.__len__()):
+        seq = seqs[i]
+        ele = ol[seq]
+        rslt.append(ele)
+    return(rslt)
+
+
+
 def select_seqs(ol,seqs):
     '''
         from elist.elist import *
@@ -725,6 +737,22 @@ def insert_sections_many(ol,secs,locs,**kwargs):
         ol.clear()
         ol.extend(new)
         return(ol)
+
+####
+
+def reorder_sub(ol,sub):
+    '''
+        sub = ['query', 'params', 'fragment', 'path']
+        ol = ['scheme', 'username', 'password', 'hostname', 'port', 'path', 'params', 'query', 'fragment']
+        reorder_sub(ol,sub)
+    '''
+    def cond_func(ele,ol):
+        index = ol.index(ele)
+        return(index)
+    indexes = array_map(sub,cond_func,ol)
+    nsub = sorted_refer_to(sub,indexes)['list']
+    return(nsub)
+
 
 
 def sort(ol,**kwargs):
@@ -4767,6 +4795,63 @@ def lower_bound(ol,value):
         lower_bound(ol,17)
     '''
     return(value_interval(ol,value)[0])
+
+
+def rand_some_indexes(si,ei,n,**kwargs):
+    if('sort' in kwargs):
+        sort = kwargs['sort']
+    else:
+        sort = True 
+    rslt = []
+    arr = init_range(si,ei,1)
+    c = 0
+    while(c<n):
+        r = random.randrange(0,ei)
+        p = arr.pop(r)
+        rslt.append(p)
+        ei = ei - 1
+        c = c + 1
+    if(sort):
+        rslt.sort()
+    else:
+        pass
+    return(rslt)
+
+
+def rand_sub(arr,*args,**kwargs):
+    '''
+        arr = ['scheme', 'username', 'password', 'hostname', 'port', 'path', 'params', 'query', 'fragment']
+        rand_sub(arr,3)
+        rand_sub(arr,3)
+        rand_sub(arr,3)
+        rand_sub(arr)
+        rand_sub(arr)
+        rand_sub(arr)
+    '''
+    arr = copy.deepcopy(arr)
+    lngth = arr.__len__()
+    args = list(args)
+    if(args.__len__() == 0):
+        n = random.randrange(0,lngth)
+    else:
+        n = args[0]
+        if(n>lngth):
+            n = lngth
+        else:
+            pass
+    indexes = rand_some_indexes(0,lngth,n,**kwargs)
+    narr = select_seqs_keep_order(arr,indexes)
+    return(narr)
+
+
+
+
+
+
+
+
+
+
 
 
 #the below is for nested analysis
