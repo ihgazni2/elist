@@ -15,8 +15,6 @@ def select_seqs_keep_order(ol,seqs):
         rslt.append(ele)
     return(rslt)
 
-
-
 def select_seqs(ol,seqs):
     '''
         from elist.elist import *
@@ -50,11 +48,35 @@ def select_some(ol,*seqs):
             pass
     return(rslt)
 
+#select_xxx              
+##select (values) (via) xxx
+###xxx  seqs/some/indexes
 
-#cond_select
-#cond_select_some
-#cond_select_seqs
-#cond_select_many
+#select_seqs(ol,seqs,**kwargs)
+##order == "list"
+##order == "seqs"
+#select_indexes = select_seqs
+#select_some(ol,*seqs,**kwargs)
+##order == "list"
+##order == "seqs"
+
+#############################
+
+#cond_select_values
+##select (values) (via) cond_func(index,value,*cond_func_args)
+
+#cond_select = cond_select_values
+
+#cond_select_some = cond_select_values_via_some
+#cond_select_seqs = cond_select_values_via_seqs
+#cond_select_many = cond_select_values_via_manay
+
+#cond_select_indexes
+##select (values) (via) cond_func(index,value,*cond_func_args)
+#cond_select_indexes_some
+#cond_select_indexes_seqs
+#cond_select_indexes_many
+
 
 def cond_select_all(ol,**kwargs):
     '''
@@ -157,7 +179,7 @@ def cond_select_indexes_all2(ol,**kwargs):
     return(rslt)
 
 
-
+###################################################
 
 def append(ol,ele,**kwargs):
     '''
