@@ -276,6 +276,7 @@ __ListTree lquery APIs:__
 ├──46. [all_continuous_indexesnot_slices](elist/Images/all_some_seqs_continuous_indexes_slices.0.png)  <br>
 ├──47. [shift](elist/Images/shift.0.png)  <br>
 ├──48. [pop](elist/Images/pop.0.png)  <br>
+├──48. [cond_pop](elist/Images/cond_pop.0.png)  <br>
 ├──49. [pop_range](elist/Images/pop_range.0.png)  <br>
 ├──50. [pop_some](elist/Images/pop_some.0.png)  <br>
 ├──51. [pop_indexes](elist/Images/pop_indexes.0.png)  <br>
