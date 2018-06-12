@@ -179,6 +179,46 @@ def cond_select_indexes_all2(ol,**kwargs):
     return(rslt)
 
 
+def select_odds(ol,**kwargs):
+    '''
+    '''
+    nl = []
+    for i in range(0,ol.__len__()):
+        if((i%2)==1):
+            nl.append(ol[i])
+        else:
+            pass
+    return(nl)
+
+
+def select_evens(ol,**kwargs):
+    '''
+    '''
+    nl = []
+    for i in range(0,ol.__len__()):
+        if((i%2)==0):
+            nl.append(ol[i])
+        else:
+            pass
+    return(nl)
+
+def select_interval(ol,interval,**kwargs):
+    '''
+    '''
+    if('start' in kwargs):
+        start = kwargs['start']
+    else:
+        start = 0
+    nl = []
+    for i in range(start,ol.__len__()):
+        if((i%interval)==0):
+            nl.append(ol[i])
+        else:
+            pass
+    return(nl)
+
+
+
 ###################################################
 
 def append(ol,ele,**kwargs):
