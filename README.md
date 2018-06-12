@@ -208,6 +208,9 @@ __ListTree lquery APIs:__
 ├──1. [select_seqs](elist/Images/select.0.png)  <br>
 ├──1. [select_seqs_keep_order](elist/Images/select_seqs_keep_order.0.png)  <br>
 ├──1. [select_indexes](elist/Images/select.0.png)  <br>
+├──1. [select_odds](elist/Images/select_odds.0.png)  <br>
+├──1. [select_evens](elist/Images/select_evens.0.png)  <br>
+├──1. [select_interval](elist/Images/select_interval.0.png)  <br>
 ├──1. [cond_select_all](elist/Images/cond_select_all.0.png)  <br>
 ├──1. [cond_select_all2](elist/Images/cond_select_all2.0.png)  <br>
 ├──1. [cond_select_values_all](elist/Images/cond_select_all.0.png)  <br>
