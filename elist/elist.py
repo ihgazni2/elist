@@ -5,6 +5,14 @@ from operator import itemgetter
 from types import MethodType
 import functools
 
+###############################
+
+def str_fuzzy_search(arr,k):
+    slcted = cond_select_values_all(arr,cond_func = lambda ele:(k in ele))
+    return(slcted)
+
+
+##############################
 def select_seqs_keep_order(ol,seqs):
     '''
     '''
