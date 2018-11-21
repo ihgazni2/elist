@@ -139,6 +139,25 @@ cond_select_values_all2 = cond_select_all2
 
 
 
+def eqlength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()==lngth)))
+
+def gelength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()>=lngth)))
+
+def gtlength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()>lngth)))
+
+def lelength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()<=lngth)))
+
+def ltlength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()<lngth)))
+
+
+
+
+
 def cond_select_indexes_all(ol,**kwargs):
     '''
         from elist.elist import *
