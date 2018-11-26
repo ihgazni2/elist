@@ -4565,6 +4565,15 @@ def rangize(break_points,length):
     return(secs)
 
 
+def rangize_fullfill(spans,lngth):
+    brkpnts = []
+    for i in range(0,spans.__len__()):
+        span = spans[i]
+        brkpnts.append(span[0])
+        brkpnts.append(span[1])
+    return(rangize(brkpnts,lngth))
+
+
 def rangize_supplement(spans,lngth):
     '''
         spans = [(0, 3), (4, 7), (8, 10), (11, 12), (13, 16), (17, 20)]
