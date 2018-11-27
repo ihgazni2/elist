@@ -4849,6 +4849,15 @@ def split(ol,value,**kwargs):
 #def shrink_split 多个连续的sp当作一个
 #def split_some(ol,*some):
 
+def get_span_loc(spans,word_loc):
+    for i in range(0,spans.__len__()):
+        span = spans[i]
+        if((word_loc>=span[0])&(word_loc<span[1])):
+            return(i)
+        else:
+            pass
+    return(None)
+
 
 def where(ol,value):
     '''
