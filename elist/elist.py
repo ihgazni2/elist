@@ -281,8 +281,8 @@ def mapiv(ol,map_func,map_func_args):
         #map_func         common_func(index,value,*common_args)
     '''
     lngth = ol.__len__()
-    common_funcs_arr = kwargs['map_funcs']
-    common_args_arr = kwargs['map_func_args_array']
+    common_funcs_arr = init(lngth,map_func)
+    common_args_arr = init(lngth,map_func_args)
     rslt = mapfivo(ol,map_funcs=common_funcs_arr,map_func_args_array=common_args_arr)
     return(rslt)
 
