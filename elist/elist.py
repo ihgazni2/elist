@@ -1,10 +1,539 @@
-# class name initial is  uppercased 
-# vars 可以动态调用函数
 import copy
 from operator import itemgetter
 from types import MethodType
 import functools
 
+
+
+#一个map函数由四个因素决定
+#map_func(index, value, *other_args)
+#   |       |      |        |
+#   f       i      v        o
+
+#map_func:     f    map_func 各不相同         diff_func
+#index:        i    index 作为map_func参数    take index as a param for map_func
+#value:        v    value 作为map_func参数    take value as a param for map_func
+#other_args    o    otehr_args 各不相同       diff_args
+
+
+#mapfivo          f,i,v,o四元决定                     fivo-4-tuple-engine
+#map_func         diff_func(index,value,*diff_args)
+
+def mapfivo(ol,**kwargs):
+    '''
+        #mapfivo          f,i,v,o四元决定                     fivo-4-tuple-engine
+        #map_func         diff_func(index,value,*diff_args)
+    '''
+    diff_funcs_arr = kwargs['map_funcs']
+    diff_args_arr = kwargs['map_func_args_array']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = diff_args_arr[i]
+        ele = func(index,value,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+
+#mapfiv           共享相同的o                         share common other_args
+#map_func         diff_func(index,value,*common_args)
+
+def mapfiv(ol,map_func_args,**kwargs):
+    '''
+        #mapfiv           共享相同的o                         share common other_args
+        #map_func         diff_func(index,value,*common_args)
+    '''
+    lngth = ol.__len__()
+    diff_funcs_arr = kwargs['map_funcs']
+    common_args_arr = init(lngth,map_func_args)
+    rslt = mapfivo(ol,map_funcs=diff_funcs_arr,map_func_args_array=common_args_arr)
+    return(rslt)
+
+
+#mapfio           v不作为map_func参数                 NOT take value as a param for map_func
+#map_func         diff_func(index,*diff_args)
+
+def mapfio(ol,**kwargs):
+    '''
+        #mapfio           v不作为map_func参数                 NOT take value as a param for map_func
+        #map_func         diff_func(index,*diff_args)
+    '''
+    diff_funcs_arr = kwargs['map_funcs']
+    diff_args_arr = kwargs['map_func_args_array']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = diff_args_arr[i]
+        ele = func(index,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+
+#mapfvo           i不作为map_func参数                 NOT take index as a param for map_func
+#map_func         diff_func(value,*diff_args)
+
+def mapfvo(ol,**kwargs):
+    '''
+        #mapfvo           i不作为map_func参数                 NOT take index as a param for map_func
+        #map_func         diff_func(value,*diff_args)
+    '''
+    diff_funcs_arr = kwargs['map_funcs']
+    diff_args_arr = kwargs['map_func_args_array']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = diff_args_arr[i]
+        ele = func(value,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#mapivo           共享相同的f                         share common map_func
+#map_func         common_func(index,value,*diff_args)
+
+def mapivo(ol,map_func,**kwargs):
+    '''
+        #mapivo           共享相同的f                         share common map_func
+        #map_func         common_func(index,value,*diff_args)
+    '''
+    lngth = ol.__len__()
+    common_funcs_arr = init(lngth,map_func)
+    diff_args_arr = kwargs['map_func_args_array']
+    rslt = mapfivo(ol,map_funcs=common_funcs_arr,map_func_args_array=diff_args_arr)
+    return(rslt)
+
+
+def array_dualmap(ol,value_map_func,**kwargs):
+    '''
+        from elist.elist import *
+        ol = ['a','b','c','d']
+        def index_map_func(index,prefix,suffix):
+            s = prefix +str(index+97)+ suffix
+            return(s)
+        
+        def value_map_func(mapped_index,ele,prefix,suffix):
+            s = prefix+mapped_index+': ' + str(ele) + suffix
+            return(s)
+        
+        ####
+        rslt = array_dualmap2(ol,index_map_func=index_map_func,index_map_func_args=[': ',' is '],value_map_func=value_map_func,value_map_func_args=['ord',' yes?'])
+        pobj(rslt)
+    '''
+    def get_self(obj):
+        return(obj)
+    if('index_map_func_args' in kwargs):
+        index_map_func_args = kwargs['index_map_func_args']
+    else:
+        index_map_func_args = []
+    if('value_map_func_args' in kwargs):
+        value_map_func_args = kwargs['value_map_func_args']
+    else:
+        value_map_func_args = []
+    if('index_map_func' in kwargs):
+        index_map_func = kwargs['index_map_func']
+    else:
+        index_map_func = get_self
+    length = ol.__len__()
+    il = list(range(0,length))
+    nil = list(map(lambda ele:index_map_func(ele,*index_map_func_args),il))
+    nvl = []
+    for i in range(0,length):
+        ele = ol[i]
+        v = value_map_func(nil[i],ele,*value_map_func_args)
+        nvl.append(v)
+    return(nvl)
+
+
+def array_dualmap2(*refls,**kwargs):
+    '''
+        from elist.elist import *
+        ol = [1,2,3,4]
+        refl1 = ['+','+','+','+']
+        refl2 = [7,7,7,7]
+        refl3 = ['=','=','=','=']
+        def index_map_func(index):
+            s ="<"+str(index)+">"
+            return(s)
+        
+        def value_map_func(mapped_index,ele,ref_ele1,ref_ele2,ref_ele3,prefix,suffix):
+            s = prefix+mapped_index+': ' + str(ele) + str(ref_ele1) + str(ref_ele2) + str(ref_ele3) + suffix
+            return(s)
+        
+        ####
+        rslt = array_dualmap2(ol,refl1,refl2,refl3,index_map_func=index_map_func,value_map_func=value_map_func,value_map_func_args=['Q','?'])
+        pobj(rslt)
+    '''
+    def get_self(obj,*args):
+        return(obj)
+    if('value_map_func_args' in kwargs):
+        value_map_func_args = kwargs['value_map_func_args']
+    else:
+        value_map_func_args = []
+    if('index_map_func' in kwargs):
+        index_map_func = kwargs['index_map_func']
+    else:
+        index_map_func = get_self
+    if('index_map_func_args' in kwargs):
+        index_map_func_args = kwargs['index_map_func_args']
+    else:
+        index_map_func_args = []
+    length = ol.__len__()
+    il = list(range(0,length))
+    nil = list(map(lambda ele:index_map_func(ele,*index_map_func_args),il))
+    refls = list(refls)
+    refls = prepend(refls,nil)
+    nvl = array_map2(*refls,map_func = value_map_func,map_func_args=value_map_func_args)
+    return(nvl)
+
+
+#mapfi            共享相同的o,v不作为map_func参数             
+#                 share common other_args,NOT take value as a param for map_func
+#map_func         diff_func(index,*common_args)
+
+def mapfi(ol,map_func_args,**kwargs):
+    '''
+        #mapfi            共享相同的o,v不作为map_func参数
+        #                 share common other_args,NOT take value as a param for map_func
+        #map_func         diff_func(index,*common_args)
+    '''
+    diff_funcs_arr = kwargs['map_funcs']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = map_func_args
+        ele = func(index,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+#mapfv            共享相同的o,i不作为map_func参数
+#                 share common other_args,NOT take value as a param for map_func
+#map_func         diff_func(value,*common_args)
+
+def mapfv(ol,map_func_args,**kwargs):
+    '''
+        #mapfv            共享相同的o,i不作为map_func参数
+        #                 share common other_args,NOT take value as a param for map_func
+        #map_func         diff_func(value,*common_args)
+    '''
+    diff_funcs_arr = kwargs['map_funcs']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = map_func_args
+        ele = func(value,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#mapfo            i不作为map_func参数,v不作为map_func参数
+#                 NOT take value as a param for map_func,NOT take index as a param for map_func
+#map_func         diff_func(*diff_args)
+
+def mapfo(ol,**kwargs):
+    '''
+        #mapfo            i不作为map_func参数,v不作为map_func参数
+        #                 NOT take value as a param for map_func,NOT take index as a param for map_func
+        #map_func         diff_func(*diff_args)
+    '''
+    diff_args_arr = kwargs['map_func_args_array']
+    diff_funcs_arr = kwargs['map_funcs']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = diff_args_arr[i]
+        ele = func(value,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#mapiv            共享相同的o,共享相同的f              share common map_func,share common other_args
+#map_func         common_func(index,value,*common_args)
+
+def mapiv(ol,map_func,map_func_args):
+    '''
+        #mapiv            共享相同的o,共享相同的f              share common map_func,share common other_args
+        #map_func         common_func(index,value,*common_args)
+    '''
+    lngth = ol.__len__()
+    common_funcs_arr = kwargs['map_funcs']
+    common_args_arr = kwargs['map_func_args_array']
+    rslt = mapfivo(ol,map_funcs=common_funcs_arr,map_func_args_array=common_args_arr)
+    return(rslt)
+
+
+def mapiv2(ol,map_func,*args,**kwargs):
+    '''
+        from elist.elist import *
+        ol = ['a','b','c','d']
+        #1
+        def map_func(index,value,*others):
+            return(value * index + others[0] +others[-1])
+        mapiv(ol,map_func,'tailA-','tailB')
+        #2
+        mapiv2(ol,lambda index,value,other:(value*index+other),['-'])
+        mapiv2(ol,lambda index,value,other:(value*index+other),'-')
+        mapiv2(ol,lambda index,value:(value*index))
+    '''
+    args = list(args)
+    if(args.__len__() > 0):
+        map_func_args = args
+    else:
+        if('map_func_args' in kwargs):
+            map_func_args = kwargs['map_func_args']
+        else:
+            map_func_args = []
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        ele = map_func(i,ol[i],*map_func_args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#mapio    共享相同的f,v不作为map_func参数
+#         share common map_func,NOT take value as a param for map_func
+#         common_func(index,*priv_args)
+
+
+def mapio(ol,map_func,**kwargs):
+    '''
+        #mapvo    共享相同的f,i不作为map_func参数
+        #         share common map_func,NOT take index as a param for map_func
+        #         common_func(value,*priv_args)
+    '''
+    lngth = ol.__len__()
+    diff_args_arr = kwargs['map_func_args_array']
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = map_func
+        args = diff_args_arr[i]
+        ele = func(index,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#mapvo    共享相同的f,i不作为map_func参数      
+#         share common map_func,NOT take index as a param for map_func
+#         common_func(value,*priv_args)
+
+
+def mapvo(ol,map_func,**kwargs):
+    '''
+        #mapvo    共享相同的f,i不作为map_func参数
+        #         share common map_func,NOT take index as a param for map_func
+        #         common_func(value,*priv_args)
+    '''
+    lngth = ol.__len__()
+    diff_args_arr = kwargs['map_func_args_array']
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = map_func
+        args = diff_args_arr[i]
+        ele = func(value,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+def array_map2(*referls,**kwargs):
+    '''
+        obseleted just for compatible
+        from elist.elist import *
+        ol = [1,2,3,4]
+        refl1 = ['+','+','+','+']
+        refl2 = [7,7,7,7]
+        refl3 = ['=','=','=','=']
+        def map_func(ele,ref_ele1,ref_ele2,ref_ele3,prefix,suffix):
+            s = prefix+': ' + str(ele) + str(ref_ele1) + str(ref_ele2) + str(ref_ele3) + suffix
+            return(s)
+
+        ####
+        rslt = array_map2(ol,refl1,refl2,refl3,map_func=map_func,map_func_args=['Q','?'])
+        pobj(rslt)
+    '''
+    map_func = kwargs['map_func']
+    if('map_func_args' in kwargs):
+        map_func_args = kwargs['map_func_args']
+    else:
+        map_func_args = []
+    length = referls.__len__()
+    rslt = []
+    anum = list(referls)[0].__len__()
+    for j in range(0,anum):
+        args = []
+        for i in range(0,length):
+            refl = referls[i]
+            args.append(refl[j])
+        args.extend(map_func_args)
+        v = map_func(*args)
+        rslt.append(v)
+    return(rslt)
+
+
+
+
+#mapf     i不作为map_func参数,v不作为map_func参数,共享相同的o
+#         NOT take value as a param for map_func
+#         NOT take index as a param for map_func
+#         share common other_args
+#         diff_func(*common_args)
+
+def mapf(ol,map_func_args,**kwargs):
+    '''
+        #mapf     i不作为map_func参数,v不作为map_func参数,共享相同的o
+        #         NOT take value as a param for map_func
+        #         NOT take index as a param for map_func
+        #         share common other_args
+        #         diff_func(*common_args)
+    '''
+    diff_funcs_arr = kwargs['map_funcs']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = map_func_args
+        ele = func(*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+
+#mapi     v不作为map_func参数,共享相同的f,共享相同的o
+#         NOT take value as a param for map_func
+#         share common other_args
+#         share common map_func
+#         common_func(index,*common_args)
+
+def mapi(ol,map_func,map_func_args):
+    '''
+        #mapi     v不作为map_func参数,共享相同的f,共享相同的o
+        #         NOT take value as a param for map_func
+        #         share common other_args
+        #         share common map_func
+        #         common_func(index,*common_args)
+    '''
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = map_func
+        args = map_func_args
+        ele = func(index,*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#mapv     i不作为map_func参数,共享相同的f,共享相同的o
+#         NOT take index as a param for map_func
+#         share common other_args
+#         share common map_func
+#         common_func(value,*common_args)
+
+def mapv(ol,map_func,map_func_args):
+    '''
+        #mapv     i不作为map_func参数,共享相同的f,共享相同的o
+        #         NOT take index as a param for map_func
+        #         share common other_args
+        #         share common map_func
+        #         common_func(value,*common_args)
+
+    '''
+    rslt = list(map(lambda ele:map_func(ele,*map_func_args),ol))
+    return(rslt)
+
+
+def array_map(ol,map_func,*args):
+    '''
+        obseleted,just for compatible
+        from elist.elist import *
+        ol = [1,2,3,4]
+        def map_func(ele,mul,plus):
+            return(ele*mul+plus)
+
+        array_map(ol,map_func,2,100)
+    '''
+    rslt = list(map(lambda ele:map_func(ele,*args),ol))
+    return(rslt)
+
+
+
+
+#mapo     i不作为map_func参数,v不作为map_func参数,共享相同的f
+#         NOT take index as a param for map_func
+#         NOT take value as a param for map_func
+#         share common map_func
+#         common_func(*priv_args)
+
+
+
+def mapo(ol,map_func,**kwargs):
+    '''
+        #mapo     i不作为map_func参数,v不作为map_func参数,共享相同的f
+        #         NOT take index as a param for map_func
+        #         NOT take value as a param for map_func
+        #         share common map_func
+        #         common_func(*priv_args)
+    '''
+    diff_args_arr = kwargs['map_func_args_array']
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = map_func
+        args = diff_args_arr[i]
+        ele = func(*args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+
+
+
+
+
+
+
+# class name initial is  uppercased 
+# vars 可以动态调用函数
 ###############################
 
 def str_fuzzy_search(arr,k):
@@ -3888,165 +4417,8 @@ def find_allnot(ol,test_func,*args):
 
 ##############
 
-def iv_map(ol,map_func,*args,**kwargs):
-    '''
-        from elist.elist import *
-        ol = ['a','b','c','d']
-        #1
-        def map_func(index,value,*others):
-            return(value * index + others[0] +others[-1])
-        
-        iv_map(ol,map_func,'tailA-','tailB')
-        #2
-        iv_map(ol,lambda index,value,other:(value*index+other),['-'])
-        iv_map(ol,lambda index,value,other:(value*index+other),'-')
-        iv_map(ol,lambda index,value:(value*index))
-    '''
-    args = list(args)
-    if(args.__len__() > 0):
-        map_func_args = args
-    else:
-        if('map_func_args' in kwargs):
-            map_func_args = kwargs['map_func_args']
-        else:
-            map_func_args = []
-    lngth = ol.__len__()
-    rslt = []
-    for i in range(0,lngth):
-        ele = map_func(i,ol[i],*map_func_args)
-        rslt.append(ele)
-    return(rslt)
-
-
-
-#############
-
 #@@@@@@@@@@@@@@@@
-def array_map(ol,map_func,*args):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        def map_func(ele,mul,plus):
-            return(ele*mul+plus)
-        
-        array_map(ol,map_func,2,100)
-    '''
-    rslt = list(map(lambda ele:map_func(ele,*args),ol))
-    return(rslt)
 
-def array_map2(*referls,**kwargs):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        refl1 = ['+','+','+','+']
-        refl2 = [7,7,7,7]
-        refl3 = ['=','=','=','=']
-        def map_func(ele,ref_ele1,ref_ele2,ref_ele3,prefix,suffix):
-            s = prefix+': ' + str(ele) + str(ref_ele1) + str(ref_ele2) + str(ref_ele3) + suffix
-            return(s)
-        
-        ####
-        rslt = array_map2(ol,refl1,refl2,refl3,map_func=map_func,map_func_args=['Q','?'])
-        pobj(rslt)
-    '''
-    map_func = kwargs['map_func']
-    if('map_func_args' in kwargs):
-        map_func_args = kwargs['map_func_args']
-    else:
-        map_func_args = []
-    length = referls.__len__()
-    rslt = []
-    anum = list(referls)[0].__len__()
-    for j in range(0,anum):
-        args = []
-        for i in range(0,length):
-            refl = referls[i]
-            args.append(refl[j])
-        args.extend(map_func_args)
-        v = map_func(*args)
-        rslt.append(v)
-    return(rslt)
-
-def array_dualmap(ol,value_map_func,**kwargs):
-    '''
-        from elist.elist import *
-        ol = ['a','b','c','d']
-        def index_map_func(index,prefix,suffix):
-            s = prefix +str(index+97)+ suffix
-            return(s)
-        
-        def value_map_func(mapped_index,ele,prefix,suffix):
-            s = prefix+mapped_index+': ' + str(ele) + suffix
-            return(s)
-        
-        ####
-        rslt = array_dualmap2(ol,index_map_func=index_map_func,index_map_func_args=[': ',' is '],value_map_func=value_map_func,value_map_func_args=['ord',' yes?'])
-        pobj(rslt)
-    '''
-    def get_self(obj):
-        return(obj)
-    if('index_map_func_args' in kwargs):
-        index_map_func_args = kwargs['index_map_func_args']
-    else:
-        index_map_func_args = []
-    if('value_map_func_args' in kwargs):
-        value_map_func_args = kwargs['value_map_func_args']
-    else:
-        value_map_func_args = []
-    if('index_map_func' in kwargs):
-        index_map_func = kwargs['index_map_func']
-    else:
-        index_map_func = get_self
-    length = ol.__len__()
-    il = list(range(0,length))
-    nil = list(map(lambda ele:index_map_func(ele,*index_map_func_args),il))
-    nvl = []
-    for i in range(0,length):
-        ele = ol[i]
-        v = value_map_func(nil[i],ele,*value_map_func_args)
-        nvl.append(v)
-    return(nvl)
-
-def array_dualmap2(*refls,**kwargs):
-    '''
-        from elist.elist import *
-        ol = [1,2,3,4]
-        refl1 = ['+','+','+','+']
-        refl2 = [7,7,7,7]
-        refl3 = ['=','=','=','=']
-        def index_map_func(index):
-            s ="<"+str(index)+">"
-            return(s)
-        
-        def value_map_func(mapped_index,ele,ref_ele1,ref_ele2,ref_ele3,prefix,suffix):
-            s = prefix+mapped_index+': ' + str(ele) + str(ref_ele1) + str(ref_ele2) + str(ref_ele3) + suffix
-            return(s)
-        
-        ####
-        rslt = array_dualmap2(ol,refl1,refl2,refl3,index_map_func=index_map_func,value_map_func=value_map_func,value_map_func_args=['Q','?'])
-        pobj(rslt)
-    '''
-    def get_self(obj,*args):
-        return(obj)
-    if('value_map_func_args' in kwargs):
-        value_map_func_args = kwargs['value_map_func_args']
-    else:
-        value_map_func_args = []
-    if('index_map_func' in kwargs):
-        index_map_func = kwargs['index_map_func']
-    else:
-        index_map_func = get_self
-    if('index_map_func_args' in kwargs):
-        index_map_func_args = kwargs['index_map_func_args']
-    else:
-        index_map_func_args = []
-    length = ol.__len__()
-    il = list(range(0,length))
-    nil = list(map(lambda ele:index_map_func(ele,*index_map_func_args),il))
-    refls = list(refls)
-    refls = prepend(refls,nil)
-    nvl = array_map2(*refls,map_func = value_map_func,map_func_args=value_map_func_args)
-    return(nvl)
 
 def reduce_left(ol,callback,initialValue):
     '''
