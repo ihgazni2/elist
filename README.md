@@ -355,6 +355,22 @@ __ListTree lquery APIs:__
 ├──110. [array_map2](elist/Images/array_map2.0.png)  <br>
 ├──111. [array_dualmap](elist/Images/array_dualmap.0.png)  <br>
 ├──112. [array_dualmap2](elist/Images/array_dualmap2.0.png)  <br>
+├──112. [mapfivo(ol,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapfiv(ol,map_func_args,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapfio(ol,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapfvo(ol,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapivo(ol,map_func,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapfi(ol,map_func_args,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapfv(ol,map_func_args,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapfo(ol,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapiv(ol,map_func,map_func_args)](elist/Images/.png)  <br>
+├──112. [mapiv2(ol,map_func,\*args,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapio(ol,map_func,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapvo(ol,map_func,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapf(ol,map_func_args,\*\*kwargs)](elist/Images/.png)  <br>
+├──112. [mapi(ol,map_func,map_func_args)](elist/Images/.png)  <br>
+├──112. [mapv(ol,map_func,map_func_args)](elist/Images/.png)  <br>
+├──112. [mapo(ol,map_func,\*\*kwargs)](elist/Images/.png)  <br>
 ├──113. [reduce_left](elist/Images/reduce_left.0.png)  <br>
 ├──114. [array_reduce ](elist/Images/reduce_left.0.png)  <br>
 ├──115. [reduceLeft](elist/Images/reduce_left.0.png)  <br>
