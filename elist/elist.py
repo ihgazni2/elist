@@ -3885,6 +3885,42 @@ def find_allnot(ol,test_func,*args):
 #find_allnot_indexes
 #find_allnot_values
 
+
+##############
+
+def iv_map(ol,map_func,*args,**kwargs):
+    '''
+        from elist.elist import *
+        ol = ['a','b','c','d']
+        #1
+        def map_func(index,value,*others):
+            return(value * index + others[0] +others[-1])
+        
+        iv_map(ol,map_func,'tailA-','tailB')
+        #2
+        iv_map(ol,lambda index,value,other:(value*index+other),['-'])
+        iv_map(ol,lambda index,value,other:(value*index+other),'-')
+        iv_map(ol,lambda index,value:(value*index))
+    '''
+    args = list(args)
+    if(args.__len__() > 0):
+        map_func_args = args
+    else:
+        if('map_func_args' in kwargs):
+            map_func_args = kwargs['map_func_args']
+        else:
+            map_func_args = []
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        ele = map_func(i,ol[i],*map_func_args)
+        rslt.append(ele)
+    return(rslt)
+
+
+
+#############
+
 #@@@@@@@@@@@@@@@@
 def array_map(ol,map_func,*args):
     '''
