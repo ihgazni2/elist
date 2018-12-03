@@ -281,9 +281,14 @@ def mapiv(ol,map_func,map_func_args):
         #map_func         common_func(index,value,*common_args)
     '''
     lngth = ol.__len__()
-    common_funcs_arr = init(lngth,map_func)
-    common_args_arr = init(lngth,map_func_args)
-    rslt = mapfivo(ol,map_funcs=common_funcs_arr,map_func_args_array=common_args_arr)
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = diff_args_arr[i]
+        ele = func(index,value,*args)
+        rslt.append(ele)    
     return(rslt)
 
 
@@ -5187,6 +5192,15 @@ def divide(ol,interval):
     seqs = initRange(0,length,interval)
     rslt = broken_seqs(ol,seqs)
     return(rslt)
+
+
+#
+def repeat_every(l,times):
+    nl = []
+    for i in range(0,l.__len__()):
+        for j in range(0,times):
+            nl.append(l[i])
+    return(nl)
 
 
 #classify
