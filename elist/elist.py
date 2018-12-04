@@ -285,8 +285,8 @@ def mapiv(ol,map_func,map_func_args):
     for i in range(0,lngth):
         index = i
         value = ol[i]
-        func = diff_funcs_arr[i]
-        args = diff_args_arr[i]
+        func = map_func
+        args = map_func_args
         ele = func(index,value,*args)
         rslt.append(ele)    
     return(rslt)
