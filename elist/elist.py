@@ -2522,6 +2522,20 @@ def pop_indexes(ol,indexes,**kwargs):
             ol.append(tmp[i])
         return(popped)
 
+
+####
+def another_pop_seqs(l,seqs):
+    seqs = sorted(seqs)
+    count = 0
+    for i in range(0,seqs.__len__()):
+        seq = seqs[i]
+        seq = seq -count
+        l.pop(seq)
+        count = count + 1
+    return(l)
+####
+
+
 def remove_first(ol,value,**kwargs):
     '''
         from elist.jprint import pobj
