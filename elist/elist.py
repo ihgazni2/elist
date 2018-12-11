@@ -19,13 +19,26 @@ import functools
 #mapfivo          f,i,v,o四元决定                     fivo-4-tuple-engine
 #map_func         diff_func(index,value,*diff_args)
 
-def mapfivo(ol,**kwargs):
+def mapfivo(ol,*args,**kwargs):
     '''
         #mapfivo          f,i,v,o四元决定                     fivo-4-tuple-engine
         #map_func         diff_func(index,value,*diff_args)
     '''
-    diff_funcs_arr = kwargs['map_funcs']
-    diff_args_arr = kwargs['map_func_args_array']
+    args = list(args)
+    lngth = args.__len__()
+    if(lngth==0):
+        diff_funcs_arr = kwargs['map_funcs']
+        diff_args_arr = kwargs['map_func_args_array']
+    elif(lngth==1):
+        if('map_func_args_array' in kwargs):
+            diff_funcs_arr = args[0]
+            diff_args_arr = kwargs['map_func_args_array']
+        else:
+            diff_funcs_arr = kwargs['map_funcs']
+            diff_args_arr = args[0]
+    else:
+        diff_funcs_arr = args[0]
+        diff_args_arr = args[1]
     lngth = ol.__len__()
     rslt = []
     for i in range(0,lngth):
@@ -38,6 +51,7 @@ def mapfivo(ol,**kwargs):
     return(rslt)
 
 
+    
 
 
 #mapfiv           共享相同的o                         share common other_args
@@ -275,7 +289,7 @@ def mapfo(ol,**kwargs):
 #mapiv            共享相同的o,共享相同的f              share common map_func,share common other_args
 #map_func         common_func(index,value,*common_args)
 
-def mapiv(ol,map_func,map_func_args):
+def mapiv(ol,map_func,map_func_args=[]):
     '''
         #mapiv            共享相同的o,共享相同的f              share common map_func,share common other_args
         #map_func         common_func(index,value,*common_args)
@@ -444,7 +458,7 @@ def mapf(ol,map_func_args,**kwargs):
 #         share common map_func
 #         common_func(index,*common_args)
 
-def mapi(ol,map_func,map_func_args):
+def mapi(ol,map_func,map_func_args=[]):
     '''
         #mapi     v不作为map_func参数,共享相同的f,共享相同的o
         #         NOT take value as a param for map_func
@@ -471,7 +485,7 @@ def mapi(ol,map_func,map_func_args):
 #         share common map_func
 #         common_func(value,*common_args)
 
-def mapv(ol,map_func,map_func_args):
+def mapv(ol,map_func,map_func_args=[]):
     '''
         #mapv     i不作为map_func参数,共享相同的f,共享相同的o
         #         NOT take index as a param for map_func
