@@ -4637,6 +4637,28 @@ def getitem_via_sibseqs(ol,*sibseqs):
         this = this.__getitem__(key)
     return(this)
 
+
+
+#get_seqs
+#get_some
+
+
+
+
+def set_seqs(ol,indexes,values):
+    for i in range(indexes.__len__()):
+        ol[i] = values[i]
+    return(ol)
+
+def set_some(ol,*iv_tuples):
+    iv_tuples = list(iv_tuples)
+    for t in iv_tuples:
+        ol[t[0]] = t[1]
+    return(ol)
+
+
+
+
 def setitem_via_pathlist(ol,value,pathlist):
     '''
         from elist.elist import *
