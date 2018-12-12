@@ -241,13 +241,18 @@ def mapfi(ol,map_func_args,**kwargs):
 #                 share common other_args,NOT take value as a param for map_func
 #map_func         diff_func(value,*common_args)
 
-def mapfv(ol,map_func_args,**kwargs):
+def mapfv(ol,map_func_args,*args,**kwargs):
     '''
         #mapfv            共享相同的o,i不作为map_func参数
         #                 share common other_args,NOT take value as a param for map_func
         #map_func         diff_func(value,*common_args)
     '''
-    diff_funcs_arr = kwargs['map_funcs']
+    args = list(args)
+    lngth = args.__len__()
+    if(lngth == 0):
+        diff_funcs_arr = kwargs['map_funcs']
+    else:
+        diff_funcs_arr = args[0]
     lngth = ol.__len__()
     rslt = []
     for i in range(0,lngth):
@@ -258,6 +263,12 @@ def mapfv(ol,map_func_args,**kwargs):
         ele = func(value,*args)
         rslt.append(ele)
     return(rslt)
+
+
+def mapfv2(ol,map_funcs,map_func_args=[]):
+    return(mapfv(ol,map_func_args,map_funcs))
+
+
 
 
 
