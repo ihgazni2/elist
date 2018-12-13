@@ -377,14 +377,18 @@ def mapio(ol,map_func,**kwargs):
 #         common_func(value,*priv_args)
 
 
-def mapvo(ol,map_func,**kwargs):
+def mapvo(ol,map_func,*args,**kwargs):
     '''
         #mapvo    共享相同的f,i不作为map_func参数
         #         share common map_func,NOT take index as a param for map_func
         #         common_func(value,*priv_args)
     '''
     lngth = ol.__len__()
-    diff_args_arr = kwargs['map_func_args_array']
+    args = list(args)
+    if(args.__len__()==0):
+        diff_args_arr = kwargs['map_func_args_array']
+    else:
+        diff_args_arr = args[0]
     rslt = []
     for i in range(0,lngth):
         index = i
