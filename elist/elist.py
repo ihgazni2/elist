@@ -559,6 +559,54 @@ def mapo(ol,map_func,**kwargs):
 
 
 
+##################################3
+
+def newlist(ol,**kwargs):
+    if('deepcopy' in kwargs):
+        deepcopy = kwargs['deepcopy']
+    else:
+        deepcopy = True
+    if(deepcopy):
+        nl = copy.deepcopy(ol)
+    else:
+        nl = ol
+    return(nl)
+
+
+
+
+
+
+def getsome(ol,*args,**kwargs):
+    nl = newlist(ol,**kwargs)
+    args = list(args)
+    lngth = args.__len__()
+    if(isinstance(args,list))
+        indexes = args[0]
+    else:
+        indexes = args
+    for i in range(len(indexes)):
+        index = indexes[i]
+        nl.append(ol[index])
+    return(nl)
+
+
+
+def setsome(ol,*args,**kwargs):
+    nl = newlist(ol,**kwargs)
+    args = list(args)
+    if(isinstance(args,list))
+        indexes = args[0]
+        values = args[1]
+    else:
+        indexes = slct_odds(ol)
+        values = slct_evens(ol)
+    lngth = indexes.__len__()
+    for i in range(lngth):
+        index = indexes[i]
+        value = values[i]
+        nl[index] = value
+    return(nl)
 
 
 
@@ -5097,6 +5145,32 @@ def rangize_supplement(spans,lngth):
         rslt.append((prev_ei,lngth))
     else:
         rslt.append((prev_ei,lngth+1))
+    return(rslt)
+
+
+def rangize_supp(spans,lngth):
+    '''
+        spans = [(0, 3), (4, 7), (8, 10), (11, 12), (13, 16), (17, 20)]
+        rangize_supplement(spans,24)
+
+    '''
+    rslt = []
+    si = 0
+    ei = spans[0][0]
+    if(si == ei):
+        pass
+    else:
+        rslt.append((si,ei))
+    prev_ei = spans[0][1]
+    for i in range(1,spans.__len__()):
+        si = prev_ei
+        ei = spans[i][0]
+        rslt.append((si,ei))
+        prev_ei = spans[i][1]
+    if(prev_ei < lngth):
+        rslt.append((prev_ei,lngth))
+    else:
+        pass
     return(rslt)
 
 
