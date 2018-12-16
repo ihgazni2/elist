@@ -581,7 +581,7 @@ def getsome(ol,*args,**kwargs):
     nl = newlist(ol,**kwargs)
     args = list(args)
     lngth = args.__len__()
-    if(isinstance(args,list))
+    if(isinstance(args,list)):
         indexes = args[0]
     else:
         indexes = args
