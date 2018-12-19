@@ -557,9 +557,275 @@ def mapo(ol,map_func,**kwargs):
         rslt.append(ele)
     return(rslt)
 
+######################################
+#find and slct
+#####################################
+
+def findfivo(ol,*args,**kwargs):
+    '''
+        #findfivo          f,i,v,o四元决定                     fivo-4-tuple-engine
+        #cond_func         diff_func(index,value,*diff_args)
+    '''
+    args = list(args)
+    lngth = args.__len__()
+    if(lngth==0):
+        diff_funcs_arr = kwargs['cond_funcs']
+        diff_args_arr = kwargs['cond_func_args_array']
+    elif(lngth==1):
+        if('cond_func_args_array' in kwargs):
+            diff_funcs_arr = args[0]
+            diff_args_arr = kwargs['cond_func_args_array']
+        else:
+            diff_funcs_arr = kwargs['cond_funcs']
+            diff_args_arr = args[0]
+    else:
+        diff_funcs_arr = args[0]
+        diff_args_arr = args[1]
+    lngth = ol.__len__()
+    rslt = []
+    for i in range(0,lngth):
+        index = i
+        value = ol[i]
+        func = diff_funcs_arr[i]
+        args = diff_args_arr[i]
+        cond = func(index,value,*args)
+        if(cond):
+            rslt.append((index,value))
+        else:
+            pass
+    return(rslt)
+
+def slctvfivo(ol,*args,**kwargs):
+    rslt = findfivo(ol,*args,**kwargs)
+    rslt = mapv(rslt,lambda ele:ele[1])
+    return(rslt)
+
+def slctifivo(ol,*args,**kwargs):
+    rslt = findfivo(ol,*args,**kwargs)
+    rslt = mapv(rslt,lambda ele:ele[0])
+    return(rslt)
 
 
-##################################3
+
+
+def findfiv(ol,cond_func_args,**kwargs):
+    '''
+        #findfiv           共享相同的o                         share common other_args
+        #cond_func         diff_func(index,value,*common_args)
+    '''
+    lngth = ol.__len__()
+    diff_funcs_arr = kwargs['cond_funcs']
+    common_args_arr = init(lngth,map_func_args)
+    rslt = findfivo(ol,cond_funcs=diff_funcs_arr,cond_func_args_array=common_args_arr)
+    return(rslt)
+
+#def slctvfiv
+#def slctifiv
+
+
+
+
+
+def findv(ol,cond_func,cond_func_args=[]):
+    '''
+        #mapv     i不作为map_func参数,共享相同的f,共享相同的o
+        #         NOT take index as a param for map_func
+        #         share common other_args
+        #         share common cond_func
+        #         common_func(value,*common_args)
+
+    '''
+    rslt = []
+    for i in range(ol.__len__()):
+        cond = cond_func(ol[i],*cond_func_args)
+        if(cond):
+            rslt.append((i,ol[i]))
+        else:
+            pass
+    return(rslt)
+
+def slctvv(ol,cond_func,cond_func_args=[]):
+    rslt = []
+    for i in range(ol.__len__()):
+        cond = cond_func(ol[i],*cond_func_args)
+        if(cond):
+            rslt.append(ol[i])
+        else:
+            pass
+    return(rslt)
+
+def slctiv(ol,cond_func,cond_func_args=[]):
+    rslt = []
+    for i in range(ol.__len__()):
+        cond = cond_func(ol[i],*cond_func_args)
+        if(cond):
+            rslt.append(i)
+        else:
+            pass
+    return(rslt)
+
+
+def cond_select_all(ol,**kwargs):
+    '''
+        from elist.elist import *
+        from elist.jprint import pobj
+        def test_func(ele,x):
+            cond = (ele > x)
+            return(cond)
+
+        ol = [1,2,3,4,5,6,7]
+        rslt = cond_select_all(ol,cond_func = test_func,cond_func_args = [3])
+        pobj(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    ####
+    founded = find_all(ol,cond_func,*cond_func_args)
+    rslt = array_map(founded,lambda ele:ele['value'])
+    return(rslt)
+
+
+def cond_select_all2(ol,**kwargs):
+    '''
+        from elist.elist import *
+        from xdict.jprint import pobj
+        def test_func(ele,index,x):
+            cond1 = (ele > x)
+            cond2 = (index %2 == 0)
+            cond =(cond1 & cond2)
+            return(cond)
+
+        ol = [1,2,3,4,5,6,7]
+        rslt = cond_select_all2(ol,cond_func = test_func,cond_func_args = [3])
+        pobj(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    ####
+    founded = find_all2(ol,cond_func,*cond_func_args)
+    rslt = array_map(founded,lambda ele:ele['value'])
+    return(rslt)
+
+
+cond_select_values_all = cond_select_all
+cond_select_values_all2 = cond_select_all2
+
+
+def eqlength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()==lngth)))
+
+def gelength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()>=lngth)))
+
+def gtlength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()>lngth)))
+
+def lelength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()<=lngth)))
+
+def ltlength_select_values_all(ol,lngth):
+    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()<lngth)))
+
+
+def cond_select_indexes_all(ol,**kwargs):
+    '''
+        from elist.elist import *
+        from elist.jprint import pobj
+        def test_func(ele,x):
+            cond = (ele > x)
+            return(cond)
+        
+        ol = [1,2,3,4,5,6,7]
+        rslt = cond_select_indexes_all(ol,cond_func = test_func, cond_func_args = [3])
+        pobj(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    ####
+    founded = find_all(ol,cond_func,*cond_func_args)
+    rslt = array_map(founded,lambda ele:ele['index'])
+    return(rslt)
+
+
+def cond_select_indexes_all2(ol,**kwargs):
+    '''
+        from elist.elist import *
+        from xdict.jprint import pobj
+        def test_func(ele,index,x):
+            cond1 = (ele > x)
+            cond2 = (index %2 == 0)
+            cond =(cond1 & cond2)
+            return(cond)
+
+        ol = [1,2,3,4,5,6,7]
+        rslt = cond_select_indexes_all2(ol,cond_func = test_func,cond_func_args = [3])
+        pobj(rslt)
+    '''
+    cond_func = kwargs['cond_func']
+    if('cond_func_args' in kwargs):
+        cond_func_args = kwargs['cond_func_args']
+    else:
+        cond_func_args = []
+    ####
+    founded = find_all2(ol,cond_func,*cond_func_args)
+    rslt = array_map(founded,lambda ele:ele['index'])
+    return(rslt)
+
+
+def select_odds(ol,**kwargs):
+    '''
+    '''
+    nl = []
+    for i in range(0,ol.__len__()):
+        if((i%2)==1):
+            nl.append(ol[i])
+        else:
+            pass
+    return(nl)
+
+
+def select_evens(ol,**kwargs):
+    '''
+    '''
+    nl = []
+    for i in range(0,ol.__len__()):
+        if((i%2)==0):
+            nl.append(ol[i])
+        else:
+            pass
+    return(nl)
+
+def select_interval(ol,interval,**kwargs):
+    '''
+    '''
+    if('start' in kwargs):
+        start = kwargs['start']
+    else:
+        start = 0
+    nl = []
+    for i in range(start,ol.__len__()):
+        if((i%interval)==0):
+            nl.append(ol[i])
+        else:
+            pass
+    return(nl)
+
+
+
+
+
+#####################################
+#
+######################################
 
 def newlist(ol,**kwargs):
     if('deepcopy' in kwargs):
@@ -696,169 +962,10 @@ def select_some(ol,*seqs):
 #cond_select_indexes_seqs
 #cond_select_indexes_many
 
-
-def cond_select_all(ol,**kwargs):
-    '''
-        from elist.elist import *
-        from elist.jprint import pobj
-        def test_func(ele,x):
-            cond = (ele > x)
-            return(cond)
-        
-        ol = [1,2,3,4,5,6,7]
-        rslt = cond_select_all(ol,cond_func = test_func,cond_func_args = [3])
-        pobj(rslt)
-    '''
-    cond_func = kwargs['cond_func']
-    if('cond_func_args' in kwargs):
-        cond_func_args = kwargs['cond_func_args']
-    else:
-        cond_func_args = []
-    ####
-    founded = find_all(ol,cond_func,*cond_func_args)
-    rslt = array_map(founded,lambda ele:ele['value'])
-    return(rslt)
-
-
-def cond_select_all2(ol,**kwargs):
-    '''
-        from elist.elist import *
-        from xdict.jprint import pobj
-        def test_func(ele,index,x):
-            cond1 = (ele > x)
-            cond2 = (index %2 == 0)
-            cond =(cond1 & cond2)
-            return(cond)
-
-        ol = [1,2,3,4,5,6,7]
-        rslt = cond_select_all2(ol,cond_func = test_func,cond_func_args = [3])
-        pobj(rslt)
-    '''
-    cond_func = kwargs['cond_func']
-    if('cond_func_args' in kwargs):
-        cond_func_args = kwargs['cond_func_args']
-    else:
-        cond_func_args = []
-    ####
-    founded = find_all2(ol,cond_func,*cond_func_args)
-    rslt = array_map(founded,lambda ele:ele['value'])
-    return(rslt)
-
-
-
 #def icond_select_all(ol,**kwargs):
 
 
 
-cond_select_values_all = cond_select_all
-cond_select_values_all2 = cond_select_all2
-
-
-
-def eqlength_select_values_all(ol,lngth):
-    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()==lngth)))
-
-def gelength_select_values_all(ol,lngth):
-    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()>=lngth)))
-
-def gtlength_select_values_all(ol,lngth):
-    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()>lngth)))
-
-def lelength_select_values_all(ol,lngth):
-    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()<=lngth)))
-
-def ltlength_select_values_all(ol,lngth):
-    return(cond_select_values_all(ol,cond_func=lambda ele:(ele.__len__()<lngth)))
-
-
-
-
-
-def cond_select_indexes_all(ol,**kwargs):
-    '''
-        from elist.elist import *
-        from elist.jprint import pobj
-        def test_func(ele,x):
-            cond = (ele > x)
-            return(cond)
-        
-        ol = [1,2,3,4,5,6,7]
-        rslt = cond_select_indexes_all(ol,cond_func = test_func, cond_func_args = [3])
-        pobj(rslt)
-    '''
-    cond_func = kwargs['cond_func']
-    if('cond_func_args' in kwargs):
-        cond_func_args = kwargs['cond_func_args']
-    else:
-        cond_func_args = []
-    ####
-    founded = find_all(ol,cond_func,*cond_func_args)
-    rslt = array_map(founded,lambda ele:ele['index'])
-    return(rslt)
-
-
-def cond_select_indexes_all2(ol,**kwargs):
-    '''
-        from elist.elist import *
-        from xdict.jprint import pobj
-        def test_func(ele,index,x):
-            cond1 = (ele > x)
-            cond2 = (index %2 == 0)
-            cond =(cond1 & cond2)
-            return(cond)
-
-        ol = [1,2,3,4,5,6,7]
-        rslt = cond_select_indexes_all2(ol,cond_func = test_func,cond_func_args = [3])
-        pobj(rslt)
-    '''
-    cond_func = kwargs['cond_func']
-    if('cond_func_args' in kwargs):
-        cond_func_args = kwargs['cond_func_args']
-    else:
-        cond_func_args = []
-    ####
-    founded = find_all2(ol,cond_func,*cond_func_args)
-    rslt = array_map(founded,lambda ele:ele['index'])
-    return(rslt)
-
-
-def select_odds(ol,**kwargs):
-    '''
-    '''
-    nl = []
-    for i in range(0,ol.__len__()):
-        if((i%2)==1):
-            nl.append(ol[i])
-        else:
-            pass
-    return(nl)
-
-
-def select_evens(ol,**kwargs):
-    '''
-    '''
-    nl = []
-    for i in range(0,ol.__len__()):
-        if((i%2)==0):
-            nl.append(ol[i])
-        else:
-            pass
-    return(nl)
-
-def select_interval(ol,interval,**kwargs):
-    '''
-    '''
-    if('start' in kwargs):
-        start = kwargs['start']
-    else:
-        start = 0
-    nl = []
-    for i in range(start,ol.__len__()):
-        if((i%interval)==0):
-            nl.append(ol[i])
-        else:
-            pass
-    return(nl)
 
 
 
