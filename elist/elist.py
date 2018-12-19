@@ -861,7 +861,7 @@ def getsome(ol,*args,**kwargs):
 def setsome(ol,*args,**kwargs):
     nl = newlist(ol,**kwargs)
     args = list(args)
-    if(isinstance(args,list))
+    if(isinstance(args,list)):
         indexes = args[0]
         values = args[1]
     else:
