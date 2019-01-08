@@ -865,6 +865,29 @@ def reindex(arr,*nindexes,**kwargs):
         arr[nindexes[i]] = tmp[i]
     return(arr)
 
+
+#######for no duplicate values+no recursive  list
+
+def ivdict(arr):
+    d = {}
+    for i in range(arr.__len__()):
+        d[i] = arr[i]
+    return(d)
+
+def vidict(arr):
+    d = {}
+    for i in range(arr.__len__()):
+        d[arr[i]] = id
+    return(d)
+
+def ivmd(arr):
+    d = {}
+    for i in range(arr.__len__()):
+        d[i] = arr[i]
+        d[arr[i]] = id
+    return(d)
+
+
 #####################################
 #
 ######################################
