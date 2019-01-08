@@ -877,14 +877,14 @@ def ivdict(arr):
 def vidict(arr):
     d = {}
     for i in range(arr.__len__()):
-        d[arr[i]] = id
+        d[arr[i]] = i
     return(d)
 
 def ivmd(arr):
     d = {}
     for i in range(arr.__len__()):
         d[i] = arr[i]
-        d[arr[i]] = id
+        d[arr[i]] = i
     return(d)
 
 
