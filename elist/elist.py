@@ -820,8 +820,50 @@ def select_interval(ol,interval,**kwargs):
     return(nl)
 
 
+#######################################
+#swap and reindex
+########################################
+
+def iswap(arr,i1,i2,**kwargs):
+    if('deepcopy' in kwargs):
+        deepcopy = kwargs['deepcopy']
+    else:
+        deepcopy = True
+    if(deepcopy):
+        arr = copy.deepcopy(arr)
+    else:
+        pass
+    tmp = arr[i1]
+    arr[i1] = arr[i2]
+    arr[i2] = tmp
+    return(arr)
 
 
+def vswap(arr,v1,v2,**kwargs):
+    i1 = arr.index(v1)
+    i2 = arr.index(v2)
+    arr = iswap(arr,i1,i2,**kwargs)
+    return(arr)
+
+
+def reindex(arr,*nindexes,**kwargs):
+    if('deepcopy' in kwargs):
+        deepcopy = kwargs['deepcopy']
+    else:
+        deepcopy = True
+    if(deepcopy):
+        arr = copy.deepcopy(arr)
+    else:
+        pass
+    nindexes = list(nindexes)
+    if(isinstance(nindexes[0],list)):
+        nindexes = nindexes[0]
+    else:
+        nindexes = nindexes
+    tmp = copy.deepcopy(arr)
+    for i in range(nindexes.__len__()):
+        arr[nindexes[i]] = tmp[i]
+    return(arr)
 
 #####################################
 #

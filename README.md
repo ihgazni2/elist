@@ -429,4 +429,8 @@ __ListTree lquery APIs:__
 ├──156. [rand_some_indexes](elist/Images/rand_some_indexes.0.png)  <br>
 ├──157. [rand_sub](elist/Images/rand_sub.0.png)  <br>
 ├──158. [repeat_every](elist/Images/repeat_every.0.png)  <br>
-├──
+├──159. [reindex](elist/Images/reindex.0.png)  <br>
+├──159. [iswap](elist/Images/iswap.0.png)  <br>
+├──159. [vswap](elist/Images/vswap.0.png)  <br>
+
+
