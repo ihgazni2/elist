@@ -6724,6 +6724,26 @@ def is_matrix(m,**kwargs):
 
 
 
+#
+
+def mat_mapv(mat,map_func,map_func_args=[]):
+    '''
+    '''
+    mmat = []
+    for i in range(0,mat.__len__()):
+        level = mat[i]
+        mmat.append([])
+        for j in range(0,level.__len__()):
+            value = level[j]
+            indexr = i
+            indexc = j
+            ele = map_func(value,*map_func_args)
+            mmat[i].append(ele)
+    return(mmat)
+
+
+#
+
 #dfs depth-first-search trace
 def get_dfs(l):
     '''
