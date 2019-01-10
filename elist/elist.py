@@ -5747,7 +5747,7 @@ def rand_sub(arr,*args,**kwargs):
 #####
 
 def max_length(ol):
-    lngths = elel.mapv(ol,len,[])
+    lngths = mapv(ol,len,[])
     lngth = max(lngths)
     return(lngth)
 
