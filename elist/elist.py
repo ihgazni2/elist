@@ -5513,7 +5513,13 @@ def repeat_every(l,times):
             nl.append(l[i])
     return(nl)
 
+########
+def apadding(arr,value,num):
+    args = init(value,num)
+    return(append_some(arr,*args))
 
+
+###########
 #classify
 
 
