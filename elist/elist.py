@@ -537,7 +537,7 @@ def array_map(ol,map_func,*args):
 
 
 
-def mapo(ol,map_func,**kwargs):
+def mapo(ol,map_func,*params,**kwargs):
     '''
         #mapo     i不作为map_func参数,v不作为map_func参数,共享相同的f
         #         NOT take index as a param for map_func
@@ -545,7 +545,13 @@ def mapo(ol,map_func,**kwargs):
         #         share common map_func
         #         common_func(*priv_args)
     '''
-    diff_args_arr = kwargs['map_func_args_array']
+    params = list(params)
+    if(params.__len__()==0):
+        diff_args_arr = kwargs['map_func_args_array']
+    elif(isinstance(params[0],list)):
+        diff_args_arr = params[0]
+    else:
+        diff_args_arr = params
     lngth = ol.__len__()
     rslt = []
     for i in range(0,lngth):
