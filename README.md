@@ -206,6 +206,7 @@ __ListTree lquery APIs:__
 -----------------------------------------------------------------------
 >├──0. [select_some](elist/Images/select.0.png)  <br>
 ├──1. [select_seqs](elist/Images/select.0.png)  <br>
+├──1. [select_seqs_not](elist/Images/select_seqs_not.0.png)  <br>
 ├──1. [select_seqs_keep_order](elist/Images/select_seqs_keep_order.0.png)  <br>
 ├──1. [select_indexes](elist/Images/select.0.png)  <br>
 ├──1. [select_odds](elist/Images/select_odds.0.png)  <br>
@@ -245,6 +246,7 @@ __ListTree lquery APIs:__
 ├──14. [reorder_sub](elist/Images/reorder_sub.0.png)  <br>
 ├──14. [sort](elist/Images/sort.0.png)  <br>
 ├──15. [batsorted](elist/Images/batsorted.0.png)  <br>
+├──15. [batexec](elist/Images/batexec.0.png)  <br>
 ├──15. [sortDictList](elist/Images/sortDictList.0.png)  <br>
 ├──15. [sortDictList2](elist/Images/sortDictList2.0.png)  <br>
 ├──16. [index_first](elist/Images/index_first.0.png)  <br>
@@ -416,7 +418,8 @@ __ListTree lquery APIs:__
 ├──144. [upper_bound](elist/Images/upper_bound.0.png)  <br>
 ├──145. [lower_bound](elist/Images/lower_bound.0.png)  <br>
 ├──146. [matrix_map](elist/Images/matrix_map.0.png)  <br>
-├──146. [is_matrix](elist/Imagesis_matrix.0.png)  <br>
+├──146. [is_matrix](elist/Images/is_matrix.0.png)  <br>
+├──146. [transpose](elist/Images/transpose.0.png)  <br>
 ├──147. [mat2wfs](elist/Images/mat2wfs.0.png)  <br>
 ├──148. [wfs2mat](elist/Images/wfs2mat.0.png)  <br>
 ├──149. [wfsmat2dfs](elist/Images/wfsmat2dfs.0.png)  <br>
