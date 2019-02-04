@@ -986,6 +986,19 @@ def select_seqs(ol,seqs):
             pass
     return(rslt)
 
+def select_seqs_not(ol,seqs):
+    rslt =[]
+    for i in range(0,ol.__len__()):
+        if(i in seqs):
+            pass
+        else:
+            ele = ol[i]
+            rslt.append(ele)
+    return(rslt)
+
+
+
+
 select_indexes = select_seqs
 
 def select_some(ol,*seqs):
