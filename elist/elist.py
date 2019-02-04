@@ -1744,6 +1744,33 @@ def batsorted(referer,*lists,**kwargs):
 
 ####
 
+def transpose(mat):
+    nmat = init(mat[0].__len__(),[])
+    nmat = mapv(nmat,lambda ele:init(mat.__len__(),None))
+    for i in range(mat.__len__()):
+        layer = mat[i]
+        for j in range(layer.__len__()):
+            nmat[j][i] = layer[j]
+    return(nmat)
+        
+
+
+def batexec(map_func,*params_lists):
+    params_lists = list(params_lists)
+    if(isinstance(params_lists,list)):
+        params_lists = params_lists[0]
+    else:
+        pass
+    args_array = transpose(params_lists)
+    nl = []
+    for i in range(args_array.__len__()):
+        args = args_array[i]
+        nl.append(map_func(*args))
+    return(nl)
+
+
+####
+
 def sortDictList(dictList,**kwargs):
     '''
         students = [
