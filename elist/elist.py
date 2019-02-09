@@ -1770,10 +1770,6 @@ def transpose(mat):
 
 def batexec(map_func,*params_lists):
     params_lists = list(params_lists)
-    if(isinstance(params_lists,list)):
-        params_lists = params_lists[0]
-    else:
-        pass
     args_array = transpose(params_lists)
     nl = []
     for i in range(args_array.__len__()):
