@@ -3,7 +3,7 @@ from operator import itemgetter
 from types import MethodType
 import functools
 
-
+#Dont use append!!!, append is very slow
 
 #一个map函数由四个因素决定
 #map_func(index, value, *other_args)
@@ -977,23 +977,19 @@ def select_seqs(ol,seqs):
         ol = ['a','b','c','d']
         select_seqs(ol,[1,2])
     '''
-    rslt =[]
-    for i in range(0,ol.__len__()):
-        if(i in seqs):
-            ele = ol[i]
-            rslt.append(ele)
-        else:
-            pass
+    rslt =copy.deepcopy(ol)
+    rslt = itemgetter(*seqs)(ol)
+    rslt = list(rslt)
     return(rslt)
 
 def select_seqs_not(ol,seqs):
-    rslt =[]
+    seqs = []
     for i in range(0,ol.__len__()):
         if(i in seqs):
             pass
         else:
-            ele = ol[i]
-            rslt.append(ele)
+            seqs.append(i)
+    rslt = select_seqs(ol,seqs) 
     return(rslt)
 
 
@@ -1008,14 +1004,7 @@ def select_some(ol,*seqs):
         select_some(ol,1,2)
     '''
     seqs = list(seqs)
-    rslt =[]
-    for i in range(0,ol.__len__()):
-        if(i in seqs):
-            ele = ol[i]
-            rslt.append(ele)
-        else:
-            pass
-    return(rslt)
+    return(select_seqs(ol,seqs))
 
 #select_xxx              
 ##select (values) (via) xxx
@@ -3969,25 +3958,18 @@ def uniqualize(l,**kwargs):
     else:
         mode = 'new'
     pt = copy.deepcopy(l)
-    seqs_for_del =[]
-    vset = set({})
-    for v in pt:
-        vset.add(v)
-    tslen = vset.__len__()
+    seqs =[]
     freq = {}
     for i in range(0,pt.__len__()):
         v = pt[i]
         if(v in freq):
             freq[v] = freq[v] + 1
-            seqs_for_del.append(i)
         else:
             freq[v] = 0
-    npt = []
-    for i in range(0,pt.__len__()):
-        if(i in seqs_for_del):
-            pass
-        else:
-            npt.append(pt[i])
+            seqs.append(i)
+    #####下面是影响速度的关键,append特别耗时
+    npt = select_seqs(pt,seqs)
+    ########################
     pt = npt
     if(mode == 'new'):
         return(npt)
