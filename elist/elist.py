@@ -979,7 +979,12 @@ def select_seqs(ol,seqs):
     '''
     rslt =copy.deepcopy(ol)
     rslt = itemgetter(*seqs)(ol)
-    rslt = list(rslt)
+    if(seqs.__len__()==0):
+        rslt = []
+    elif(seqs.__len__()==1):
+        rslt = [rslt]
+    else:
+        rslt = list(rslt)
     return(rslt)
 
 def select_seqs_not(ol,seqs):
