@@ -436,5 +436,8 @@ __ListTree lquery APIs:__
 ├──159. [reindex](elist/Images/reindex.0.png)  <br>
 ├──159. [iswap](elist/Images/iswap.0.png)  <br>
 ├──159. [vswap](elist/Images/vswap.0.png)  <br>
+├──160. [union](elist/Images/union.0.png)  <br>
+├──161. [intersection](elist/Images/intersection.0.png)  <br>
+├──162. [difference](elist/Images/difference.0.png)  <br>
 
 
