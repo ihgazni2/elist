@@ -5826,15 +5826,15 @@ def max_length(ol):
 
 
 def union(ol1,ol2):
-    nl = list(set(a).intersection(set(b)))
+    nl = list(set(ol1).intersection(set(ol2)))
     return(nl)
 
 def intersection(ol1,ol2):
-    nl = list(set(a).union(set(b)))
+    nl = list(set(ol1).union(set(ol2)))
     return(nl)
 
 def difference(ol1,ol2):
-    nl = list(set(b).difference(set(a)))
+    nl = list(set(ol1).difference(set(ol2)))
     return(nl)
 
     
