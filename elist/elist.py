@@ -3,6 +3,38 @@ from operator import itemgetter
 from types import MethodType
 import functools
 
+##ol  old-list
+##nl  new-list
+
+##wrapper
+
+def _inplace_wrapper(func):
+    def wrapper(*args,**kwargs):
+        if('inplace' in kwargs):
+            inplace = kwargs['inplace']
+        else:
+            inplace = False
+        args = list(args)
+        ol = args[0]
+        nl = copy.deepcopy(ol)
+        nl = func(nl)
+        if(inplace):
+            ol.clear()
+            ol.extend(nl)
+            return(ol)
+        else:
+            return(nl)
+    return(wrapper)
+
+
+
+
+
+
+
+
+
+
 #Dont use append!!!, append is very slow
 
 #一个map函数由四个因素决定
@@ -4325,6 +4357,13 @@ def fill(ol,value,start=None, end=None,**kwargs):
         ol.extend(new)
         return(ol)
 
+
+####
+#filter
+####
+
+
+
 def filter(ol,test_func,*args,**kwargs):
     '''
         from elist.elist import *
@@ -5552,10 +5591,11 @@ def brkl2kvlist(arr,interval,sub_pos=1,**kwargs):
 ###
 
 
-
+####
 
 def divide(ol,interval):
     '''
+        #
         ol = elel.initRange(0,20,1)
         interval = 3
         rslt = elel.divide(ol,interval)
@@ -5568,6 +5608,10 @@ def divide(ol,interval):
     rslt = broken_seqs(ol,seqs)
     return(rslt)
 
+
+chunk = divide
+
+################
 
 #
 def repeat_every(l,times):
