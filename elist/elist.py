@@ -1929,8 +1929,8 @@ def lcstr(s0,s1):
                     pass
                 else:
                     d = {
-                        "pos0":(si0+rsi,ei0+rei),
-                        "pos1":(si1+rsi,ei1+rei),
+                        "pos0":(si0+rsi,si0+rei),
+                        "pos1":(si1+rsi,si1+rei),
                         "s":cmms,
                         "len":len(cmms)
                     }
