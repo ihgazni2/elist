@@ -248,6 +248,7 @@ __ListTree lquery APIs:__
 ├──15. [batsorted](elist/Images/batsorted.0.png)  <br>
 ├──15. [batexec](elist/Images/batexec.0.png)  <br>
 ├──15. [sortDictList](elist/Images/sortDictList.0.png)  <br>
+├──15. [lcstr](elist/Images/lcstr.0.png)  <br>
 ├──15. [sortDictList2](elist/Images/sortDictList2.0.png)  <br>
 ├──16. [index_first](elist/Images/index_first.0.png)  <br>
 ├──17. [array_index](elist/Images/index_first.0.png)  <br>
@@ -439,6 +440,7 @@ __ListTree lquery APIs:__
 ├──159. [vswap](elist/Images/vswap.0.png)  <br>
 ├──160. [union](elist/Images/union.0.png)  <br>
 ├──161. [intersection](elist/Images/intersection.0.png)  <br>
+├──161. [strict_seq_intersection](elist/Images/strict_seq_intersection.0.png)  <br>
 ├──162. [difference](elist/Images/difference.0.png)  <br>
 
 
