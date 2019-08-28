@@ -1931,7 +1931,7 @@ def lcstr(s0,s1):
                     d = {
                         "pos0":(si0+rsi,ei0+rei),
                         "pos1":(si1+rsi,ei1+rei),
-                        "s":cmms
+                        "s":cmms,
                         "len":len(cmms)
                     }
                     rslt.append(d)
