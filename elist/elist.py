@@ -1937,6 +1937,8 @@ def lcstr(s0,s1):
                     rslt.append(d)
             rslt = sortDictList(rslt,cond_keys=['len'])
         return(rslt)
+    rslt = get_comm_substr(len0,len1,label_s0_end)
+    return(rslt)
 
 ###############
 
