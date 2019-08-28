@@ -1,3 +1,3 @@
 
-__all__ = ['elist']
+__all__ = ['elist','lcseq','wfsdig']
 
