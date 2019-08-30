@@ -442,5 +442,6 @@ __ListTree lquery APIs:__
 ├──161. [intersection](elist/Images/intersection.0.png)  <br>
 ├──161. [strict_seq_intersection](elist/Images/strict_seq_intersection.0.png)  <br>
 ├──162. [difference](elist/Images/difference.0.png)  <br>
+├──162. [combinations](elist/Images/combinations.0.png)  <br>
 
 

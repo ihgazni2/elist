@@ -2,6 +2,8 @@ import copy
 from operator import itemgetter
 from types import MethodType
 import functools
+import itertools
+
 
 ##ol  old-list
 ##nl  new-list
@@ -5994,10 +5996,26 @@ def difference(ol1,ol2):
 
 
 
+####math 
 
 
-
-
+def combinations(arr,*args):
+    args = list(args)
+    lngth = len(args)
+    if(lngth == 0):
+        start = 1
+        end = len(arr) + 1
+    elif(lngth == 1):
+        start = uniform_index(args[0],lngth)
+        end = len(arr) + 1
+    else:
+        start = uniform_index(args[0],lngth)
+        end = uniform_index(args[1],lngth)
+    rslt = []
+    for i in range(start,end):
+        tmp = list(itertools.combinations(arr,i))
+        rslt.extend(tmp)
+    return(rslt)
 
 
 
