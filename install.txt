@@ -1,1 +1,1 @@
-/usr/local/lib/python3.6/dist-packages/elist-0.4.40-py3.6.egg
+/usr/local/lib/python3.6/dist-packages/elist-0.4.41-py3.6.egg
