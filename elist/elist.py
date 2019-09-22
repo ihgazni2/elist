@@ -7979,13 +7979,14 @@ def recordize_wrapper(f):
         if('mode' in kwargs):
             mode = kwargs['mode']
         else:
-            mode = "vfirst"
-        if(mode == "vfirst"):
-            v = args[0]
-        else:
-            v = args[1]
+            mode = "v"
+        mode = ''.join(list(filter(lambda ele:(ele in "iv"),mode)))
+        which = mode.index("v")
+        v = args[which]
         seq = v['_orig_seq']
-        nv = f(v['_value'])
+        nv = v['_value']
+        args[which] = nv
+        nv = f(*args)
         return({
             "_orig_seq":seq,
             "_value":nv
@@ -7993,22 +7994,6 @@ def recordize_wrapper(f):
     return(wrapper)
 
 ########################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def help(func_name):
