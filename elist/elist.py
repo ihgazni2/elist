@@ -5,6 +5,9 @@ import functools
 import itertools
 
 
+
+
+
 ##ol  old-list
 ##nl  new-list
 
@@ -7953,6 +7956,60 @@ class ListTree():
         self.showlog.extend(showl2)
         forEach(showl,print)
         return(nrslt)
+
+
+
+
+########################
+
+def recordize(l):
+    nl = mapiv(l,lambda i,v:{"_orig_seq":i,"_value":v})
+    return(nl)
+
+def unrecordize_v(l):
+    ol = mapv(l,lambda v:v['_value'])
+    return(ol)
+
+def unrecordize_orig_seq(l):
+    ol = mapv(l,lambda v:v['_orig_seq'])
+    return(ol)
+
+def recordize_wrapper(f):
+    def wrapper(*args,**kwargs):
+        if('mode' in kwargs):
+            mode = kwargs['mode']
+        else:
+            mode = "vfirst"
+        if(mode == "vfirst"):
+            v = args[0]
+        else:
+            v = args[1]
+        seq = v['_orig_seq']
+        nv = f(v['_value'])
+        return({
+            "_orig_seq":seq,
+            "_value":nv
+        })
+
+
+########################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def help(func_name):
     if(func_name == "select_some"):
