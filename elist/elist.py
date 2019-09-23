@@ -1025,14 +1025,32 @@ def select_seqs(ol,seqs):
     return(rslt)
 
 def select_seqs_not(ol,seqs):
-    seqs = []
-    for i in range(0,ol.__len__()):
-        if(i in seqs):
-            pass
-        else:
-            seqs.append(i)
-    rslt = select_seqs(ol,seqs) 
+    nseqs = seqs_not(seqs,len(ol))
+    rslt = select_seqs(ol,nseqs) 
     return(rslt)
+
+
+def seqs_not(seqs,*args):
+    '''
+        >>> seqs_not([1,2,5])
+        [0, 3, 4]
+        >>>
+        >>> seqs_not([1,2,5],7)
+        [0, 3, 4, 6]
+        >>>
+    '''
+    if(len(args) == 0):
+        lngth = seqs[-1] + 1
+    else:
+        lngth = args[0]
+    st = init_range(0,lngth,1)
+    st = set(st)
+    st0 = set(seqs)
+    st1 = st.difference(st0)
+    nseqs = list(st1)
+    nseqs.sort()
+    return(nseqs)
+
 
 
 
