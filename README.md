@@ -374,6 +374,7 @@ __ListTree lquery APIs:__
 ├──112. [mapf(ol,map_func_args,\*\*kwargs)](elist/Images/.png)  <br>
 ├──112. [mapi(ol,map_func,map_func_args)](elist/Images/.png)  <br>
 ├──112. [mapv(ol,map_func,map_func_args)](elist/Images/.png)  <br>
+├──112. [mapv_inplace(ol,map_func,map_func_args)](elist/Images/.png)  <br>
 ├──112. [mapo(ol,map_func,\*\*kwargs)](elist/Images/.png)  <br>
 ├──113. [reduce_left](elist/Images/reduce_left.0.png)  <br>
 ├──114. [array_reduce ](elist/Images/reduce_left.0.png)  <br>

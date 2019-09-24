@@ -564,6 +564,11 @@ def array_map(ol,map_func,*args):
     return(rslt)
 
 
+def mapv_inplace(ol,mpf,*oargs):
+    for i in range(len(ol)):
+        ol[i] = mpf(ol[i],*oargs)
+    return(ol)
+
 
 
 #mapo     i不作为map_func参数,v不作为map_func参数,共享相同的f
