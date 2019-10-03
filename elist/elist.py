@@ -10981,3 +10981,7 @@ def help(func_name):
         doc = '''
         '''
         print(doc)
+
+
+def fcp(arr):
+    return(arr[:])
