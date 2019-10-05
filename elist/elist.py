@@ -2813,6 +2813,28 @@ def refl_vgroupi(refl):
 
 
 
+def groupby_refl(ol,refl):
+    '''
+        
+    '''
+    rslts = []
+    prev_value = refl[0]
+    prev_index = 0
+    for i in range(1,len(refl)):
+        curr_value = refl[i]
+        if(curr_value == prev_value):
+            pass
+        else:
+            slc = ol[prev_index:i]
+            rslts.append(slc)
+            prev_value = curr_value
+            prev_index = i
+    slc = ol[prev_index:]
+    rslts.append(slc)
+    return(rslts)
+
+
+
 ##
 
 
