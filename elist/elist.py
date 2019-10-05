@@ -2697,6 +2697,134 @@ def all_continuous_indexesnot_slices(ol,value):
         pass
     return(rslt)
 
+
+##group
+
+def _dflt_vgroup_cond_func(v,*o):
+    return((v == o[0]))
+
+def vgroupi(ol,*args,**kwargs):
+    '''
+        vgroupi([0, 0, 0, 1, 2, 0, 2],0)
+        [[0, 1, 2], [5]]
+    '''
+    cond_func = _dflt_vgroup_cond_func if(not("cond_func" in kwargs)) else kwargs["cond_func"]
+    rslt = []
+    length = ol.__len__()
+    cursor = 0
+    begin = None
+    slice = []
+    while(cursor < length):
+        cond1 = cond_func(ol[cursor],*args)
+        cond2 = (begin == None)
+        if(cond1 & cond2):
+            begin = cursor
+            slice.append(cursor)
+        elif(cond1 & (not(cond2))):
+            slice.append(cursor)
+        elif((not(cond1)) & (not(cond2))):
+            rslt.append(slice)
+            begin = None
+            slice = []
+        else:
+            pass
+        cursor = cursor + 1
+    if(slice):
+        rslt.append(slice)
+    else:
+        pass
+    return(rslt)
+
+
+##
+
+def vgroupi_brkseqs(ol,*args,**kwargs):
+    '''
+        >>> vgroupi_brkseqs([0, 0, 0, 1, 2, 0, 2],0)
+        [3, 6]
+    '''
+    slc = vgroupi(ol,*args,**kwargs)
+    brkseqs = list(map(lambda ele:ele[-1]+1,slc))
+    return(brkseqs)
+##
+
+
+##
+def refl_brkseqs(refl):
+    '''
+        >>> refl_brkseqs([0, 0, 0, 1, 2, 2, 2])
+        [3, 4]
+    '''
+    brks = []
+    prev_value = refl[0]
+    for i in range(1,len(refl)):
+        curr_value = refl[i]
+        if(curr_value == prev_value):
+            pass
+        else:
+            brks.append(i)
+            prev_value = curr_value
+    return(brks)
+
+
+
+def refl_vgroupv(refl):
+    '''
+        >>> refl_vgroupv([0, 0, 0, 1, 2, 2, 2])
+        [[0, 0, 0], [1], [2, 2, 2]]
+    '''
+    rslts = []
+    prev_value = refl[0]
+    prev_index = 0
+    for i in range(1,len(refl)):
+        curr_value = refl[i]
+        if(curr_value == prev_value):
+            pass
+        else:
+            slc = refl[prev_index:i]
+            rslts.append(slc)
+            prev_value = curr_value
+            prev_index = i
+    slc = refl[prev_index:]
+    rslts.append(slc)
+    return(rslts)
+
+def refl_vgroupi(refl):
+    '''
+        >>> refl_vgroupi([0, 0, 0, 1, 2, 2, 2])
+        [[0, 1, 2], [3], [4, 5, 6]]
+    '''
+    rslts = []
+    prev_value = refl[0]
+    prev_index = 0
+    lngth = len(refl)
+    for i in range(1,lngth):
+        curr_value = refl[i]
+        if(curr_value == prev_value):
+            pass
+        else:
+            slc = list(range(prev_index,i))
+            rslts.append(slc)
+            prev_value = curr_value
+            prev_index = i
+    slc = list(range(prev_index,lngth))
+    rslts.append(slc)
+    return(rslts)
+
+
+
+##
+
+
+
+
+
+
+
+
+
+
+
 def shift(ol,**kwargs):
     '''
         from elist.jprint import pobj
