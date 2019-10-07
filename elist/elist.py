@@ -936,6 +936,16 @@ def ivmd(arr):
     return(d)
 
 
+def l2descl(l,**kwargs):
+    '''
+        
+    '''
+    iname = eftl.dflt_kwargs("iname","index",**kwargs)
+    vname =  eftl.dflt_kwargs("vname","value",**kwargs)
+    dl = mapiv(l,lambda i,v:{iname:i,vname:v})
+    return(dl)
+
+
 #####################################
 #
 ######################################
