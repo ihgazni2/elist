@@ -2841,7 +2841,7 @@ def groupby_lngth(l):
     st = set({})
     rslt = {}
     for i in range(len(l)):
-        lngth = l[i]
+        lngth = len(l[i])
         if(lngth in st):
             rslt[lngth].append(l[i])
         else:
