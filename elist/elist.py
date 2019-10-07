@@ -2879,7 +2879,7 @@ def groupby_value_lngth(l,keyname):
     st = set({})
     rslt = {}
     for i in range(len(l)):
-        v = l[i].__getattribute__(keyname)
+        v = l[i].__getitem__(keyname)
         lngth = len(v)
         if(lngth in st):
             rslt[lngth].append(l[i])
