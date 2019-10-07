@@ -2835,13 +2835,26 @@ def groupby_refl(ol,refl):
 
 
 
-##
+########
+
+def groupby_lngth(l):
+    st = set({})
+    rslt = {}
+    for i in range(len(l)):
+        lngth = l[i]
+        if(lngth in st):
+            rslt[lngth].append(l[i])
+        else:
+            st.add(lngth)
+            rslt[lngth] = [l[i]]
+    return(rslt)
 
 
 
 
 
 
+########
 
 
 
