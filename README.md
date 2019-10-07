@@ -416,6 +416,9 @@ __ListTree lquery APIs:__
 ├──137. [vgroupi_brkseqs](elist/Images/.0.png)  <br>
 ├──137. [vgroupi](elist/Images/.0.png)  <br>
 ├──137. [groupby_refl](elist/Images/.0.png)  <br>
+├──137. [groupby_attr_lngth](elist/Images/.0.png)  <br>
+├──137. [groupby_value_lngth](elist/Images/.0.png)  <br>
+├──137. [groupby_lngth](elist/Images/.0.png)  <br>
 ├──137. [divide](elist/Images/divide.0.png)  <br>
 ├──137. [chunk](elist/Images/divide.0.png)  <br>
 ├──138. [classify](elist/Images/classify.0.png)  <br>

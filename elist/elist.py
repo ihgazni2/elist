@@ -2851,6 +2851,32 @@ def groupby_lngth(l):
 
 
 
+def groupby_attr_lngth(l,attrname):
+    st = set({})
+    rslt = {}
+    for i in range(len(l)):
+        a = l[i].__getattribute__(attrname)
+        lngth = len(a)
+        if(lngth in st):
+            rslt[lngth].append(l[i])
+        else:
+            st.add(lngth)
+            rslt[lngth] = [l[i]]
+    return(rslt)
+
+
+def groupby_value_lngth(l,keyname):
+    st = set({})
+    rslt = {}
+    for i in range(len(l)):
+        v = l[i].__getattribute__(keyname)
+        lngth = len(v)
+        if(lngth in st):
+            rslt[lngth].append(l[i])
+        else:
+            st.add(lngth)
+            rslt[lngth] = [l[i]]
+    return(rslt)
 
 
 
