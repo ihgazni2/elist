@@ -4,9 +4,16 @@ from types import MethodType
 import functools
 import itertools
 import random
-# 为了避免循环import 只能单独引入一个函数
-from efuntool.efuntool import dflt_kwargs 
-
+# 为了避免循环import efuntool 只能单独引入一个函数
+def dflt_kwargs(k,dflt,**kwargs):
+    '''
+       counts = dflt_kwargs("counts",100,**kwargs)
+    '''
+    if(k in kwargs):
+        v = kwargs[k]
+    else:
+        v = dflt
+    return(v)
 
 
 ##ol  old-list
