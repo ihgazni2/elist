@@ -4,7 +4,8 @@ from types import MethodType
 import functools
 import itertools
 import random
-import efuntool.efuntool as eftl
+# 为了避免循环import 只能单独引入一个函数
+from efuntool.efuntool import dflt_kwargs 
 
 
 
@@ -940,8 +941,8 @@ def l2descl(l,**kwargs):
     '''
         
     '''
-    iname = eftl.dflt_kwargs("iname","index",**kwargs)
-    vname =  eftl.dflt_kwargs("vname","value",**kwargs)
+    iname = dflt_kwargs("iname","index",**kwargs)
+    vname =  dflt_kwargs("vname","value",**kwargs)
     dl = mapiv(l,lambda i,v:{iname:i,vname:v})
     return(dl)
 
