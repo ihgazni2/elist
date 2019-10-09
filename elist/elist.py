@@ -4,7 +4,7 @@ from types import MethodType
 import functools
 import itertools
 import random
-
+import efuntool.efuntool as eftl
 
 
 
