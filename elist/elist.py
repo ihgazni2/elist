@@ -11192,3 +11192,47 @@ def help(func_name):
 
 def fcp(arr):
     return(arr[:])
+
+
+##two list
+
+def find_fst_cmmnval_index(l0,l1,**kwargs):
+    '''
+        l0 =         [[2, 0], [1, 2], [0, 0]]
+        l1 = [[3, 0], [2, 0], [1, 2], [0, 0]]
+        find_fst_cmmnval_index(l0,l1,reverse=True)
+        (0,1)
+        l0 = [1,2,33,4]
+        l1 = [11,22,33]
+        find_fst_cmmnval_index(l0,l1)
+        (2,2)
+    '''
+    reverse =  kwargs['reverse'] if("reverse" in kwargs) else False
+    lngth = min(len(l0),len(l1))
+    if(reverse):
+        cursor = None
+        for i in range(-1,-1-lngth,-1):
+            if(l0[i] == l1[i]):
+                cursor = i
+            else:
+                break
+        if(cursor == None):
+            # the fst from end is-not-eq
+            return(None)
+        else:
+            rslt = (uniform_index(cursor,len(l0)),uniform_index(cursor,len(l1)))
+            return(rslt)
+    else:
+        for i in range(lngth):
+            if(l0[i] == l1[i]):
+                return((i,i))
+            else:
+                pass
+        return(None)
+
+
+
+def find_fst_cmmnval(l0,l1,**kwargs):
+    rslt = find_fst_cmmnval_index(l0,l1,**kwargs)
+    rslt = None if(rslt==None) else l0[rslt[0]]
+    return(rslt)
