@@ -11262,6 +11262,7 @@ def find_fst_valuepair_fstltsnd_via_reversing(arr):
 
 
 def find_fst_index_gt_via_reversing(value,arr):
+    lngth = len(arr)
     for j in range(lngth-1,-1,-1):
         if(arr[j]>value):
             return(j)
