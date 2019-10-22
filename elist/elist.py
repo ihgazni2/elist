@@ -11236,3 +11236,45 @@ def find_fst_cmmnval(l0,l1,**kwargs):
     rslt = find_fst_cmmnval_index(l0,l1,**kwargs)
     rslt = None if(rslt==None) else l0[rslt[0]]
     return(rslt)
+
+
+######
+
+def find_fst_indexpair_fstltsnd_via_reversing(arr):
+    lngth = len(arr)
+    for snd in range(lngth-1,0,-1):
+        fst = snd - 1
+        if(arr[fst]<arr[snd]):
+            return((fst,snd))
+        else:
+            pass
+    return(None)
+
+def find_fst_valuepair_fstltsnd_via_reversing(arr):
+    lngth = len(arr)
+    for snd in range(lngth-1,0,-1):
+        fst = snd - 1
+        if(arr[fst]<arr[snd]):
+            return((arr[fst],arr[snd]))
+        else:
+            pass
+    return(None)
+
+
+def find_fst_index_gt_via_reversing(value,arr):
+    for j in range(lngth-1,-1,-1):
+        if(arr[j]>value):
+            return(j)
+        else:
+            pass
+    return(None)
+
+
+
+def swap(i,j,arr):
+    tmp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = tmp
+    return(arr)
+
+######

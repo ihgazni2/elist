@@ -462,4 +462,11 @@ __ListTree lquery APIs:__
 ├──162. [l2descl](elist/Images/.0.png)  <br>
 ├──162. [find_fst_cmmnval_index](elist/Images/.0.png)  <br>
 ├──162. [find_fst_cmmnval](elist/Images/.0.png)  <br>
+├──162. [find_fst_indexpair_fstltsnd_via_reversing](elist/Images/.0.png)  <br>
+├──162. [find_fst_valuepair_fstltsnd_via_reversing](elist/Images/.0.png)  <br>
+├──162. [find_fst_index_gt_via_reversing(value,arr)](elist/Images/.0.png)  <br>
+├──162. [swap(i,j,arr)](elist/Images/.0.png)  <br>
+
+
+
 
