@@ -5932,6 +5932,33 @@ def apadding(arr,value,num):
     return(append_some(arr,*args))
 
 
+def padding(l,lngth,val):
+    '''
+        >>> padding([1,2,3],6,0)
+        [1, 2, 3, 0, 0, 0]
+        >>>
+    '''
+    llen = len(l)
+    if(llen>=lngth):
+        return(l)
+    else:
+        tail = init(lngth-llen,val)
+        return(l+tail)
+
+def prepadding(l,lngth,val):
+    '''
+        >>> prepadding([1,2,3],6,0)
+        [0, 0, 0, 1, 2, 3]
+        >>>
+    '''
+    llen = len(l)
+    if(llen>=lngth):
+        return(l)
+    else:
+        hl = init(lngth-llen,val)
+        return(hl+l)
+
+
 ###########
 #classify
 
