@@ -11271,6 +11271,14 @@ def find_fst_index_gt_via_reversing(value,arr):
     return(None)
 
 
+def find_fst_index_lt_via_reversing(value,arr):
+    lngth = len(arr)
+    for j in range(lngth-1,-1,-1):
+        if(arr[j]<value):
+            return(j)
+        else:
+            pass
+    return(None)
 
 def swap(i,j,arr):
     tmp = arr[i]
