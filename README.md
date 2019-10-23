@@ -471,7 +471,9 @@ __ListTree lquery APIs:__
 ├──162. [find_fst_valuepair_fstgtsnd_via_reversing](elist/Images/.0.png)  <br>
 ├──162. [padding](elist/Images/.0.png)  <br>
 ├──162. [prepadding](elist/Images/.0.png)  <br>
-
+├──162. [find_fst_index_eq_via_reversing](elist/Images/.0.png)  <br>
+├──162. [find_which_index_eq_via_reversing](elist/Images/.0.png)  <br>
+├──162. [find_lst_index_eq_via_reversing](elist/Images/.0.png)  <br>
 
 
 

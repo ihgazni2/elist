@@ -11320,6 +11320,42 @@ def find_fst_index_gt_via_reversing(value,arr):
     return(None)
 
 
+def find_fst_index_eq_via_reversing(value,arr):
+    lngth = len(arr)
+    for j in range(lngth-1,-1,-1):
+        if(arr[j] == value):
+            return(j)
+        else:
+            pass
+    return(None)
+
+
+def find_which_index_eq_via_reversing(value,which,arr):
+    lngth = len(arr)
+    c = 0
+    for j in range(lngth-1,-1,-1):
+        if(arr[j] == value):
+            if(c == which):
+                return(j)
+            else:
+                pass
+            c = c + 1
+        else:
+            pass
+    return(None)
+
+
+
+def find_lst_index_eq_via_reversing(value,arr):
+    lngth = len(arr)
+    curr = None
+    for j in range(lngth-1,-1,-1):
+        if(arr[j] == value):
+            curr=j
+        else:
+            pass
+    return(curr)
+
 def find_fst_index_lt_via_reversing(value,arr):
     lngth = len(arr)
     for j in range(lngth-1,-1,-1):
