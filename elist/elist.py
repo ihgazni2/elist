@@ -5825,6 +5825,28 @@ def range_decompress(cl):
     return(rslt)
     
 
+def interval_sizes2brks(sizes):
+    '''
+        >>> interval_sizes2brks([1,4,6,4])
+        [1, 5, 11, 15]
+        >>>
+    '''
+    rslt = []
+    acc = 0
+    for i in range(len(sizes)):
+        acc = acc + sizes[i]
+        rslt.append(acc)
+    return(rslt)
+
+
+
+def which_interval(val,intervals):
+    rslt = find_first(intervals,lambda ele:(val>=ele[0])and(val <ele[1]))
+    return(rslt['value'])
+
+def which_interval_index(val,intervals):
+    rslt = find_first(intervals,lambda ele:(val>=ele[0])and(val <ele[1]))
+    return(rslt['index'])
 
 def value_find_range_i(value,break_points,lngth):
     rngs = rangize(break_points,lngth)
@@ -11351,6 +11373,17 @@ def find_fst_index_eq_via_reversing(value,arr):
         else:
             pass
     return(None)
+
+
+def find_fst_index_eq(value,arr):
+    lngth = len(arr)
+    for j in range(0,lngth):
+        if(arr[j] == value):
+            return(j)
+        else:
+            pass
+    return(None)
+
 
 
 def find_which_index_eq_via_reversing(value,which,arr):
