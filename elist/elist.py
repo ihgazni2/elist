@@ -1007,10 +1007,6 @@ def setsome(ol,*args,**kwargs):
 
 
 
-
-
-
-
 # class name initial is  uppercased 
 # vars 可以动态调用函数
 ###############################
@@ -1051,6 +1047,18 @@ def select_seqs_not(ol,seqs):
     nseqs = seqs_not(seqs,len(ol))
     rslt = select_seqs(ol,nseqs) 
     return(rslt)
+
+#choose chs
+def chs(indexes,l):
+    rslt = itemgetter(*indexes)(ol)
+    if(indexes.__len__()==0):
+        rslt = []
+    elif(indexes.__len__()==1):
+        rslt = [rslt]
+    else:
+        rslt = list(rslt)
+    return(rslt)
+
 
 
 def seqs_not(seqs,*args):
@@ -5817,6 +5825,21 @@ def range_decompress(cl):
     return(rslt)
     
 
+
+def value_find_range_i(value,break_points,lngth):
+    rngs = rangize(break_points,lngth)
+    rslt = find_first(rngs,lambda ele:(value>=ele[0])and(value<ele[1]))
+    return(rslt['index'])
+
+def value_find_range_v(value,break_points,lngth):
+    rngs = rangize(break_points,lngth)
+    rslt = find_first(rngs,lambda ele:(value>=ele[0])and(value<ele[1]))
+    return(rslt['value'])
+
+def value_find_range_iv(value,break_points,lngth):
+    rngs = rangize(break_points,lngth)
+    rslt = find_first(rngs,lambda ele:(value>=ele[0])and(value<ele[1]))
+    return(rslt)
 
 
 def is_list(obj):
