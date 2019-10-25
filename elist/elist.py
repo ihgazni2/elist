@@ -936,6 +936,28 @@ def vidict(arr):
         d[arr[i]] = i
     return(d)
 
+def vildict(l):
+    '''
+        >>> l
+        [1, 'a', 'a', 2, 2, 'a', 1, 'a', 'b', 'a', 5, 'b', 'b', 'b']
+        >>> vildict(l)
+        {1: [0, 6], 'a': [1, 2, 5, 7, 9], 2: [3, 4], 'b': [8, 11, 12, 13], 5: [10]}
+        >>>
+    '''
+    st = set({})
+    rslt = {}
+    for i in range(len(l)):
+        v = l[i]
+        if(v in st):
+            rslt[v].append(i)
+        else:
+            st.add(v)
+            rslt[v] = [i]
+    return(rslt)
+
+
+
+
 def ivmd(arr):
     d = {}
     for i in range(arr.__len__()):
@@ -2904,10 +2926,86 @@ def groupby_value_lngth(l,keyname):
             rslt[lngth] = [l[i]]
     return(rslt)
 
+########
+########
+
+def groupv_via_same(l):
+    '''
+        l = [1,"a","a",2,2,"a",1,"a","b","a",5,"b","b","b"]
+        >>> groupv_via_same(l)
+        [[1], ['a', 'a'], [2, 2], ['a'], [1], ['a'], ['b'], ['a'], [5], ['b', 'b', 'b']]
+        >>>
+    '''
+    rslt = []
+    lngth = len(l)
+    if(lngth ==0):
+        return([])
+    else:
+        cursor = 0
+        value = l[0] 
+        cache = []
+        while(cursor < lngth):
+            cond = (l[cursor] == value)
+            if(cond):
+                cache.append(value)
+            else:
+                rslt.append(cache)
+                value = l[cursor]
+                cache = [value]
+            cursor = cursor + 1
+        if(len(cache)>0):
+            rslt.append(cache)
+    return(rslt)
+
+def groupi_via_same(l):
+    '''
+        l = [1,"a","a",2,2,"a",1,"a","b","a",5,"b","b","b"]
+        >>> groupi_via_same(l)
+        [[0], [1, 2], [3, 4], [5], [6], [7], [8], [9], [10], [11, 12, 13]]
+        >>>
+    '''
+    rslt = []
+    lngth = len(l)
+    if(lngth ==0):
+        return([])
+    else:
+        cursor = 0
+        value = l[0] 
+        cache = []
+        while(cursor < lngth):
+            cond = (l[cursor] == value)
+            if(cond):
+                cache.append(cursor)
+            else:
+                rslt.append(cache)
+                value = l[cursor]
+                cache = [cursor]
+            cursor = cursor + 1
+        if(len(cache)>0):
+            rslt.append(cache)
+    return(rslt)
+
+
+def group_range_via_same(l):
+    '''
+        l = [1,"a","a",2,2,"a",1,"a","b","a",5,"b","b","b"]
+        >>> group_range_via_same(l)
+        [[0, 1], [1, 3], [3, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 14]]
+        >>>
+    '''
+    def map_func(ele):
+        if(len(ele)==1):
+            ele = [ele[0],ele[0]+1]
+        else:
+            ele = [ele[0],ele[-1]+1]
+        return(ele)
+    arr = groupi_via_same(l)
+    rngs = elel.mapv(arr,map_func)
+    return(rngs)
 
 
 ########
-
+########
 
 
 
