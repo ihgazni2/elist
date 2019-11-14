@@ -11526,3 +11526,18 @@ def swap(i,j,arr):
     return(arr)
 
 ######
+
+
+
+
+#elelist
+
+
+def el2iteml(el,k):
+    iteml = elel.mapv(el,lambda ele:ele.__getitem__(k))
+    return(iteml)
+
+def el2attrl(el,attr):
+    attrl = elel.mapv(el,lambda ele:ele.__getattribute__(attr))
+    return(attrl)
+
