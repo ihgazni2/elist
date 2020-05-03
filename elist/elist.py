@@ -2926,6 +2926,22 @@ def groupby_value_lngth(l,keyname):
             rslt[lngth] = [l[i]]
     return(rslt)
 
+#######
+
+def groupby_head_str(arr,n):
+    ndict = {}
+    for i in range(len(arr)):
+        s = arr[i]
+        s = s[0:n]
+        cond = (s in ndict)
+        if(cond):
+            ndict[s].append(arr[i])
+        else:
+            ndict[s] = [arr[i]]
+    return(ndict)
+
+
+
 ########
 ########
 
