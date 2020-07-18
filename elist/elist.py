@@ -2079,7 +2079,7 @@ def index_first(ol,value):
         array_index(ol,'a')
         indexOf(ol,'a')
     '''
-    return(ol.index('a'))
+    return(ol.index(value))
 
 array_index = index_first
 indexOf = index_first
